@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Property } from "csstype";
 
 import styled, { css } from "styled-components";
 
@@ -33,6 +34,7 @@ interface TextStyles {
   type?: TypographyTypes;
   color?: Colors;
   margin?: string;
+  textAlign?: Property.TextAlign;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -54,8 +56,9 @@ export const Typography: React.FC<TypographyProps> = ({
 };
 
 const TextStyled = styled.h1<TextStyles>`
-  ${({ color, type, margin }) => css`
+  ${({ color, type, margin, textAlign }) => css`
     margin: ${margin || 0};
+    text-align: ${textAlign || "start"};
     color: ${color ? theme.colors[color] : theme.colors.label};
     font-size: ${type
       ? theme.typography[type].fontSize
