@@ -1,4 +1,4 @@
-export const COLORS = {
+export const colors = {
   black: "#000000",
   gray1: "#484848",
   gray2: "#797979",
@@ -18,6 +18,7 @@ export const COLORS = {
   rating: "#FFAD30",
   warning: "#804E00",
   success: "#31B057",
-  buttonHover: "#08a880",
   label: "#121212",
 };
+
+export type Colors = keyof typeof colors;
