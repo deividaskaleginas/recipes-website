@@ -1,23 +1,22 @@
 import React from "react";
 
-import {
-  createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
-import { RootLayout } from "./layouts/RootLayout";
 import GlobalStyles from "./styles/global";
-
-const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<RootLayout />}></Route>)
-);
+import { NavBar } from "./components/navBar/NavBar";
+import { Notifications, Profile, Saved } from "./pages";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./pages/Home";
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyles />
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      <NavBar />
     </>
   );
 };
