@@ -2,9 +2,9 @@ import React from "react";
 
 import GlobalStyles from "./styles/global";
 import { NavBar } from "./components/navBar/NavBar";
-import { Notifications, Profile, Saved } from "./pages";
+import { GettingStarting, Notifications, Profile, Saved } from "./pages";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/home/Home";
 
 const App: React.FC = () => {
   return (
@@ -15,8 +15,9 @@ const App: React.FC = () => {
         <Route path="/saved" element={<Saved />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/gettingstarting" element={<GettingStarting />} />
       </Routes>
-      <NavBar />
+      {/* <NavBar /> */}
     </>
   );
 };

@@ -16,6 +16,7 @@ export interface DefaultWrapperProps {
   right?: string;
   bottom?: string;
   left?: string;
+  textAlign?: string;
   boxShadow?: string;
   webkitBoxShadow?: string;
   mozBoxShadow?: string;
@@ -33,6 +34,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     right,
     bottom,
     left,
+    textAlign,
     boxShadow,
     webkitBoxShadow,
     mozBoxShadow,
@@ -49,6 +51,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     right: ${right || "auto"};
     bottom: ${bottom || "auto"};
     left: ${left || "auto"};
+    text-align: ${textAlign || "left"};
     box-shadow: ${boxShadow || "none"};
     -webkit-box-shadow: ${webkitBoxShadow || "none"};
     -moz-box-shadow: ${mozBoxShadow || "none"};
