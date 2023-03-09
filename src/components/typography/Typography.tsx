@@ -23,6 +23,7 @@ enum TypographyHtmlTag {
   "normalTextRegular" = "p",
   "smallTextRegular" = "p",
   "smallerTextRegular" = "p",
+  "smallerTextSemiBold" = "p",
 }
 
 //NOTE: extends - TypographyProps pasipildo TextStyles propsais

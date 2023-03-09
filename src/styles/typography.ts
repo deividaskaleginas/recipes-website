@@ -14,6 +14,7 @@ export interface TypographyThemeType {
   normalTextRegular: TextStyleParams;
   smallTextRegular: TextStyleParams;
   smallerTextRegular: TextStyleParams;
+  smallerTextSemiBold: TextStyleParams;
 }
 
 export interface FontFamily {
@@ -99,5 +100,10 @@ export const typography: TypographyThemeType = {
     fontSize: "0.6875rem",
     fontWeight: 400,
     lineHeight: "1.0625rem",
+  },
+  smallerTextSemiBold: {
+    fontSize: "0.6875rem",
+    fontWeight: 500,
+    lineHeight: "1.0313rem",
   },
 };

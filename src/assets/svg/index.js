@@ -8,3 +8,5 @@ export * from "./navBar/homeActive";
 export * from "./navBar/savedActive";
 export * from "./navBar/notificationActive";
 export * from "./navBar/profileActive";
+export * from "./google";
+export * from "./facebook";
