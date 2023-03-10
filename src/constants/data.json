@@ -1,87 +1,13 @@
 {
   "users": [
     {
-      "username": "Testas",
-      "password": "Testas"
-    },
-    {
-      "id": "ldk7lufc",
+      "id": "lf1ymn4f",
       "status": "user",
-      "username": "Testas",
-      "email": "testas@testas.lt",
-      "avatar": "",
-      "password": "Testas1@",
-      "confirmPassword": "Testas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldk8ewkd",
-      "status": "user",
-      "username": "Vartotojas",
-      "email": "vartotojas@vartotojas.lt",
-      "avatar": "",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldk8tv4o",
-      "status": "user",
-      "username": "asdasda",
-      "email": "bla@bla",
-      "avatar": "",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldk8u1jj",
-      "status": "user",
-      "username": "asdasda",
-      "email": "bla@bla",
-      "avatar": "",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldk9c592",
-      "status": "user",
-      "username": "Vartotoja",
-      "email": "vartotojas@vartotojas.lt",
-      "avatar": "",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldk9u59q",
-      "status": "user",
-      "username": "Adminas",
-      "email": "alus@alus.lt",
-      "avatar": "",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldldycb4",
-      "status": "user",
-      "username": "Bandymas",
-      "email": "bandymas@bandymas.lt",
+      "username": "Receptas",
+      "email": "receptas@receptas.lt",
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
-      "password": "Bandymas1@",
-      "confirmPassword": "Bandymas1@",
-      "favorites": []
-    },
-    {
-      "id": "ldq1ajsm",
-      "status": "user",
-      "username": "Alus",
-      "email": "alus@alus.lt",
-      "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
-      "password": "Vartotojas1@",
-      "confirmPassword": "Vartotojas1@",
+      "password": "Receptas1@",
+      "confirmPassword": "Receptas1@",
       "favorites": []
     }
   ],

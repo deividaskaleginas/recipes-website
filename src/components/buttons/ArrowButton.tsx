@@ -38,7 +38,8 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({
 const ArrowButtonStyled = styled.button<ArrowButtonProps>`
   ${({ width, padding }) => css`
     display: inline-flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 15px;
     height: 3.375rem;
     min-width: ${width || "15.1875rem"};
     padding: ${padding || "0.9375rem 3.125rem"};

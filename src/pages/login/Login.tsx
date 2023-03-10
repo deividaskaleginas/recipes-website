@@ -9,7 +9,7 @@ import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import UserContext from "../../contexts/userContext/userContext";
 
 export const Login: React.FC = () => {
-  const { findUser, userFailedLoggedIn } = useContext(UserContext);
+  const { findUser, userLoggedIn } = useContext(UserContext);
 
   const [values, setValues] = useState({
     username: "",
@@ -48,13 +48,14 @@ export const Login: React.FC = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     findUser(values.username, values.password);
+    userLoggedIn && navigate("/");
   };
   return (
     <FlexWrapper
       flexDirection="column"
       justifyContent="space-around"
       height="100vh"
-      padding="100px 30px 100px 40px"
+      padding="6.25rem 1.875rem 6.25rem 2.5rem"
     >
       <FlexWrapper flexDirection="column">
         <Typography type="headerTextBold" color="black">
@@ -74,7 +75,7 @@ export const Login: React.FC = () => {
               onChange={onChange}
             />
           ))}
-          {userFailedLoggedIn && (
+          {!userLoggedIn && (
             <Typography type="smallerTextRegular" color="secondary100">
               Wrong username our password
             </Typography>

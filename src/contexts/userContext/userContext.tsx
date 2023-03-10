@@ -11,7 +11,7 @@ interface ContextProps {
   findUser: (userName: string, userPassword: string) => void;
   loggedUserData: LoggedUserData;
   setLoggedUserData: Dispatch<SetStateAction<LoggedUserData>>;
-  userFailedLoggedIn: boolean;
+  userLoggedIn: boolean;
 }
 
 const defaultState = {
@@ -23,7 +23,7 @@ const defaultState = {
   },
   findUser: (usernaeme: string, userPassword: string) => {},
   setLoggedUserData: (loggedUserData: LoggedUserData) => {},
-  userFailedLoggedIn: false,
+  userLoggedIn: false,
 } as ContextProps;
 
 const UserContext = createContext<ContextProps>(defaultState);
@@ -40,38 +40,31 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
     favorites: [],
   });
 
-  // const [status, setStatus] = useState({
-  //   getUserDataStatus: "",
-  // });
-
-  const [userFailedLoggedIn, setUserFailedLoggedIn] = useState(Boolean);
+  const [userLoggedIn, setUserLoggedIn] = useState(Boolean);
 
   const findUser = (userName: string, userPassword: string) => {
     fetch("http://localhost:3001/users")
       .then((response) => response.json())
       .then((usersList: UserData[]) => {
-        console.log(usersList);
         const loggedInUser = usersList.find(
           (user: UserData) =>
             user.username === userName && user.password === userPassword
         );
+
         if (loggedInUser) {
-          setUserFailedLoggedIn(false);
+          setUserLoggedIn(true);
           setLoggedUserData({
             username: loggedInUser.username,
             avatar: loggedInUser.avatar,
             id: loggedInUser.id,
             favorites: loggedInUser.favorites,
           });
-
-          console.log(loggedInUser);
+          console.log(userLoggedIn);
         } else {
-          setUserFailedLoggedIn(true);
+          setUserLoggedIn(false);
         }
       });
   };
-
-  console.log(userFailedLoggedIn);
 
   return (
     <UserContext.Provider
@@ -79,7 +72,7 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
         loggedUserData,
         setLoggedUserData,
         findUser,
-        userFailedLoggedIn,
+        userLoggedIn,
       }}
     >
       {children}
