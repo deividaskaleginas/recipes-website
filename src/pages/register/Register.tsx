@@ -142,7 +142,9 @@ export const Register: React.FC = () => {
               User with this username already exists
             </Typography>
           )}
-          <ArrowButton width="100%">Sign Up</ArrowButton>
+          <ArrowButton onClick={() => console.log("submit")} width="100%">
+            Sign Up
+          </ArrowButton>
         </form>
       </FlexWrapper>
       <FlexWrapper justifyContent="center">

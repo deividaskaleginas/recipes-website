@@ -1,14 +1,10 @@
 import React from "react";
-
 import styled from "styled-components";
 
 import { theme } from "../../styles/theme";
-
 import { plus } from "../../assets/svg";
 
-export const AddButton: React.FC = () => {
-  return <ButtonStyled>{plus}</ButtonStyled>;
-};
+export const AddButton: React.FC = () => <ButtonStyled>{plus}</ButtonStyled>;
 
 const ButtonStyled = styled.button`
   position: absolute;

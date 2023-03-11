@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
   return (
     <FlexWrapper flexDirection="column">
-      <FlexWrapper justifyContent="space-between">
+      <FlexWrapper justifyContent="space-between" padding="1.875rem">
         <FlexWrapper flexDirection="column">
           <Typography type="largeTextBold" color="black">
             Hello {loggedUserData.username}

@@ -10,8 +10,9 @@ import { Typography } from "../../components/typography/Typography";
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import { GridWrapper } from "../../components/wrappers/GridWrapper";
 import { theme } from "../../styles/theme";
+import { IngredientType, ProcedureType } from "../../types/userDataTypes";
 
-export const AddRecepi: React.FC = () => {
+export const AddRecipe: React.FC = () => {
   const [values, setValues] = useState({
     photo: "",
     title: "",
@@ -39,8 +40,8 @@ export const AddRecepi: React.FC = () => {
       id: 2,
       name: "title",
       type: "text",
-      placeholder: "Recepi title",
-      label: "Recepi title",
+      placeholder: "Recipe title",
+      label: "Recipe title",
       required: true,
     },
 
@@ -73,12 +74,6 @@ export const AddRecepi: React.FC = () => {
 
   const navigate = useNavigate();
 
-  interface IngredientType {
-    ingredient: string;
-    amount: string;
-    measure?: string;
-  }
-
   const [ingredientList, setIngredientList] = useState<IngredientType[]>([
     {
       ingredient: "",
@@ -86,10 +81,6 @@ export const AddRecepi: React.FC = () => {
       measure: "",
     },
   ]);
-
-  interface ProcedureType {
-    step: string;
-  }
 
   const [procedureList, setProcedureList] = useState<ProcedureType[]>([
     {
@@ -155,7 +146,7 @@ export const AddRecepi: React.FC = () => {
     setProcedureList(values);
   };
 
-  const createRecepi = () => {
+  const createRecipe = () => {
     const recepiData = {
       id: uniqid(),
       date: new Date().toISOString(),
@@ -178,7 +169,7 @@ export const AddRecepi: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    createRecepi();
+    createRecipe();
     navigate("/");
   };
 
@@ -189,10 +180,10 @@ export const AddRecepi: React.FC = () => {
     >
       <FlexWrapper flexDirection="column" padding="0 0 1.25rem 0">
         <Typography type="largeTextBold" color="black">
-          Add a recepi
+          Add a recipe
         </Typography>
         <Typography type="smallTextRegular" color="label">
-          Let's add your recepi, <br />
+          Let's add your recipe, <br />
           it won't take long.
         </Typography>
       </FlexWrapper>
@@ -210,7 +201,7 @@ export const AddRecepi: React.FC = () => {
             <FlexWrapper key={index} flexDirection="column">
               <FlexWrapper justifyContent="flex-end">
                 <TextButton onClick={() => handleRemoveIngredientFields(index)}>
-                  Remove ingridient
+                  Remove ingredient
                 </TextButton>
               </FlexWrapper>
               <FormInputs
@@ -285,7 +276,12 @@ export const AddRecepi: React.FC = () => {
               </FlexWrapper>
             );
           })}
-          <ArrowButton width="100%">Add</ArrowButton>
+          <ArrowButton
+            width="100%"
+            onClick={() => console.log("add something")}
+          >
+            Add
+          </ArrowButton>
         </form>
       </FlexWrapper>
     </FlexWrapper>

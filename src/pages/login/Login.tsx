@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useEffect, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
@@ -77,10 +77,12 @@ export const Login: React.FC = () => {
           ))}
           {!userLoggedIn && (
             <Typography type="smallerTextRegular" color="secondary100">
-              Wrong username our password
+              Wrong username or password
             </Typography>
           )}
-          <ArrowButton width="100%">Sign In</ArrowButton>
+          <ArrowButton width="100%" onClick={() => console.log("sign in")}>
+            Sign In
+          </ArrowButton>
         </LoginForm>
         <FlexWrapper justifyContent="center">
           <SignInWith>Or Sign in With</SignInWith>

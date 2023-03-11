@@ -15,7 +15,7 @@ export const GettingStarting: React.FC = () => {
       <FlexWrapper flexDirection="column" alignItems="center" gap="0.875rem">
         <img src={hatIcon} alt="chef's hat" />
         <Typography type="mediumTextBold" color="white">
-          100K+ Premium Recipe
+          100K+ Premium Recipes
         </Typography>
       </FlexWrapper>
       <FlexWrapper flexDirection="column" gap="4rem">

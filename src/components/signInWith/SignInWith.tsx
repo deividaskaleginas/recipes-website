@@ -5,7 +5,6 @@ import { Typography } from "../typography/Typography";
 import { FlexWrapper } from "../wrappers/FlexWrapper";
 
 import { google, facebook } from "../../assets/svg/index";
-import { Link } from "react-router-dom";
 import { SocialMediaIconBlock } from "./socialMediaIconBlock/SocialMediaIconBlock";
 
 interface SignInWithProps {
@@ -24,12 +23,12 @@ export const SignInWith: React.FC<SignInWithProps> = ({ children }) => {
       </FlexWrapper>
       <FlexWrapper gap="25px" justifyContent="center">
         <SocialMediaIconBlock>
-          <a target="_blank" href="https://google.com">
+          <a target="_blank" href="https://google.com" rel="noreferrer">
             {google}
           </a>
         </SocialMediaIconBlock>
         <SocialMediaIconBlock>
-          <a target="_blank" href="https://facebook.com">
+          <a target="_blank" href="https://facebook.com" rel="noreferrer">
             {facebook}
           </a>
         </SocialMediaIconBlock>

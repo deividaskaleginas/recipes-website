@@ -31,14 +31,10 @@ export const NavBar: React.FC = () => {
     >
       <FlexWrapper gap="2.5rem">
         <NavLink to={"/"}>
-          {({ isActive }) => {
-            return isActive ? homeActive : home;
-          }}
+          {({ isActive }) => (isActive ? homeActive : home)}
         </NavLink>
         <NavLink to={"/saved"}>
-          {({ isActive }) => {
-            return isActive ? savedActive : saved;
-          }}
+          {({ isActive }) => (isActive ? savedActive : saved)}
         </NavLink>
       </FlexWrapper>
       <AddButton />

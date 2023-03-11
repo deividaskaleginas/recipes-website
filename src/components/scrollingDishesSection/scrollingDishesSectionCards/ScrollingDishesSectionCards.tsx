@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { star } from "../../../assets/svg";
 import { theme } from "../../../styles/theme";
+import { BookmarkButton } from "../../buttons/BookmarkButton";
 import { Typography } from "../../typography/Typography";
 import { FlexWrapper } from "../../wrappers/FlexWrapper";
+import { useSaveToFavoritesRecipe } from "../../../hooks/useSaveToFavoritesRecipe";
 
 interface SrollingDishesSectionCardsProps {
-  id?: string;
+  id: string;
   image?: string;
   title?: string;
   time?: string;
@@ -15,7 +17,9 @@ interface SrollingDishesSectionCardsProps {
 
 export const SrollingDishesSectionCards: React.FC<
   SrollingDishesSectionCardsProps
-> = ({ title, time, image }) => {
+> = ({ title, time, image, id }) => {
+  const { saveRecipe, isRecipeInFavorites } = useSaveToFavoritesRecipe(id);
+
   return (
     <FlexWrapper
       position="relative"
@@ -60,7 +64,9 @@ export const SrollingDishesSectionCards: React.FC<
             {time}
           </Typography>
         </FlexWrapper>
-        <FlexWrapper>sve</FlexWrapper>
+        <FlexWrapper>
+          <BookmarkButton isActive={isRecipeInFavorites} onClick={saveRecipe} />
+        </FlexWrapper>
       </FlexWrapper>
     </FlexWrapper>
   );

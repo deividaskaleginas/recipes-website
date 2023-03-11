@@ -15,7 +15,7 @@ interface ArrowButtonProps extends ArrowButtonStyles {
 interface ArrowButtonStyles {
   padding?: string;
   width?: string;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 export const ArrowButton: React.FC<ArrowButtonProps> = ({

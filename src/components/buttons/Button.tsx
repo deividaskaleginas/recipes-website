@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactNode } from "react";
 
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { theme } from "../../styles/theme";
 import { Typography } from "../typography/Typography";
@@ -10,15 +10,13 @@ interface ButtonProps {
   children: ReactNode | ReactNode[];
 }
 
-export const Button: React.FC<ButtonProps> = ({ children }) => {
-  return (
-    <ButtonStyled>
-      <Typography type="smallerTextBold" color="white">
-        {children}
-      </Typography>
-    </ButtonStyled>
-  );
-};
+export const Button: React.FC<ButtonProps> = ({ children }) => (
+  <ButtonStyled>
+    <Typography type="smallerTextBold" color="white">
+      {children}
+    </Typography>
+  </ButtonStyled>
+);
 
 const ButtonStyled = styled.button<ButtonProps>`
   display: inline-flex;

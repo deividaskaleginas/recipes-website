@@ -6,8 +6,6 @@ import { SrollingDishesSectionCards } from "./scrollingDishesSectionCards/Scroll
 export const ScrollingDishesSection: React.FC = () => {
   const { dishesData } = useContext(DishesContext);
 
-  console.log(dishesData);
-
   return (
     <FlexWrapper
       alignItems="flex-end"
@@ -16,11 +14,13 @@ export const ScrollingDishesSection: React.FC = () => {
       width="100%"
       height="14.4375rem"
     >
-      {dishesData.map((dish) => (
+      {dishesData.map(({ title, time, photo, id }) => (
         <SrollingDishesSectionCards
-          title={dish.title}
-          time={dish.time}
-          image={dish.photo}
+          key={id}
+          title={title}
+          time={time}
+          image={photo}
+          id={id}
         />
       ))}
     </FlexWrapper>

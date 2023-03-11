@@ -8,7 +8,9 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
-      "favorites": []
+      "favorites": [
+        "ldpzt712"
+      ]
     },
     {
       "id": "lf2h8ftc",
@@ -18,7 +20,16 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Testas1@",
       "confirmPassword": "Testas1@",
-      "favorites": []
+      "favorites": [
+        "lf3w5x4w",
+        "ldrn5wxj",
+        "lf2hao7n",
+        "lf2hbbdy",
+        "lf2hbcfl",
+        "lf2hbcq9",
+        "lf2hdesu",
+        "ldra1ibk"
+      ]
     }
   ],
   "recipes": [

@@ -11,15 +11,13 @@ interface TextButtonProps {
 export const TextButton: React.FC<TextButtonProps> = ({
   children,
   onClick,
-}) => {
-  return (
-    <Button type="button" onClick={onClick}>
-      <Typography type="normalTextBold" color="secondary100">
-        {children}
-      </Typography>
-    </Button>
-  );
-};
+}) => (
+  <Button type="button" onClick={onClick}>
+    <Typography type="normalTextBold" color="secondary100">
+      {children}
+    </Typography>
+  </Button>
+);
 
 const Button = styled.button`
   display: inline-block;

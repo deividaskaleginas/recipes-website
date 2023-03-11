@@ -18,9 +18,19 @@ export type LoggedUserData = {
 export type DishData = {
   id: string;
   comment: string;
-  ingridents: {}[];
+  ingridents: IngredientType[];
   photo: string;
-  procedure: {}[];
+  procedure: ProcedureType[];
   time: string;
   title: string;
 };
+
+export interface IngredientType {
+  ingredient: string;
+  amount: string;
+  measure?: string;
+}
+
+export interface ProcedureType {
+  step: string;
+}
