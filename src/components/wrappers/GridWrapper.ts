@@ -8,6 +8,7 @@ interface GridWrapperProps extends DefaultWrapperProps {
   gap?: string;
   alignContent?: Property.AlignContent;
   justifyContent?: Property.JustifyContent;
+  alignItems?: Property.AlignItems;
 }
 
 export const GridWrapper = styled(Box)<GridWrapperProps>`
@@ -16,4 +17,5 @@ export const GridWrapper = styled(Box)<GridWrapperProps>`
   grid-gap: ${({ gap }) => gap || "1rem"};
   align-content: ${({ alignContent }) => alignContent || "stretch"};
   justify-content: ${({ justifyContent }) => justifyContent || "flex-start"};
+  align-items: ${({ alignItems }) => alignItems || "normal"};
 `;

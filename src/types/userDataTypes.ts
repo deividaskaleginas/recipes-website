@@ -1,5 +1,4 @@
 export type UserData = {
-  // find(arg0: (user: any) => any): unknown;
   id: string;
   username: string;
   email: string;
@@ -14,4 +13,14 @@ export type LoggedUserData = {
   username: string;
   avatar: string;
   favorites: string[];
+};
+
+export type DishData = {
+  id: string;
+  comment: string;
+  ingridents: {}[];
+  photo: string;
+  procedure: {}[];
+  time: string;
+  title: string;
 };

@@ -9,6 +9,16 @@
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
       "favorites": []
+    },
+    {
+      "id": "lf2h8ftc",
+      "status": "user",
+      "username": "Testas",
+      "email": "testas@testas.lt",
+      "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+      "password": "Testas1@",
+      "confirmPassword": "Testas1@",
+      "favorites": []
     }
   ],
   "recipes": [
@@ -128,6 +138,184 @@
       "procedure": [
         {
           "step": "Pripilti vandems asdasdasdaasdadasdasdasdasdasdasdasddasdasdasdasdasdasdasdasdasdasdasdasdsadsadasssssssssdasadaokasjdlajdkajdalksdjalsdjlaskdjalskdjaslkdjalskdjalskdjalsjdlaskdaskdjalsdkjalksdjalsdkjalskdjalskjdalskjdalsjkdlasjdalskjdalskdjalskdjalskdjalskdjalsdjladjlaskjdalskdjalskdjlaskjdlaskjdlaskdjalsjdalskdjaskdjasjkdasjdasdasdasdasdaassdasdasdasdasdasdssssssksadlajdlajdaljdlajdlajsdlasjdlasjdalsjdalksdjlakdjalksdjalksdjalksjdladasdasdasdasdasdasdasdasdasdasdasdadasdasdasdasdasdasdasdasdas"
+        }
+      ]
+    },
+    {
+      "id": "lf2hao7n",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "20 min",
+      "comment": "Reikia gerokai pakepti, kad butu gerrai",
+      "ingridents": [
+        {
+          "ingrident": "Kopustas",
+          "amount": "1",
+          "measure": "kg"
+        },
+        {
+          "ingrident": "Baltijos",
+          "amount": "4"
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Paimti ir gerai pakepti"
+        },
+        {
+          "step": "Isgerti"
+        }
+      ]
+    },
+    {
+      "id": "lf2hbbdy",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "20 min",
+      "comment": "Reikia gerokai pakepti, kad butu gerrai",
+      "ingridents": [
+        {
+          "ingrident": "Kopustas",
+          "amount": "1",
+          "measure": "kg"
+        },
+        {
+          "ingrident": "Baltijos",
+          "amount": "4"
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Paimti ir gerai pakepti"
+        },
+        {
+          "step": "Isgerti"
+        }
+      ]
+    },
+    {
+      "id": "lf2hbcfl",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "20 min",
+      "comment": "Reikia gerokai pakepti, kad butu gerrai",
+      "ingridents": [
+        {
+          "ingrident": "Kopustas",
+          "amount": "1",
+          "measure": "kg"
+        },
+        {
+          "ingrident": "Baltijos",
+          "amount": "4"
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Paimti ir gerai pakepti"
+        },
+        {
+          "step": "Isgerti"
+        }
+      ]
+    },
+    {
+      "id": "lf2hbcq9",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "20 min",
+      "comment": "Reikia gerokai pakepti, kad butu gerrai",
+      "ingridents": [
+        {
+          "ingrident": "Kopustas",
+          "amount": "1",
+          "measure": "kg"
+        },
+        {
+          "ingrident": "Baltijos",
+          "amount": "4"
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Paimti ir gerai pakepti"
+        },
+        {
+          "step": "Isgerti"
+        }
+      ]
+    },
+    {
+      "id": "lf2hdesu",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "20 min",
+      "comment": "Reikia gerokai pakepti, kad butu gerrai",
+      "ingridents": [
+        {
+          "ingrident": "Kopustas",
+          "amount": "1",
+          "measure": "kg"
+        },
+        {
+          "ingrident": "Baltijos",
+          "amount": "4"
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Paimti ir gerai pakepti"
+        },
+        {
+          "step": "Isgerti"
+        }
+      ]
+    },
+    {
+      "id": "lf3w5x4w",
+      "date": "2023-03-11T11:36:43.519Z",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title 13.35",
+      "time": "13.35",
+      "comment": "Komentaras",
+      "ingridents": [
+        {
+          "ingredient": "Alaus",
+          "amount": "4",
+          "measure": ""
+        },
+        {
+          "ingredient": "Destos",
+          "amount": "1",
+          "measure": "kg."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Atsidaryti alaus"
+        },
+        {
+          "step": "Pasipjaustyti desros"
+        }
+      ]
+    },
+    {
+      "id": "lf3y2sho",
+      "date": "2023-03-11T12:30:16.763Z",
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
+      "title": "Title",
+      "time": "14.29",
+      "comment": "Komentaras",
+      "ingridents": [
+        {
+          "ingredient": "Alaus",
+          "amount": "2",
+          "measure": "pc."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Isgerti"
         }
       ]
     }

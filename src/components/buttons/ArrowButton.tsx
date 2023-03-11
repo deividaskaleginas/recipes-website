@@ -7,7 +7,6 @@ import { theme } from "../../styles/theme";
 
 import { arrowRight } from "../../assets/svg/index";
 import { Typography } from "../typography/Typography";
-// import { NormalTextBold } from "../typography/Typography";
 
 interface ArrowButtonProps extends ArrowButtonStyles {
   children: ReactNode | ReactNode[];
