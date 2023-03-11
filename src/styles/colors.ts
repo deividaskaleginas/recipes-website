@@ -4,6 +4,7 @@ export const colors = {
   gray2: "#797979",
   gray3: "#A9A9A9",
   gray4: "#D9D9D9",
+  gray4Opacity: "rgb(217, 217, 217, 0.5)",
   white: "#FFFFFF",
   primary100: "#129575",
   primary80: "#71B1A1",

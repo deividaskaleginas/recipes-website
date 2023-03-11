@@ -12,6 +12,7 @@ export interface DefaultWrapperProps {
   padding?: string;
   height?: string;
   width?: string;
+  minWidth?: string;
   top?: string;
   right?: string;
   bottom?: string;
@@ -19,7 +20,9 @@ export interface DefaultWrapperProps {
   textAlign?: string;
   borderRadius?: string;
   borderTop?: string;
+  opacity?: number;
   boxShadow?: string;
+  overflowX?: string;
   webkitBoxShadow?: string;
   mozBoxShadow?: string;
 }
@@ -32,6 +35,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     padding,
     height,
     width,
+    minWidth,
     top,
     right,
     bottom,
@@ -40,6 +44,8 @@ export const Box = styled.div<DefaultWrapperProps>`
     borderRadius,
     borderTop,
     boxShadow,
+    overflowX,
+    opacity,
     webkitBoxShadow,
     mozBoxShadow,
   }) => css`
@@ -50,6 +56,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     margin: ${margin || 0};
     padding: ${padding || 0};
     height: ${height || "auto"};
+    min-width: ${minWidth || 0};
     width: ${width || "auto"};
     top: ${top || "auto"};
     right: ${right || "auto"};
@@ -58,7 +65,9 @@ export const Box = styled.div<DefaultWrapperProps>`
     text-align: ${textAlign || "left"};
     border-radius: ${borderRadius || 0};
     border-top: ${borderTop || "none"};
+    opacity: ${opacity || 1};
     box-shadow: ${boxShadow || "none"};
+    overflow-x: ${overflowX || "visible"};
     -webkit-box-shadow: ${webkitBoxShadow || "none"};
     -moz-box-shadow: ${mozBoxShadow || "none"};
   `}
