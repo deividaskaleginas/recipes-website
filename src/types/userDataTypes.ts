@@ -17,12 +17,15 @@ export type LoggedUserData = {
 
 export type DishData = {
   id: string;
+  date: string;
+  authorData: AuthorType[];
   comment: string;
   ingridents: IngredientType[];
   photo: string;
   procedure: ProcedureType[];
   time: string;
   title: string;
+  votes: string[];
 };
 
 export interface IngredientType {
@@ -33,4 +36,9 @@ export interface IngredientType {
 
 export interface ProcedureType {
   step: string;
+}
+
+export interface AuthorType {
+  avatar: string;
+  username: string;
 }

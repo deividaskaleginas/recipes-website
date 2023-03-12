@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useState } from "react";
+import React, { FormEvent, useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
@@ -10,7 +10,7 @@ import UserContext from "../../contexts/userContext/userContext";
 
 export const Login: React.FC = () => {
   const { findUser, userLoggedIn } = useContext(UserContext);
-
+  const [failedLogin, setFailedLogin] = useState(false);
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -48,7 +48,8 @@ export const Login: React.FC = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     findUser(values.username, values.password);
-    userLoggedIn && navigate("/");
+    userLoggedIn ? navigate("/") : setFailedLogin(true);
+    console.log(userLoggedIn);
   };
   return (
     <FlexWrapper
@@ -75,7 +76,7 @@ export const Login: React.FC = () => {
               onChange={onChange}
             />
           ))}
-          {!userLoggedIn && (
+          {failedLogin && (
             <Typography type="smallerTextRegular" color="secondary100">
               Wrong username or password
             </Typography>

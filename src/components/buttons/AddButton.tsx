@@ -4,7 +4,13 @@ import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { plus } from "../../assets/svg";
 
-export const AddButton: React.FC = () => <ButtonStyled>{plus}</ButtonStyled>;
+interface TextButtonProps {
+  onClick: () => void;
+}
+
+export const AddButton: React.FC<TextButtonProps> = ({ onClick }) => (
+  <ButtonStyled onClick={onClick}>{plus}</ButtonStyled>
+);
 
 const ButtonStyled = styled.button`
   position: absolute;

@@ -9,9 +9,9 @@ import { useSaveToFavoritesRecipe } from "../../../hooks/useSaveToFavoritesRecip
 
 interface SrollingDishesSectionCardsProps {
   id: string;
-  image?: string;
-  title?: string;
-  time?: string;
+  image: string;
+  title: string;
+  time: string;
   rate?: string;
 }
 
@@ -79,6 +79,7 @@ const ImageBlockStyled = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     height: 6.875rem;
+    width: 6.875rem;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

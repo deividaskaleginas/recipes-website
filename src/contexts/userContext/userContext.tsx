@@ -59,7 +59,6 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
             id: loggedInUser.id,
             favorites: loggedInUser.favorites,
           });
-          console.log(userLoggedIn);
         } else {
           setUserLoggedIn(false);
         }

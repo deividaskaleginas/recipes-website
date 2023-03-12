@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import {
   home,
@@ -16,6 +16,8 @@ import { AddButton } from "../buttons/AddButton";
 import { FlexWrapper } from "../wrappers/FlexWrapper";
 
 export const NavBar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <FlexWrapper
       position="fixed"
@@ -37,7 +39,7 @@ export const NavBar: React.FC = () => {
           {({ isActive }) => (isActive ? savedActive : saved)}
         </NavLink>
       </FlexWrapper>
-      <AddButton />
+      <AddButton onClick={() => navigate("/add")} />
       <FlexWrapper gap="2.5rem">
         <NavLink to={"/notifications"}>
           {({ isActive }) => (isActive ? notificationActive : notification)}

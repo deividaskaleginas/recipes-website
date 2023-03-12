@@ -10,12 +10,15 @@ const defaultState: ContextProps = {
   dishesData: [
     {
       id: "",
+      date: "",
+      authorData: [],
       comment: "",
       ingridents: [],
       photo: "",
       procedure: [],
       time: "",
       title: "",
+      votes: [],
     },
   ],
 };

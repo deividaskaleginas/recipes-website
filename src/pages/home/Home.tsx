@@ -1,3 +1,4 @@
+import { NewRecipesSection } from "components/newRecipesSection/NewRecipesSection";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { ScrollingDishesSection } from "../../components/scrollingDishesSection/ScrollingDishesSection";
@@ -23,6 +24,7 @@ export const Home: React.FC = () => {
         </ImageBlockStyled>
       </FlexWrapper>
       <ScrollingDishesSection />
+      <NewRecipesSection />
     </FlexWrapper>
   );
 };

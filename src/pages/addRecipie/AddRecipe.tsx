@@ -1,4 +1,5 @@
-import React, { FormEvent, useState } from "react";
+import UserContext from "contexts/userContext/userContext";
+import React, { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -13,6 +14,7 @@ import { theme } from "../../styles/theme";
 import { IngredientType, ProcedureType } from "../../types/userDataTypes";
 
 export const AddRecipe: React.FC = () => {
+  const { loggedUserData } = useContext(UserContext);
   const [values, setValues] = useState({
     photo: "",
     title: "",
@@ -109,7 +111,6 @@ export const AddRecipe: React.FC = () => {
       {
         ingredient: "",
         amount: "",
-        // measure: "",
       },
     ]);
   };
@@ -150,12 +151,16 @@ export const AddRecipe: React.FC = () => {
     const recepiData = {
       id: uniqid(),
       date: new Date().toISOString(),
+      authorData: [
+        { avatar: loggedUserData.avatar, username: loggedUserData.username },
+      ],
       photo: values.photo,
       title: values.title,
       time: values.time,
       comment: values.comment,
       ingridents: ingredientList,
       procedure: procedureList,
+      votes: [],
     };
 
     fetch("http://localhost:3001/recipes", {
