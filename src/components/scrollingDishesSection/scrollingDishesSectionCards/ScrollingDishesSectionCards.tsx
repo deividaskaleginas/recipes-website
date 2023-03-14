@@ -61,7 +61,7 @@ export const SrollingDishesSectionCards: React.FC<
             Time
           </Typography>
           <Typography type="smallerTextBold" color="gray1">
-            {time}
+            {time} Mins
           </Typography>
         </FlexWrapper>
         <FlexWrapper>

@@ -25,7 +25,7 @@ export type DishData = {
   procedure: ProcedureType[];
   time: string;
   title: string;
-  votes: string[];
+  votes: number[];
 };
 
 export interface IngredientType {

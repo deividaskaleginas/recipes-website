@@ -11,9 +11,16 @@ export const NewRecipesSection: React.FC = () => {
       <FlexWrapper flexDirection="column">
         <Typography type="normalTextBold">New Recipes</Typography>
       </FlexWrapper>
-      <FlexWrapper>
+      <FlexWrapper
+        alignItems="center"
+        height="10.9375rem"
+        gap="0.9375rem"
+        overflowX="scroll"
+        width="100%"
+      >
         {dishesData.map(({ id, title, photo, time, authorData, votes }) => (
           <NewRecipesSectionCards
+            key={id}
             id={id}
             title={title}
             photo={photo}

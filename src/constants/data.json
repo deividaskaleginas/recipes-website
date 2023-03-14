@@ -8,7 +8,7 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
-      "favorites": []
+      "favorites": ["lf5mxhu5"]
     },
     {
       "id": "lf2h8ftc",
@@ -24,6 +24,60 @@
   "recipes": [
     {
       "id": "lf5mxhu5",
+      "date": "2023-03-12T16:53:46.253Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas"
+        }
+      ],
+      "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
+      "title": "Burgeris",
+      "time": "20",
+      "comment": "Labai skanus",
+      "ingridents": [
+        {
+          "ingredient": "Mesa",
+          "amount": "200",
+          "measure": "g."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Biski pakepti ir suvalgyti"
+        }
+      ],
+      "votes": []
+    },
+    {
+      "id": "lf5mxhu6",
+      "date": "2023-03-12T16:53:46.253Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas"
+        }
+      ],
+      "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
+      "title": "Burgeris",
+      "time": "20",
+      "comment": "Labai skanus",
+      "ingridents": [
+        {
+          "ingredient": "Mesa",
+          "amount": "200",
+          "measure": "g."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Biski pakepti ir suvalgyti"
+        }
+      ],
+      "votes": []
+    },
+    {
+      "id": "lf5mxhu7",
       "date": "2023-03-12T16:53:46.253Z",
       "authorData": [
         {

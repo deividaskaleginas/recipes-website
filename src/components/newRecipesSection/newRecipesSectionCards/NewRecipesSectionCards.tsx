@@ -4,6 +4,7 @@ import React from "react";
 import { AuthorType } from "types/userDataTypes";
 import { timer } from "assets/svg";
 import styled from "styled-components";
+import { CookingTime } from "components/cookingTime/CookingTime";
 
 interface NewRecipesSectionCardsProps {
   id: string;
@@ -11,7 +12,7 @@ interface NewRecipesSectionCardsProps {
   title: string;
   time: string;
   authorData: AuthorType[];
-  votes?: string[];
+  votes?: number[];
 }
 
 export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
@@ -47,12 +48,7 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
             </Typography>
           </UserDataStyledBlock>
         ))}
-        <FlexWrapper alignItems="center" gap="0.3125rem">
-          {timer}{" "}
-          <Typography type="smallerTextRegular" color="gray3">
-            {time} mins
-          </Typography>
-        </FlexWrapper>
+        <CookingTime>{time}</CookingTime>
       </FlexWrapper>
       <RecipePhotoBlock>
         <img src={photo} alt={title} />
