@@ -8,7 +8,14 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
-      "favorites": ["lf5mxhu5"]
+      "favorites": [],
+      "votes": [
+        "lf816knh",
+        "lf5mxhu5",
+        "lf8k3nqo",
+        "lf87s90r",
+        "lf87p2ld"
+      ]
     },
     {
       "id": "lf2h8ftc",
@@ -18,7 +25,8 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Testas1@",
       "confirmPassword": "Testas1@",
-      "favorites": []
+      "favorites": [],
+      "votes": []
     }
   ],
   "recipes": [
@@ -28,7 +36,8 @@
       "authorData": [
         {
           "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
-          "username": "Receptas"
+          "username": "Receptas",
+          "id": "lf1ymn5f"
         }
       ],
       "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
@@ -47,61 +56,133 @@
           "step": "Biski pakepti ir suvalgyti"
         }
       ],
-      "votes": []
+      "votes": [
+        5,
+        5
+      ]
     },
     {
-      "id": "lf5mxhu6",
-      "date": "2023-03-12T16:53:46.253Z",
+      "id": "lf816knh",
+      "date": "2023-03-14T09:08:16.780Z",
       "authorData": [
         {
           "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
-          "username": "Receptas"
+          "username": "Receptas",
+          "id": "lf1ymn4f"
         }
       ],
-      "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
-      "title": "Burgeris",
-      "time": "20",
-      "comment": "Labai skanus",
+      "photo": "data:image/jpeg;base64,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",
+      "title": "Potato pancakes",
+      "time": "30",
+      "comment": "Potato pancakes",
       "ingridents": [
         {
-          "ingredient": "Mesa",
-          "amount": "200",
-          "measure": "g."
+          "ingredient": "Patato",
+          "amount": "1",
+          "measure": "kg."
         }
       ],
       "procedure": [
         {
-          "step": "Biski pakepti ir suvalgyti"
+          "step": "aadsdasfafasfafs"
         }
       ],
-      "votes": []
+      "votes": [
+        5
+      ]
     },
     {
-      "id": "lf5mxhu7",
-      "date": "2023-03-12T16:53:46.253Z",
+      "id": "lf87p2ld",
+      "date": "2023-03-14T12:10:37.536Z",
       "authorData": [
         {
           "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
-          "username": "Receptas"
+          "username": "Receptas",
+          "id": "lf1ymn4f"
         }
       ],
-      "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
-      "title": "Burgeris",
-      "time": "20",
-      "comment": "Labai skanus",
+      "photo": "https://assets.bonappetit.com/photos/62b1f659a38f8b1339b88af8/1:1/w_2240,c_limit/20220615-0622-sandwiches-1746-final%20(1).jpg",
+      "title": "Peach and Prosciutto Sandwich",
+      "time": "50",
+      "comment": "Sun in your hair, sand on your feet, and a big sandwich to complete your summer. Tossing ripe peaches with red wine vinegar and chili crisp draws out their sweet juices to make a spicy, tangy sauce. Crusty bread, like a baguette or ciabatta, is the way to go: Broiler-toast the bread halves before layering with cheddar or brie, the seasoned peach mixture, basil, prosciutto, and more chili crisp, giving you sweet, salty, funky, and spicy all in one bite.",
       "ingridents": [
         {
-          "ingredient": "Mesa",
-          "amount": "200",
-          "measure": "g."
+          "ingredient": "asdasd",
+          "amount": "2",
+          "measure": "kg."
         }
       ],
       "procedure": [
         {
-          "step": "Biski pakepti ir suvalgyti"
+          "step": "Gently toss peaches, vinegar, 1 Tbsp. chili crisp, and a pinch of salt in a small bowl to combine."
         }
       ],
-      "votes": []
+      "votes": [
+        0
+      ]
+    },
+    {
+      "id": "lf87s90r",
+      "date": "2023-03-14T12:13:05.835Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas",
+          "id": "lf1ymn4f"
+        }
+      ],
+      "photo": "https://images.immediate.co.uk/production/volatile/sites/2/2016/08/25097.jpg?quality=90&webp=true&crop=2px,151px,596px,542px&resize=600,545",
+      "title": "Fresh tomato soup",
+      "time": "60",
+      "comment": "This rich and creamy Dutch tomato soup, made with very ripe plum or vine tomatoes, was inspired by the delicious bowl of tomato soup served at Café de Jaren in Amsterdam.",
+      "ingridents": [
+        {
+          "ingredient": "asdasda",
+          "amount": "3",
+          "measure": "kg."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Cook the onion, carrot and celery in the butter for 10-15 minutes until really soft. Add the herbs and cook for a minute then tip in the tomatoes and chicken stock. Simmer for 30 minutes, fish out the herbs, add 4 tbsp of the crème fraîche then use a stick blender or food processor to whizz until completely smooth."
+        },
+        {
+          "step": "Season then ladle into bowls, adding another spoon of crème fraîche and a couple of basil leaves to each."
+        }
+      ],
+      "votes": [
+        5
+      ]
+    },
+    {
+      "id": "lf8k3nqo",
+      "date": "2023-03-14T17:57:53.519Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas",
+          "id": "lf1ymn4f"
+        }
+      ],
+      "photo": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/06/BBQ-Chicken-1-2.jpg",
+      "title": "BBQ CHICKEN",
+      "time": "30",
+      "comment": "Without a doubt, this BBQ chicken is insanely juicy, perfectly charred, and glistening with my secret homemade BBQ sauce. And if you’re new to barbecuing, this foolproof method will have you shining at your next summer cookout.",
+      "ingridents": [
+        {
+          "ingredient": "Chicken thighs",
+          "amount": "1",
+          "measure": "kg."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Place the chicken thighs on a large baking sheet and bring to room temperature. Pat dry with a paper towel."
+        }
+      ],
+      "votes": [
+        2
+      ]
     }
   ]
 }

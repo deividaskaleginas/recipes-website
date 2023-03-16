@@ -10,14 +10,14 @@ import { VotesAmount } from "components/votesAmount/VotesAmount";
 
 interface SavedRecipesCardsProps {
   id: string;
-  title: string;
+  title?: string;
   authorData: AuthorType[];
   time: string;
   votes: number[];
   photo: string;
 }
 
-export const SavedRecipesCards: React.FC<SavedRecipesCardsProps> = ({
+export const SavedAndPostedRecipesCards: React.FC<SavedRecipesCardsProps> = ({
   title,
   time,
   id,

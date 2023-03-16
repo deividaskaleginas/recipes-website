@@ -9,6 +9,7 @@ import { Register } from "./pages/register/Register";
 import { RootLayout } from "./components/layouts/RootLayout";
 import { AddRecipe } from "./pages/addRecipie/AddRecipe";
 import UserContext from "contexts/userContext/userContext";
+import { Recipe } from "pages/recipe/Recipe";
 
 const App: React.FC = () => {
   const { userLoggedIn } = useContext(UserContext);
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add" element={<AddRecipe />} />
+        <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
       {/* <NavBar /> */}
     </>

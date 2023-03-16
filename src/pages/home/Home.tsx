@@ -9,8 +9,8 @@ import UserContext from "../../contexts/userContext/userContext";
 export const Home: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
   return (
-    <FlexWrapper flexDirection="column">
-      <FlexWrapper justifyContent="space-between" padding="1.875rem">
+    <FlexWrapper flexDirection="column" padding="1.875rem 0 0 1.875rem">
+      <FlexWrapper justifyContent="space-between" padding="0 1.875rem 0 0">
         <FlexWrapper flexDirection="column">
           <Typography type="largeTextBold" color="black">
             Hello {loggedUserData.username}

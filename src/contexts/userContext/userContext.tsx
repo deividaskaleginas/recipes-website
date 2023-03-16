@@ -20,6 +20,7 @@ const defaultState = {
     username: "",
     avatar: "",
     favorites: [],
+    votes: [],
   },
   findUser: (usernaeme: string, userPassword: string) => {},
   setLoggedUserData: (loggedUserData: LoggedUserData) => {},
@@ -38,6 +39,7 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
     username: "",
     avatar: "",
     favorites: [],
+    votes: [],
   });
 
   const [userLoggedIn, setUserLoggedIn] = useState(Boolean);
@@ -58,6 +60,7 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
             avatar: loggedInUser.avatar,
             id: loggedInUser.id,
             favorites: loggedInUser.favorites,
+            votes: loggedInUser.votes,
           });
         } else {
           setUserLoggedIn(false);

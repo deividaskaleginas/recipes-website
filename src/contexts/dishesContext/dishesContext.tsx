@@ -1,9 +1,17 @@
-import React, { createContext, ReactNode, useEffect, useState } from "react";
+import React, {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import { DishData } from "../../types/userDataTypes";
 
 interface ContextProps {
   dishesData: DishData[];
+  setDishes: Dispatch<SetStateAction<DishData[]>>;
 }
 
 const defaultState: ContextProps = {
@@ -21,6 +29,10 @@ const defaultState: ContextProps = {
       votes: [],
     },
   ],
+  //Quick fix
+  setDishes: function (value: React.SetStateAction<DishData[]>): void {
+    throw new Error("Function not implemented.");
+  },
 };
 
 const DishesContext = createContext<ContextProps>(defaultState);
@@ -39,7 +51,7 @@ const DishesProvider: React.FC<ProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <DishesContext.Provider value={{ dishesData }}>
+    <DishesContext.Provider value={{ dishesData, setDishes }}>
       {children}
     </DishesContext.Provider>
   );

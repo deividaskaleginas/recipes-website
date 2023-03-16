@@ -6,6 +6,7 @@ export type UserData = {
   password: string;
   confirmPassword: string;
   favorites: string[];
+  votes: string[];
 };
 
 export type LoggedUserData = {
@@ -13,6 +14,7 @@ export type LoggedUserData = {
   username: string;
   avatar: string;
   favorites: string[];
+  votes: string[];
 };
 
 export type DishData = {
@@ -39,6 +41,7 @@ export interface ProcedureType {
 }
 
 export interface AuthorType {
+  id: string;
   avatar: string;
   username: string;
 }

@@ -1,3 +1,4 @@
+import DishesContext from "contexts/dishesContext/dishesContext";
 import UserContext from "contexts/userContext/userContext";
 import React, { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,9 @@ import { theme } from "../../styles/theme";
 import { IngredientType, ProcedureType } from "../../types/userDataTypes";
 
 export const AddRecipe: React.FC = () => {
+  const { dishesData, setDishes } = useContext(DishesContext);
   const { loggedUserData } = useContext(UserContext);
+
   const [values, setValues] = useState({
     photo: "",
     title: "",
@@ -152,7 +155,11 @@ export const AddRecipe: React.FC = () => {
       id: uniqid(),
       date: new Date().toISOString(),
       authorData: [
-        { avatar: loggedUserData.avatar, username: loggedUserData.username },
+        {
+          avatar: loggedUserData.avatar,
+          username: loggedUserData.username,
+          id: loggedUserData.id,
+        },
       ],
       photo: values.photo,
       title: values.title,
@@ -162,6 +169,8 @@ export const AddRecipe: React.FC = () => {
       procedure: procedureList,
       votes: [],
     };
+
+    setDishes([...dishesData, recepiData]);
 
     fetch("http://localhost:3001/recipes", {
       method: "POST",

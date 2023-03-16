@@ -6,6 +6,7 @@ import { BookmarkButton } from "../../buttons/BookmarkButton";
 import { Typography } from "../../typography/Typography";
 import { FlexWrapper } from "../../wrappers/FlexWrapper";
 import { useSaveToFavoritesRecipe } from "../../../hooks/useSaveToFavoritesRecipe";
+import { Link } from "react-router-dom";
 
 interface SrollingDishesSectionCardsProps {
   id: string;
@@ -46,9 +47,11 @@ export const SrollingDishesSectionCards: React.FC<
         width="100%"
         padding="4.125rem 0.625rem 1.1875rem 0.625rem"
       >
-        <Typography type="smallTextBold" color="gray1">
-          {title}
-        </Typography>
+        <Link to={`/recipe/${id}`}>
+          <Typography type="smallTextBold" color="gray1">
+            {title}
+          </Typography>
+        </Link>
       </FlexWrapper>
 
       <FlexWrapper

@@ -27,6 +27,7 @@ export const NavBar: React.FC = () => {
       height="6.625rem"
       width="100%"
       padding="1.5rem 2.5rem 3.625rem 2.5rem"
+      backgroundColor="white"
       boxShadow="box-shadow: -1px -7px 5px 0px rgba(108,108,108,0.21)"
       webkitBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"
       mozBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"

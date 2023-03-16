@@ -1,4 +1,4 @@
-import { SavedRecipesCards } from "components/savedRecipesCards/SavedRecipesCards";
+import { SavedAndPostedRecipesCards } from "components/savedAndPostedRecipesCards/SavedAndPostedRecipesCards";
 import { Typography } from "components/typography/Typography";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";
@@ -30,7 +30,7 @@ export const Saved: React.FC = () => {
       <FlexWrapper flexDirection="column" gap="1.25rem">
         {filteredUserSavedRecipes.map(
           ({ title, time, photo, id, votes, authorData }) => (
-            <SavedRecipesCards
+            <SavedAndPostedRecipesCards
               key={id}
               id={id}
               title={title}
