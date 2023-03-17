@@ -50,6 +50,7 @@ export const useRateRecipe = (id: string, vote: number): UseRateRecipe => {
               id: recipe.id,
               authorData: recipe.authorData,
               comment: recipe.comment,
+              portions: recipe.portions,
               date: recipe.date,
               ingridents: recipe.ingridents,
               photo: recipe.photo,

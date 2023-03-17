@@ -21,6 +21,7 @@ const defaultState: ContextProps = {
       date: "",
       authorData: [],
       comment: "",
+      portions: "",
       ingridents: [],
       photo: "",
       procedure: [],

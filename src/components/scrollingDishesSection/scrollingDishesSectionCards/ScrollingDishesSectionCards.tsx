@@ -43,12 +43,16 @@ export const SrollingDishesSectionCards: React.FC<
       </RateingBlockStyled>
       <FlexWrapper
         justifyContent="center"
-        textAlign="center"
         width="100%"
         padding="4.125rem 0.625rem 1.1875rem 0.625rem"
       >
         <Link to={`/recipe/${id}`}>
-          <Typography type="smallTextBold" color="gray1">
+          <Typography
+            type="smallTextBold"
+            color="gray1"
+            textAlign="center"
+            numberOfLines={2}
+          >
             {title}
           </Typography>
         </Link>

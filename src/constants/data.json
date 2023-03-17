@@ -8,13 +8,15 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
-      "favorites": [],
+      "favorites": ["lf816knh"],
       "votes": [
         "lf816knh",
         "lf5mxhu5",
         "lf8k3nqo",
         "lf87s90r",
-        "lf87p2ld"
+        "lf87p2ld",
+        "lfb07wi8",
+        "lfb5j9hw"
       ]
     },
     {
@@ -41,9 +43,10 @@
         }
       ],
       "photo": "https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg",
-      "title": "Burgeris",
+      "title": "Burgeris su daug teksto testui",
       "time": "20",
       "comment": "Labai skanus",
+      "portions": "1",
       "ingridents": [
         {
           "ingredient": "Mesa",
@@ -56,10 +59,7 @@
           "step": "Biski pakepti ir suvalgyti"
         }
       ],
-      "votes": [
-        5,
-        5
-      ]
+      "votes": [5, 5]
     },
     {
       "id": "lf816knh",
@@ -75,6 +75,7 @@
       "title": "Potato pancakes",
       "time": "30",
       "comment": "Potato pancakes",
+      "portions": "2",
       "ingridents": [
         {
           "ingredient": "Patato",
@@ -87,9 +88,7 @@
           "step": "aadsdasfafasfafs"
         }
       ],
-      "votes": [
-        5
-      ]
+      "votes": [5]
     },
     {
       "id": "lf87p2ld",
@@ -105,6 +104,7 @@
       "title": "Peach and Prosciutto Sandwich",
       "time": "50",
       "comment": "Sun in your hair, sand on your feet, and a big sandwich to complete your summer. Tossing ripe peaches with red wine vinegar and chili crisp draws out their sweet juices to make a spicy, tangy sauce. Crusty bread, like a baguette or ciabatta, is the way to go: Broiler-toast the bread halves before layering with cheddar or brie, the seasoned peach mixture, basil, prosciutto, and more chili crisp, giving you sweet, salty, funky, and spicy all in one bite.",
+      "portions": "10",
       "ingridents": [
         {
           "ingredient": "asdasd",
@@ -117,9 +117,7 @@
           "step": "Gently toss peaches, vinegar, 1 Tbsp. chili crisp, and a pinch of salt in a small bowl to combine."
         }
       ],
-      "votes": [
-        0
-      ]
+      "votes": [0]
     },
     {
       "id": "lf87s90r",
@@ -135,6 +133,7 @@
       "title": "Fresh tomato soup",
       "time": "60",
       "comment": "This rich and creamy Dutch tomato soup, made with very ripe plum or vine tomatoes, was inspired by the delicious bowl of tomato soup served at Café de Jaren in Amsterdam.",
+      "portions": "8",
       "ingridents": [
         {
           "ingredient": "asdasda",
@@ -150,9 +149,7 @@
           "step": "Season then ladle into bowls, adding another spoon of crème fraîche and a couple of basil leaves to each."
         }
       ],
-      "votes": [
-        5
-      ]
+      "votes": [5]
     },
     {
       "id": "lf8k3nqo",
@@ -168,6 +165,7 @@
       "title": "BBQ CHICKEN",
       "time": "30",
       "comment": "Without a doubt, this BBQ chicken is insanely juicy, perfectly charred, and glistening with my secret homemade BBQ sauce. And if you’re new to barbecuing, this foolproof method will have you shining at your next summer cookout.",
+      "portions": "1",
       "ingridents": [
         {
           "ingredient": "Chicken thighs",
@@ -180,9 +178,89 @@
           "step": "Place the chicken thighs on a large baking sheet and bring to room temperature. Pat dry with a paper towel."
         }
       ],
-      "votes": [
-        2
-      ]
+      "votes": [2]
+    },
+    {
+      "id": "lfb07wi8",
+      "date": "2023-03-16T11:04:37.711Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas",
+          "id": "lf1ymn4f"
+        }
+      ],
+      "photo": "https://www.allrecipes.com/thmb/8QzNWDvGhdry6V1jnyJWIhKA_nk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/20144-banana-banana-bread-mfs-57-0bb49d050a6941c4b3715e57b8e6badd.jpg",
+      "title": "Banana Bread",
+      "time": "50",
+      "comment": "This banana bread recipe creates the most delicious, moist loaf with loads of banana flavor. Why compromise the banana flavor? Friends and family love my recipe and say it's by far the best! It tastes wonderful toasted. Enjoy!",
+      "portions": "3",
+      "ingridents": [
+        {
+          "ingredient": "all-purpose flour",
+          "amount": "2",
+          "measure": "pc."
+        },
+        {
+          "ingredient": "teaspoon baking soda",
+          "amount": "1",
+          "measure": "pc."
+        },
+        {
+          "ingredient": "cups mashed overripe bananas",
+          "amount": "2",
+          "measure": "kg."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Preheat the oven to 350 degrees F (175 degrees C). Lightly grease a 9x5-inch loaf pan."
+        },
+        {
+          "step": "Combine flour, baking soda, and salt in a large bowl. Beat brown sugar and butter with an electric mixer in a separate large bowl until smooth. Stir in eggs and mashed bananas until well blended. Stir banana mixture into flour mixture until just combined. Pour batter into the prepared loaf pan."
+        },
+        {
+          "step": "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 60 minutes. Let bread cool in pan for 10 minutes, then turn out onto a wire rack to cool completely."
+        }
+      ],
+      "votes": [2, 3]
+    },
+    {
+      "id": "lfb5j9hw",
+      "date": "2023-03-16T13:33:25.843Z",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas",
+          "id": "lf1ymn4f"
+        }
+      ],
+      "photo": "https://www.simplyrecipes.com/thmb/EwOQEH47cuaAnmof2utmjNK5Gsw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Oyakodon-Serp-Overhead-Horizontal-1d59bcd18f0f4a0e8e9ed646bf8edcc9.jpg",
+      "title": "Microwave Oyakodon",
+      "time": "19",
+      "comment": "Oyakodon is soul-satisfying Japanese comfort food. This version cooks in the microwave in under 10 minutes.",
+      "portions": "4 to 6",
+      "ingridents": [
+        {
+          "ingredient": "boneless skinless chicken thighs, cut into 1-inch pieces",
+          "amount": "2",
+          "measure": "kg."
+        },
+        {
+          "ingredient": "small yellow onion, thinly sliced",
+          "amount": "1",
+          "measure": "pc."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "In an 8x8-inch glass baking dish, add the chicken, onions, garlic, soy sauce, mirin, sugar, 1/4 teaspoon kosher salt, and black pepper. Use a large spoon to stir well and spread the mixture out evenly in the baking dish."
+        },
+        {
+          "step": "Tightly cover the baking dish with plastic wrap. Use the tip of a knife or fork to poke a couple of holes on top. Microwave on high power for 7 minutes. Check a larger piece of chicken towards the center of the dish for doneness. It should not be pink in the middle. If it is, microwave for 2 more minutes."
+        }
+      ],
+      "votes": [3, 2]
     }
   ]
 }

@@ -21,3 +21,4 @@ export * from "./blackStar";
 export * from "./message";
 export * from "./bookmarkBlack";
 export * from "./close";
+export * from "./servings";

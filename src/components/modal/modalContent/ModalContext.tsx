@@ -1,7 +1,5 @@
 import { MoreInfo } from "components/moreInfo/MoreInfo";
 import { StarRaiting } from "components/starRating/StarRating";
-import { Typography } from "components/typography/Typography";
-import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import React, { useState } from "react";
 
 interface ModalContentProps {

@@ -23,6 +23,7 @@ export const AddRecipe: React.FC = () => {
     title: "",
     time: "",
     comment: "",
+    portions: "",
   });
 
   const inputs: {
@@ -64,6 +65,13 @@ export const AddRecipe: React.FC = () => {
       type: "textarea",
       placeholder: "Comment",
       label: "Comment",
+    },
+    {
+      id: 5,
+      name: "portions",
+      type: "string",
+      placeholder: "Servings",
+      label: "Servings",
     },
   ];
 
@@ -165,6 +173,7 @@ export const AddRecipe: React.FC = () => {
       title: values.title,
       time: values.time,
       comment: values.comment,
+      portions: values.portions,
       ingridents: ingredientList,
       procedure: procedureList,
       votes: [],

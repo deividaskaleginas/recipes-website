@@ -36,6 +36,7 @@ interface TextStyles {
   color?: Colors;
   margin?: string;
   textAlign?: Property.TextAlign;
+  numberOfLines?: number;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -57,7 +58,7 @@ export const Typography: React.FC<TypographyProps> = ({
 };
 
 const TextStyled = styled.h1<TextStyles>`
-  ${({ color, type, margin, textAlign }) => css`
+  ${({ color, type, margin, textAlign, numberOfLines }) => css`
     margin: ${margin || 0};
     text-align: ${textAlign || "start"};
     color: ${color ? theme.colors[color] : theme.colors.label};
@@ -70,5 +71,9 @@ const TextStyled = styled.h1<TextStyles>`
     line-height: ${type
       ? theme.typography[type].lineHeight
       : theme.typography.normalTextRegular.lineHeight};
+    -webkit-line-clamp: ${numberOfLines ? numberOfLines : "none"};
+    -webkit-box-orient: ${numberOfLines ? "vertical" : "inline-axis"};
+    display: ${numberOfLines ? "-webkit-box" : "?"};
+    overflow: ${numberOfLines ? "hidden" : "visible"};
   `}
 `;

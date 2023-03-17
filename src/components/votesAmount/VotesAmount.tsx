@@ -17,7 +17,8 @@ export const VotesAmount: React.FC<VotesAmountProps> = ({
   right,
 }) => {
   const sum = votes.reduce((a, b) => a + b, 0);
-  const reiting = Math.round(sum / votes.length) || 0;
+  const reiting = sum / votes.length || 0;
+
   return (
     <RateingBlockStyled top={top} right={right}>
       {star}
@@ -36,7 +37,7 @@ const RateingBlockStyled = styled.div<{
   top: ${({ top }) => top || "auto"};
   right: ${({ right }) => right || "auto"};
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.25rem;

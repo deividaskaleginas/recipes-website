@@ -22,6 +22,7 @@ export type DishData = {
   date: string;
   authorData: AuthorType[];
   comment: string;
+  portions: string;
   ingridents: IngredientType[];
   photo: string;
   procedure: ProcedureType[];

@@ -2,9 +2,9 @@ import { Typography } from "components/typography/Typography";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import React from "react";
 import { AuthorType } from "types/userDataTypes";
-import { timer } from "assets/svg";
 import styled from "styled-components";
 import { CookingTime } from "components/cookingTime/CookingTime";
+import { RatingStar } from "assets/svg";
 
 interface NewRecipesSectionCardsProps {
   id: string;
@@ -12,7 +12,7 @@ interface NewRecipesSectionCardsProps {
   title: string;
   time: string;
   authorData: AuthorType[];
-  votes?: number[];
+  votes: number[];
 }
 
 export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
@@ -20,7 +20,11 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
   authorData,
   time,
   photo,
+  votes,
 }) => {
+  const sum = votes.reduce((a, b) => a + b, 0);
+  const rating = Math.round(sum / votes.length) || 0;
+
   return (
     <FlexWrapper
       position="relative"
@@ -33,12 +37,22 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
       boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
       webkitBoxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
     >
-      <FlexWrapper>
-        <Typography type="smallTextBold" color="gray1">
+      <FlexWrapper width="8.75rem">
+        <Typography type="smallTextBold" color="gray1" numberOfLines={1}>
           {title}
+          {/* {title.length > 17 ? title.substring(0, 17 - 3) + "..." : title} */}
         </Typography>
       </FlexWrapper>
-      <FlexWrapper>Starsai</FlexWrapper>
+      <FlexWrapper>
+        {[...Array(5)].map((star, i) => {
+          const ratingValue = i + 1;
+          return (
+            <FlexWrapper>
+              <RatingStar color={ratingValue <= rating ? "#FFAD30" : "white"} />
+            </FlexWrapper>
+          );
+        })}
+      </FlexWrapper>
       <FlexWrapper justifyContent="space-between">
         {authorData.map(({ avatar, username }) => (
           <UserDataStyledBlock>
