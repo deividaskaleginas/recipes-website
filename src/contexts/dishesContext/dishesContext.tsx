@@ -28,6 +28,7 @@ const defaultState: ContextProps = {
       time: "",
       title: "",
       votes: [],
+      category: [],
     },
   ],
   //Quick fix

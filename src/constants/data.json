@@ -8,7 +8,10 @@
       "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
-      "favorites": ["lf816knh"],
+      "favorites": [
+        "lf5mxhu5",
+        "lf816knh"
+      ],
       "votes": [
         "lf816knh",
         "lf5mxhu5",
@@ -59,7 +62,13 @@
           "step": "Biski pakepti ir suvalgyti"
         }
       ],
-      "votes": [5, 5]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        5,
+        5
+      ]
     },
     {
       "id": "lf816knh",
@@ -88,7 +97,12 @@
           "step": "aadsdasfafasfafs"
         }
       ],
-      "votes": [5]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        5
+      ]
     },
     {
       "id": "lf87p2ld",
@@ -117,7 +131,12 @@
           "step": "Gently toss peaches, vinegar, 1 Tbsp. chili crisp, and a pinch of salt in a small bowl to combine."
         }
       ],
-      "votes": [0]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        0
+      ]
     },
     {
       "id": "lf87s90r",
@@ -149,7 +168,12 @@
           "step": "Season then ladle into bowls, adding another spoon of crème fraîche and a couple of basil leaves to each."
         }
       ],
-      "votes": [5]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        5
+      ]
     },
     {
       "id": "lf8k3nqo",
@@ -178,7 +202,12 @@
           "step": "Place the chicken thighs on a large baking sheet and bring to room temperature. Pat dry with a paper towel."
         }
       ],
-      "votes": [2]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        2
+      ]
     },
     {
       "id": "lfb07wi8",
@@ -223,7 +252,13 @@
           "step": "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 60 minutes. Let bread cool in pan for 10 minutes, then turn out onto a wire rack to cool completely."
         }
       ],
-      "votes": [2, 3]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        2,
+        3
+      ]
     },
     {
       "id": "lfb5j9hw",
@@ -260,7 +295,67 @@
           "step": "Tightly cover the baking dish with plastic wrap. Use the tip of a knife or fork to poke a couple of holes on top. Microwave on high power for 7 minutes. Check a larger piece of chicken towards the center of the dish for doneness. It should not be pink in the middle. If it is, microwave for 2 more minutes."
         }
       ],
-      "votes": [3, 2]
+      "category": [
+        "Dinners"
+      ],
+      "votes": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": "lfcm1wjm",
+      "date": "2023-03-17T14:03:35.553Z",
+      "authorData": [
+        {
+          "avatar": "",
+          "username": "",
+          "id": ""
+        }
+      ],
+      "photo": "https://www.simplyrecipes.com/thmb/N-d72ZMNH2CUJdhgqnQqo0dWlQs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Lasagna-Soup-LEAD-12-f1f82c3766af4777a32147170209b993.jpg",
+      "title": "Lasagna Soup",
+      "time": "45",
+      "comment": "With its tomato broth base, lasagna noodles, Italian sausage, and cheesy topping, lasagna soup tastes just like your favorite hearty lasagna, in soup form.",
+      "portions": "4 to 6",
+      "ingridents": [
+        {
+          "ingredient": "Kosher salt",
+          "amount": "1",
+          "measure": "kg."
+        },
+        {
+          "ingredient": "cloves garlic",
+          "amount": "3",
+          "measure": "pc."
+        },
+        {
+          "ingredient": "6-8 fresh basil leaves, torn",
+          "amount": "5",
+          "measure": "kg."
+        }
+      ],
+      "procedure": [
+        {
+          "step": "Bring a large pot of salted water to a boil. Cook the broken lasagna noodles according to the package directions. Drain, rinse the noodles with cold water (this will stop the cooking process and prevent the pasta from sticking together), then set aside."
+        },
+        {
+          "step": "While the pasta is cooking, heat the olive oil in a large (at least 4 quart) Dutch oven or heavy-bottomed pot over medium-high heat. Add the sausage, breaking it up with a wooden spoon. Cook until the sausage is mostly browned, 5 to 7 minutes."
+        },
+        {
+          "step": "Add the onion and garlic to the sausage. Cook, stirring occasionally, until the aromatics are softened, 5 to 7 minutes. Add the tomato paste, dried basil, dried oregano, and crushed red pepper and cook, stirring, until the tomato paste darkens, about 2 minutes."
+        },
+        {
+          "step": "Add the chicken broth, crushed tomatoes, and 1 cup of water and bring the soup to a boil, uncovered. Skim any film that may rise to the surface from the sausage. Reduce the heat and simmer, uncovered, for 15 minutes."
+        },
+        {
+          "step": "While the soup simmers, combine the ricotta and Parmesan in a medium bowl. Season with 1/8 teaspoon kosher salt and a dash of black pepper."
+        }
+      ],
+      "category": [
+        "Dinners"
+      ],
+      "votes": []
     }
   ]
 }

@@ -5,6 +5,7 @@ import { AuthorType } from "types/userDataTypes";
 import styled from "styled-components";
 import { CookingTime } from "components/cookingTime/CookingTime";
 import { RatingStar } from "assets/svg";
+import { Link } from "react-router-dom";
 
 interface NewRecipesSectionCardsProps {
   id: string;
@@ -16,6 +17,7 @@ interface NewRecipesSectionCardsProps {
 }
 
 export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
+  id,
   title,
   authorData,
   time,
@@ -38,10 +40,12 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
       webkitBoxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
     >
       <FlexWrapper width="8.75rem">
-        <Typography type="smallTextBold" color="gray1" numberOfLines={1}>
-          {title}
-          {/* {title.length > 17 ? title.substring(0, 17 - 3) + "..." : title} */}
-        </Typography>
+        <Link to={`/recipe/${id}`}>
+          <Typography type="smallTextBold" color="gray1" numberOfLines={1}>
+            {title}
+            {/* {title.length > 17 ? title.substring(0, 17 - 3) + "..." : title} */}
+          </Typography>
+        </Link>
       </FlexWrapper>
       <FlexWrapper>
         {[...Array(5)].map((star, i) => {

@@ -13,6 +13,7 @@ import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import { GridWrapper } from "../../components/wrappers/GridWrapper";
 import { theme } from "../../styles/theme";
 import { IngredientType, ProcedureType } from "../../types/userDataTypes";
+import { Categories } from "./categories/Categories";
 
 export const AddRecipe: React.FC = () => {
   const { dishesData, setDishes } = useContext(DishesContext);
@@ -84,6 +85,12 @@ export const AddRecipe: React.FC = () => {
     { measure: "g." },
     { measure: "l." },
   ];
+
+  const categoriesOptions = ["Dinners", "Lunches", "Breakfast", "Desserts"];
+
+  const [categoriesList, setCategoriesList] = useState<string[]>([]);
+
+  console.log(categoriesList);
 
   const navigate = useNavigate();
 
@@ -176,6 +183,7 @@ export const AddRecipe: React.FC = () => {
       portions: values.portions,
       ingridents: ingredientList,
       procedure: procedureList,
+      category: categoriesList,
       votes: [],
     };
 
@@ -220,6 +228,11 @@ export const AddRecipe: React.FC = () => {
               onChange={onChange}
             />
           ))}
+          <Categories
+            categoriesOptions={categoriesOptions}
+            categoriesList={categoriesList}
+            onChange={(selectedCategory) => setCategoriesList(selectedCategory)}
+          />
           {ingredientList.map((ingredient, index) => (
             <FlexWrapper key={index} flexDirection="column">
               <FlexWrapper justifyContent="flex-end">

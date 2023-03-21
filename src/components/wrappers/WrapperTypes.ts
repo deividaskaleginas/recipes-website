@@ -23,6 +23,7 @@ export interface DefaultWrapperProps {
   opacity?: number;
   boxShadow?: string;
   overflowX?: string;
+  overflowStyle?: string;
   webkitBoxShadow?: string;
   mozBoxShadow?: string;
 }
@@ -45,6 +46,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     borderTop,
     boxShadow,
     overflowX,
+    overflowStyle,
     opacity,
     webkitBoxShadow,
     mozBoxShadow,
@@ -68,6 +70,7 @@ export const Box = styled.div<DefaultWrapperProps>`
     opacity: ${opacity || 1};
     box-shadow: ${boxShadow || "none"};
     overflow-x: ${overflowX || "visible"};
+    -ms-overflow-style: ${overflowStyle || "auto"};
     -webkit-box-shadow: ${webkitBoxShadow || "none"};
     -moz-box-shadow: ${mozBoxShadow || "none"};
   `}

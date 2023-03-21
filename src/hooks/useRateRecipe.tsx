@@ -58,6 +58,7 @@ export const useRateRecipe = (id: string, vote: number): UseRateRecipe => {
               time: recipe.time,
               title: recipe.title,
               votes: newRecipeVotesList,
+              category: recipe.category,
             }
           : recipe
       );

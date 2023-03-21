@@ -7,18 +7,19 @@ import { Typography } from "../../typography/Typography";
 import { FlexWrapper } from "../../wrappers/FlexWrapper";
 import { useSaveToFavoritesRecipe } from "../../../hooks/useSaveToFavoritesRecipe";
 import { Link } from "react-router-dom";
+import { VotesAmount } from "components/votesAmount/VotesAmount";
 
 interface SrollingDishesSectionCardsProps {
   id: string;
   image: string;
   title: string;
   time: string;
-  rate?: string;
+  votes: number[];
 }
 
 export const SrollingDishesSectionCards: React.FC<
   SrollingDishesSectionCardsProps
-> = ({ title, time, image, id }) => {
+> = ({ title, time, image, id, votes }) => {
   const { saveRecipe, isRecipeInFavorites } = useSaveToFavoritesRecipe(id);
 
   return (
@@ -35,12 +36,7 @@ export const SrollingDishesSectionCards: React.FC<
       <ImageBlockStyled>
         <img src={image} alt={title} />
       </ImageBlockStyled>
-      <RateingBlockStyled>
-        {star}{" "}
-        <Typography type="smallerTextRegular" color="black">
-          4.5
-        </Typography>
-      </RateingBlockStyled>
+      <VotesAmount votes={votes} top="-7%" right="-14%" />
       <FlexWrapper
         justifyContent="center"
         width="100%"

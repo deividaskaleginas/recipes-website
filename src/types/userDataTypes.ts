@@ -29,6 +29,16 @@ export type DishData = {
   time: string;
   title: string;
   votes: number[];
+  category: string[];
+};
+
+export type CommentData = {
+  dishId: string;
+  commentId: string;
+  date: string;
+  posterUsername: string;
+  posterAvatar: string;
+  comment: string;
 };
 
 export interface IngredientType {
@@ -45,4 +55,8 @@ export interface AuthorType {
   id: string;
   avatar: string;
   username: string;
+}
+
+export interface CategoryOption {
+  value: string;
 }
