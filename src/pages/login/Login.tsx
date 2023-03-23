@@ -10,7 +10,7 @@ import UserContext from "../../contexts/userContext/userContext";
 
 export const Login: React.FC = () => {
   const { findUser, userLoggedIn } = useContext(UserContext);
-  const [failedLogin, setFailedLogin] = useState(false);
+  const [failedLogin, setFailedLogin] = useState(Boolean);
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -44,12 +44,14 @@ export const Login: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+  useEffect(() => {
+    userLoggedIn && navigate("/");
+  }, [userLoggedIn]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     findUser(values.username, values.password);
-    userLoggedIn ? navigate("/") : setFailedLogin(true);
-    console.log(userLoggedIn);
+    !userLoggedIn && setFailedLogin(true);
   };
   return (
     <FlexWrapper

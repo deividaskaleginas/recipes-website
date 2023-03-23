@@ -108,7 +108,6 @@ export const Register: React.FC = () => {
     e.preventDefault();
     findUser(values.username, values.password);
     !userLoggedIn && createUser();
-    console.log(userLoggedIn);
   };
 
   return (
