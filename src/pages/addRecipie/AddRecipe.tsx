@@ -168,7 +168,7 @@ export const AddRecipe: React.FC = () => {
   const createRecipe = () => {
     const recepiData = {
       id: uniqid(),
-      date: new Date().toISOString(),
+      date: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
       authorData: [
         {
           avatar: loggedUserData.avatar,

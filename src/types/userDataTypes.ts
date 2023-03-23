@@ -34,11 +34,16 @@ export type DishData = {
 
 export type CommentData = {
   dishId: string;
-  commentId: string;
+  id: string;
   date: string;
-  posterUsername: string;
-  posterAvatar: string;
+  authorData: AuthorType[];
   comment: string;
+  votes: Votes[];
+};
+
+export type Votes = {
+  likes: string[];
+  dislikes: string[];
 };
 
 export interface IngredientType {

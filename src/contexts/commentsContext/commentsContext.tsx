@@ -10,21 +10,21 @@ import { CommentData } from "types/userDataTypes";
 
 interface ContextProps {
   commentsData: CommentData[];
-  setComments: Dispatch<SetStateAction<CommentData[]>>;
+  setComment: Dispatch<SetStateAction<CommentData[]>>;
 }
 
 const defaultState: ContextProps = {
   commentsData: [
     {
       dishId: "",
-      commentId: "",
+      id: "",
       date: "",
-      posterUsername: "",
-      posterAvatar: "",
+      authorData: [],
       comment: "",
+      votes: [],
     },
   ],
-  setComments: function (value: React.SetStateAction<CommentData[]>): void {
+  setComment: function (value: React.SetStateAction<CommentData[]>): void {
     throw new Error("Function not implemented.");
   },
 };
@@ -36,16 +36,16 @@ interface ProviderProps {
 }
 
 const CommentsProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [commentsData, setComments] = useState<CommentData[]>([]);
+  const [commentsData, setComment] = useState<CommentData[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/comments")
       .then((response) => response.json())
-      .then((commentsData: CommentData[]) => setComments(commentsData));
+      .then((commentsData: CommentData[]) => setComment(commentsData));
   }, []);
 
   return (
-    <CommentsContext.Provider value={{ commentsData, setComments }}>
+    <CommentsContext.Provider value={{ commentsData, setComment }}>
       {children}
     </CommentsContext.Provider>
   );

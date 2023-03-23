@@ -24,7 +24,7 @@ export const MoreInfo: React.FC<MoreInfoProps> = ({
     <MoreInfoStyledBlock>
       <CloseButton onClick={() => setModalOpen(false)} />
       <RateRecipeButton onClick={() => setIsRateing(true)} />
-      <ReviewButton onClick={() => console.log("ReviewButton")} />
+      <ReviewButton onClick={() => setModalOpen(false)} id={id} />
       <SaveUnsaveButton isActive={isRecipeInFavorites} onClick={saveRecipe} />
     </MoreInfoStyledBlock>
   );

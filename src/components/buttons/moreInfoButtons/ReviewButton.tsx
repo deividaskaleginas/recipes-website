@@ -1,19 +1,24 @@
 import { message } from "assets/svg";
 import { Typography } from "components/typography/Typography";
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface ReviewButtonProps {
+  id: string;
   onClick: () => void;
 }
 
-export const ReviewButton: React.FC<ReviewButtonProps> = ({ onClick }) => {
+export const ReviewButton: React.FC<ReviewButtonProps> = ({ onClick, id }) => {
   return (
-    <ReviewStyledButton>
+    <ReviewStyledButton onClick={onClick}>
       {message}
-      <Typography type="smallTextRegular" color="label">
-        Review
-      </Typography>
+      <Link to={`/comments/${id}`}>
+        {" "}
+        <Typography type="smallTextRegular" color="label">
+          Review
+        </Typography>
+      </Link>
     </ReviewStyledButton>
   );
 };

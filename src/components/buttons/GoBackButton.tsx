@@ -3,11 +3,7 @@ import React, { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-interface GoBackButtonProps {
-  onClick: () => void;
-}
-
-export const GoBackButton: React.FC<GoBackButtonProps> = () => {
+export const GoBackButton: React.FC = () => {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);

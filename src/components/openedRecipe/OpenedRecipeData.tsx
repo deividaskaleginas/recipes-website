@@ -3,8 +3,9 @@ import { CookingTime } from "components/cookingTime/CookingTime";
 import { Typography } from "components/typography/Typography";
 import { VotesAmount } from "components/votesAmount/VotesAmount";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
+import CommentsContext from "contexts/commentsContext/commentsContext";
 import { useSaveToFavoritesRecipe } from "hooks/useSaveToFavoritesRecipe";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { AuthorType } from "types/userDataTypes";
 
@@ -26,6 +27,11 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
   photo,
 }) => {
   const { saveRecipe, isRecipeInFavorites } = useSaveToFavoritesRecipe(id);
+  const { commentsData } = useContext(CommentsContext);
+
+  const filteredComments = commentsData.filter(
+    (comment) => comment.dishId === id
+  );
   return (
     <FlexWrapper flexDirection="column">
       <RecipePhotoBlock photo={photo}>
@@ -35,9 +41,12 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
         </FlexWrapper>
         <VotesAmount votes={votes} top="1.25rem" right="-0.625rem" />
       </RecipePhotoBlock>
-      <FlexWrapper width="12.125rem">
+      <FlexWrapper justifyContent="space-between" gap="1.125rem">
         <Typography type="smallTextBold" color="black">
           {title}
+        </Typography>
+        <Typography type="smallTextRegular" color="gray3">
+          ({filteredComments.length} Reviews)
         </Typography>
       </FlexWrapper>
       {authorData?.map(({ avatar, username }) => (

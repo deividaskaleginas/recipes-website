@@ -22,3 +22,5 @@ export * from "./message";
 export * from "./bookmarkBlack";
 export * from "./close";
 export * from "./servings";
+export * from "./thumbUP";
+export * from "./thumbDown";

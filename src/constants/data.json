@@ -9,7 +9,6 @@
       "password": "Receptas1@",
       "confirmPassword": "Receptas1@",
       "favorites": [
-        "lf5mxhu5",
         "lf816knh"
       ],
       "votes": [
@@ -19,7 +18,8 @@
         "lf87s90r",
         "lf87p2ld",
         "lfb07wi8",
-        "lfb5j9hw"
+        "lfb5j9hw",
+        "lfcm1wjm"
       ]
     },
     {
@@ -355,7 +355,31 @@
       "category": [
         "Dinners"
       ],
-      "votes": []
+      "votes": [
+        2
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "dishId": "lf5mxhu5",
+      "commentId": "lfjqgexj",
+      "date": "2023-03-22 13:41:14",
+      "authorData": [
+        {
+          "avatar": "/static/media/userAvatar.91db4b93ec03eec9113d.png",
+          "username": "Receptas",
+          "id": "lf1ymn4f"
+        }
+      ],
+      "comment": "Pirmas",
+      "votes": [
+        {
+          "likes": [],
+          "dislikes": []
+        }
+      ],
+      "id": 1
     }
   ]
 }

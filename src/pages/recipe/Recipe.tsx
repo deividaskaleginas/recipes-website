@@ -27,7 +27,7 @@ export const Recipe: React.FC = () => {
   return (
     <FlexWrapper padding="3.375rem 1.875rem" flexDirection="column">
       <FlexWrapper justifyContent="space-between" width="100%">
-        <GoBackButton onClick={() => console.log("Go Back")} />
+        <GoBackButton />
         <OpenMore onClick={() => setModalOpen(true)} />
       </FlexWrapper>
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
