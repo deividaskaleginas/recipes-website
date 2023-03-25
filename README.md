@@ -22,10 +22,11 @@ For design - used figma template.
 This page was created realying mobile-first approach.
 
 
-### Things in to-do list to update
+### Things in to-do list to update :point_right:
 
-:point_right: create website responsive for Desktop as well.
-:point-right: create decent error messages and error state.
+- create website responsive for Desktop as well.
+- create decent error messages and error state.
+- add Firebase config to env.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
