@@ -2,7 +2,6 @@ import { CloseButton } from "components/buttons/moreInfoButtons/CloseButton";
 import { RateRecipeButton } from "components/buttons/moreInfoButtons/RateRecipeButton";
 import { ReviewButton } from "components/buttons/moreInfoButtons/ReviewButton";
 import { SaveUnsaveButton } from "components/buttons/moreInfoButtons/SaveUnsaveButton";
-import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import { useSaveToFavoritesRecipe } from "hooks/useSaveToFavoritesRecipe";
 import React from "react";
 import styled from "styled-components";

@@ -5,8 +5,8 @@ import React, { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Collections } from "types/collections";
+import { RouteNames } from "types/routes";
 
-import uniqid from "uniqid";
 import { auth, dataBase } from "utils/firebase/firebaseConfig";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
 import { TextButton } from "../../components/buttons/TextButton";
@@ -23,7 +23,7 @@ import {
 import { Categories } from "./categories/Categories";
 
 export const AddRecipe: React.FC = () => {
-  const { dishesData, setDishes } = useContext(DishesContext);
+  const { getRecipesCollection } = useContext(DishesContext);
   const { loggedUserData } = useContext(UserContext);
 
   const [values, setValues] = useState({
@@ -96,8 +96,6 @@ export const AddRecipe: React.FC = () => {
   const categoriesOptions = ["Dinners", "Lunches", "Breakfast", "Desserts"];
 
   const [categoriesList, setCategoriesList] = useState<string[]>([]);
-
-  console.log(categoriesList);
 
   const navigate = useNavigate();
 
@@ -197,17 +195,16 @@ export const AddRecipe: React.FC = () => {
 
     try {
       addDoc(collectionRef, recipeData);
+      getRecipesCollection();
     } catch (error) {
       console.log(error);
     }
-
-    // setDishes([...dishesData, recipeData]);
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     createRecipe();
-    navigate("/");
+    navigate(RouteNames.HOME);
   };
 
   return (

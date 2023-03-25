@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { RouteNames } from "types/routes";
 
 import backgroundImg from "../../assets/images/background.jpg";
 import hatIcon from "../../assets/images/hat.png";
@@ -33,7 +34,7 @@ export const GettingStarting: React.FC = () => {
             Simple way to find Tasty Recipe
           </Typography>
         </FlexWrapper>
-        <ArrowButton onClick={() => navigate("/login")}>
+        <ArrowButton onClick={() => navigate(RouteNames.LOGIN)}>
           Start Cooking
         </ArrowButton>
       </FlexWrapper>

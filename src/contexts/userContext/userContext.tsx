@@ -11,6 +11,7 @@ import { LoggedUserData } from "../../types/userDataTypes";
 import { dataBase } from "utils/firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { Collections } from "types/collections";
+import { RouteNames } from "types/routes";
 
 interface ContextProps {
   findUser: (uid: string) => void;
@@ -70,7 +71,7 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
     if (filteredUser) {
       setLoggedUserData(filteredUser);
       setIsUserLoggedIn(true);
-      navigate("/");
+      navigate(RouteNames.HOME);
     } else {
       setIsUserLoggedIn(false);
     }

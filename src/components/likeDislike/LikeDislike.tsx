@@ -2,7 +2,7 @@ import { LikeDislikeButton } from "components/buttons/LikeDislikeButton";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import CommentsContext from "contexts/commentsContext/commentsContext";
 import UserContext from "contexts/userContext/userContext";
-import { collection, doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import React, { useContext } from "react";
 import { Collections } from "types/collections";
 import { Votes } from "types/userDataTypes";
@@ -26,8 +26,6 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
 
   const isLiked = likes.includes(loggedUserData.uid);
   const isDisLiked = dislikes.includes(loggedUserData.uid);
-
-  console.log(id);
 
   const collectionRef = doc(dataBase, Collections.COMMENTS, id);
 

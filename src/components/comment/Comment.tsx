@@ -19,35 +19,32 @@ export const Comment: React.FC<CommentProps> = ({
   authorData,
   date,
   votes,
-}) => {
-  console.log(votes);
-  return (
-    <CommentBlockStyled>
-      <FlexWrapper gap="0.5625rem">
-        <FlexWrapper>
-          <img src={authorData.avatar} alt="" />
-        </FlexWrapper>
-        <FlexWrapper flexDirection="column">
-          <Typography type="smallerTextBold" color="label">
-            {authorData.username}
-          </Typography>
-          <Typography type="smallerTextRegular" color="gray3">
-            {date}
-          </Typography>
-        </FlexWrapper>
-      </FlexWrapper>
-
+}) => (
+  <CommentBlockStyled>
+    <FlexWrapper gap="0.5625rem">
       <FlexWrapper>
-        <Typography type="smallerTextRegular" color="gray1">
-          {comment}
+        <img src={authorData.avatar} alt="" />
+      </FlexWrapper>
+      <FlexWrapper flexDirection="column">
+        <Typography type="smallerTextBold" color="label">
+          {authorData.username}
+        </Typography>
+        <Typography type="smallerTextRegular" color="gray3">
+          {date}
         </Typography>
       </FlexWrapper>
-      {votes.map(({ likes, dislikes }, index) => (
-        <LikeDislike key={index} likes={likes} dislikes={dislikes} id={id} />
-      ))}
-    </CommentBlockStyled>
-  );
-};
+    </FlexWrapper>
+
+    <FlexWrapper>
+      <Typography type="smallerTextRegular" color="gray1">
+        {comment}
+      </Typography>
+    </FlexWrapper>
+    {votes.map(({ likes, dislikes }, index) => (
+      <LikeDislike key={index} likes={likes} dislikes={dislikes} id={id} />
+    ))}
+  </CommentBlockStyled>
+);
 
 const CommentBlockStyled = styled.div`
   display: flex;

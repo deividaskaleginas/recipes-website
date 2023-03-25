@@ -1,7 +1,6 @@
+import React from "react";
 import { star } from "assets/svg";
 import { Typography } from "components/typography/Typography";
-import { FlexWrapper } from "components/wrappers/FlexWrapper";
-import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { theme } from "styles/theme";
 

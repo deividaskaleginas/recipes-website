@@ -6,7 +6,6 @@ import { Ingredients } from "components/ingredients/Ingredients";
 import { Modal } from "components/modal/Modal";
 import { ModalContent } from "components/modal/modalContent/ModalContext";
 import { OpenedRecipeData } from "components/openedRecipe/OpenedRecipeData";
-import { SavedAndPostedRecipesCards } from "components/savedAndPostedRecipesCards/SavedAndPostedRecipesCards";
 import { Steps } from "components/steps/Steps";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";

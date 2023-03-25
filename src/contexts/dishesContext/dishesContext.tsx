@@ -15,6 +15,7 @@ import { DishData } from "../../types/userDataTypes";
 interface ContextProps {
   dishesData: DishData[];
   setDishes: Dispatch<SetStateAction<DishData[]>>;
+  getRecipesCollection: () => Promise<void>;
 }
 
 const defaultState: ContextProps = {
@@ -42,6 +43,7 @@ const defaultState: ContextProps = {
   setDishes: function (value: React.SetStateAction<DishData[]>): void {
     throw new Error("Function not implemented.");
   },
+  getRecipesCollection: async () => {},
 };
 
 const DishesContext = createContext<ContextProps>(defaultState);
@@ -53,11 +55,9 @@ interface ProviderProps {
 const DishesProvider: React.FC<ProviderProps> = ({ children }) => {
   const [dishesData, setDishes] = useState<DishData[]>([]);
 
-  console.log(dishesData);
-
   const collectionRef = collection(dataBase, Collections.RECIPES);
 
-  const getRecipesCollection = async () => {
+  const getRecipesCollection = async (): Promise<void> => {
     const recipesList = (await (
       await getDocs(collectionRef)
     ).docs.map((doc) => ({
@@ -74,10 +74,13 @@ const DishesProvider: React.FC<ProviderProps> = ({ children }) => {
 
   useEffect(() => {
     getRecipesCollection();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <DishesContext.Provider value={{ dishesData, setDishes }}>
+    <DishesContext.Provider
+      value={{ dishesData, setDishes, getRecipesCollection }}
+    >
       {children}
     </DishesContext.Provider>
   );

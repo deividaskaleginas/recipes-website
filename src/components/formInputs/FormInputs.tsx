@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { Typography } from "../typography/Typography";
-import { FlexWrapper } from "../wrappers/FlexWrapper";
 
 interface FormInputsProps {
   name?: string;

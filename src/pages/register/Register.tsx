@@ -12,6 +12,7 @@ import { firebaseApp } from "utils/firebase/firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { dataBase } from "utils/firebase/firebaseConfig";
 import { Collections } from "types/collections";
+import { RouteNames } from "types/routes";
 
 export const Register: React.FC = () => {
   const [values, setValues] = useState({
@@ -99,7 +100,7 @@ export const Register: React.FC = () => {
           };
           addDoc(collectionRef, userDetails);
 
-          navigate("/");
+          navigate(RouteNames.HOME);
         }
       );
     } catch (error) {

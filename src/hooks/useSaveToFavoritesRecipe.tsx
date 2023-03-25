@@ -1,4 +1,7 @@
+import { doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
+import { Collections } from "types/collections";
+import { dataBase } from "utils/firebase/firebaseConfig";
 import UserContext from "../contexts/userContext/userContext";
 
 interface UseSaveToFavoritesRecipe {
@@ -13,16 +16,16 @@ export const useSaveToFavoritesRecipe = (
   const favoriteRecipesIdsList: string[] = loggedUserData.favorites;
   const isRecipeInFavorites: boolean = favoriteRecipesIdsList.includes(id);
 
-  const patchFavoritesRecipes = (favoritesIdsList: string[]): void => {
-    fetch(`http://localhost:3001/users/${loggedUserData.uid}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        favorites: favoritesIdsList,
-      }),
-    });
+  const updateUserCollectionFavoritesList = async (
+    favoritesIdsList: string[]
+  ): Promise<void> => {
+    const collectionRef = doc(dataBase, Collections.USERS, loggedUserData.id);
+
+    try {
+      await updateDoc(collectionRef, { favorites: favoritesIdsList });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const saveRecipe = (): void => {
@@ -34,7 +37,7 @@ export const useSaveToFavoritesRecipe = (
         favorites: newFavoritesIdsList,
       });
 
-      patchFavoritesRecipes(newFavoritesIdsList);
+      updateUserCollectionFavoritesList(newFavoritesIdsList);
     } else {
       const filteredOutRecipe = favoriteRecipesIdsList.filter(
         (recipeId) => recipeId !== id
@@ -45,7 +48,7 @@ export const useSaveToFavoritesRecipe = (
         favorites: filteredOutRecipe,
       });
 
-      patchFavoritesRecipes(filteredOutRecipe);
+      updateUserCollectionFavoritesList(filteredOutRecipe);
     }
   };
 

@@ -18,6 +18,7 @@ export const Filters: React.FC<FiltersProps> = ({ setFilteredList }) => {
 
   useEffect(() => {
     setFilteredList(getDishesData());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const buttons: FilteringButton[] = [
@@ -41,7 +42,6 @@ export const Filters: React.FC<FiltersProps> = ({ setFilteredList }) => {
   };
 
   const [active, setActive] = useState<FilteringButton>(buttons[0]);
-  console.log(active);
 
   const handleCategory = (buttonData: FilteringButton) => {
     setActive(buttonData);

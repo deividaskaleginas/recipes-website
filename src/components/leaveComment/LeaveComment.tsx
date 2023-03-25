@@ -9,7 +9,6 @@ import styled from "styled-components";
 import { theme } from "styles/theme";
 import { Collections } from "types/collections";
 import { CommentData } from "types/userDataTypes";
-import uniqid from "uniqid";
 import { dataBase } from "utils/firebase/firebaseConfig";
 
 interface LeaveCommentProps {
@@ -17,7 +16,7 @@ interface LeaveCommentProps {
 }
 
 export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
-  const { commentsData, setComments } = useContext(CommentsContext);
+  const { getComments } = useContext(CommentsContext);
   const { loggedUserData } = useContext(UserContext);
 
   const [values, setValues] = useState({
@@ -31,9 +30,8 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
   const createComment = async () => {
     const collectionRef = collection(dataBase, Collections.COMMENTS);
 
-    const commentData: CommentData = {
+    const commentData: Omit<CommentData, "id"> = {
       dishId: id,
-      id: uniqid(),
       date: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
       authorData: {
         avatar: loggedUserData.avatar,
@@ -48,10 +46,10 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
         },
       ],
     };
-    setComments([...commentsData, commentData]);
 
     try {
       addDoc(collectionRef, commentData);
+      getComments();
     } catch (err) {
       console.log(err);
     }

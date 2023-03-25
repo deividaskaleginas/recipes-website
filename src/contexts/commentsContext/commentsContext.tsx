@@ -14,6 +14,7 @@ import { dataBase } from "utils/firebase/firebaseConfig";
 interface ContextProps {
   commentsData: CommentData[];
   setComments: Dispatch<SetStateAction<CommentData[]>>;
+  getComments: () => Promise<void>;
 }
 
 const defaultState: ContextProps = {
@@ -34,6 +35,7 @@ const defaultState: ContextProps = {
   setComments: function (value: React.SetStateAction<CommentData[]>): void {
     throw new Error("Function not implemented.");
   },
+  getComments: async () => {},
 };
 
 const CommentsContext = createContext<ContextProps>(defaultState);
@@ -48,7 +50,7 @@ const CommentsProvider: React.FC<ProviderProps> = ({ children }) => {
 
   console.log(commentsData);
 
-  const getComments = async () => {
+  const getComments = async (): Promise<void> => {
     const commentsList = (await getDocs(collectionRef)).docs.map((doc) => ({
       ...doc.data(),
       id: doc.id,
@@ -63,10 +65,13 @@ const CommentsProvider: React.FC<ProviderProps> = ({ children }) => {
 
   useEffect(() => {
     getComments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <CommentsContext.Provider value={{ commentsData, setComments }}>
+    <CommentsContext.Provider
+      value={{ commentsData, setComments, getComments }}
+    >
       {children}
     </CommentsContext.Provider>
   );

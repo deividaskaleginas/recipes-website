@@ -1,7 +1,8 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { FormEvent, useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { RouteNames } from "types/routes";
 import { firebaseApp } from "utils/firebase/firebaseConfig";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
 import { FormInputs } from "../../components/formInputs/FormInputs";
@@ -41,7 +42,6 @@ export const Login: React.FC = () => {
     },
   ];
 
-  const navigate = useNavigate();
   const auth = getAuth(firebaseApp);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -85,9 +85,7 @@ export const Login: React.FC = () => {
               Wrong username or password
             </Typography>
           )}
-          <ArrowButton width="100%" onClick={() => console.log("sign in")}>
-            Sign In
-          </ArrowButton>
+          <ArrowButton width="100%">Sign In</ArrowButton>
         </LoginForm>
         <FlexWrapper justifyContent="center">
           <SignInWith>Or Sign in With</SignInWith>
@@ -97,7 +95,7 @@ export const Login: React.FC = () => {
         <Typography type="smallerTextSemiBold" color="black">
           Don't have an account?
         </Typography>
-        <NavLink to="/register">
+        <NavLink to={RouteNames.REGISTER}>
           <Typography type="smallerTextSemiBold" color="secondary100">
             Sign up
           </Typography>

@@ -1,12 +1,10 @@
 import { SavedAndPostedRecipesCards } from "components/savedAndPostedRecipesCards/SavedAndPostedRecipesCards";
-import { StarRaiting } from "components/starRating/StarRating";
 import { Typography } from "components/typography/Typography";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";
 import UserContext from "contexts/userContext/userContext";
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { log } from "util";
 
 export const Profile: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
