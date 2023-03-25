@@ -105,4 +105,7 @@ export const Login: React.FC = () => {
   );
 };
 
-const LoginForm = styled.form``;
+const LoginForm = styled.form`
+  display: grid;
+  grid-gap: 1rem;
+`;
