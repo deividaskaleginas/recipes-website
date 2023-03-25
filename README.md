@@ -24,8 +24,9 @@ This page was created realying mobile-first approach.
 
 ### Things in to-do list to update
 
-:point_right: create website responsive for Desktop as well.
-:point-right: create decent error messages and error state.
+- :point_right: create website responsive for Desktop as well.
+- :point-right: create decent error messages and error state.
+- :point-right: add Firebase config to env.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
