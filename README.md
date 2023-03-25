@@ -22,7 +22,7 @@ https://deividaskaleginas.github.io/recipes-website
 
 For design - used figma template.
 
-This page was created realying mobile-first approach.
+#### This page was created realying mobile-first approach.
 
 
 ### Things in to-do list to update :point_right:
