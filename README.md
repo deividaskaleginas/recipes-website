@@ -1,21 +1,21 @@
 # Recipes website :plate_with_cutlery:
 
-### Features:
+### Features :cook::
 
-- :cook: Login/Register with email and password.
-- :cook: Get the list of recipes from Firebase data base.
-- :cook: Add your recipe.
-- :cook: Filter recipes by category (Lunch, Breakfast etc.).
-- :cook: Create your favorites recipes list.
-- :cook: Rate recipe.
-- :cook: Leave comment and add a like or dislike on comments.
+- Login/Register with email and password.
+- Get the list of recipes from Firebase data base.
+- Add your recipe.
+- Filter recipes by category (Lunch, Breakfast etc.).
+- Create your favorites recipes list.
+- Rate recipe.
+- Leave comment and add a like or dislike on comments.
 
 
-### TOOLS 
-:hammer: React framework.
-:hammer: TypeScript.
-:hammer: Firebase for authentification and database.
-:hammer: Styled-components for styling.
+### TOOLS :hammer: 
+- React framework.
+- TypeScript.
+- Firebase for authentification and database.
+- Styled-components for styling.
 
 For design - used figma template.
 
@@ -29,7 +29,7 @@ This page was created realying mobile-first approach.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## TO RUN PROJECT
 
 In the project directory, you can run:
 
