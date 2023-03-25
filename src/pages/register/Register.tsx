@@ -13,6 +13,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { dataBase } from "utils/firebase/firebaseConfig";
 import { Collections } from "types/collections";
 import { RouteNames } from "types/routes";
+import styled from "styled-components";
 
 export const Register: React.FC = () => {
   const [values, setValues] = useState({
@@ -130,7 +131,7 @@ export const Register: React.FC = () => {
         </Typography>
       </FlexWrapper>
       <FlexWrapper>
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           {inputs.map((input) => (
             <FormInputs
               key={input.id}
@@ -147,9 +148,9 @@ export const Register: React.FC = () => {
           <ArrowButton onClick={() => console.log("submit")} width="100%">
             Sign Up
           </ArrowButton>
-        </form>
+        </Form>
       </FlexWrapper>
-      <FlexWrapper justifyContent="center">
+      <FlexWrapper margin="0.5rem 0" justifyContent="center">
         <SignInWith>Or Sign up With</SignInWith>
       </FlexWrapper>
       <FlexWrapper justifyContent="center" gap="0.3125rem">
@@ -165,3 +166,9 @@ export const Register: React.FC = () => {
     </FlexWrapper>
   );
 };
+
+const Form = styled.form`
+  display: grid;
+  grid-gap: 1rem;
+  width: 100%;
+`;

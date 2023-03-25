@@ -21,7 +21,7 @@ export const SignInWith: React.FC<SignInWithProps> = ({ children }) => {
         </Typography>
         <StyledLine></StyledLine>
       </FlexWrapper>
-      <FlexWrapper gap="25px" justifyContent="center">
+      {/* <FlexWrapper gap="25px" justifyContent="center">
         <SocialMediaIconBlock>
           <a target="_blank" href="https://google.com" rel="noreferrer">
             {google}
@@ -32,7 +32,7 @@ export const SignInWith: React.FC<SignInWithProps> = ({ children }) => {
             {facebook}
           </a>
         </SocialMediaIconBlock>
-      </FlexWrapper>
+      </FlexWrapper> */}
     </FlexWrapper>
   );
 };

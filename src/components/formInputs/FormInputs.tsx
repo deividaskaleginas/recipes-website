@@ -39,13 +39,16 @@ export const FormInputs: React.FC<FormInputsProps> = ({
         onFocus={() =>
           inputProps.name === "confirmPassword" && setFocused(true)
         }
-        // focused={focused.toString()}
+        // @ts-ignore
+        focused={focused.toString()}
       />
-      <span>
-        <Typography type="smallerTextRegular" color="secondary100">
-          {errorMessage}
-        </Typography>
-      </span>
+      {errorMessage && (
+        <span>
+          <Typography type="smallerTextRegular" color="secondary100">
+            {errorMessage}
+          </Typography>
+        </span>
+      )}
     </InputContainerStyled>
   );
 };
@@ -54,54 +57,29 @@ const InputContainerStyled = styled.div<{ focused: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 0.3125rem;
+  width: 100%;
 
   input {
     width: 100%;
-    border: 0.0938rem solid ${() => theme.colors.gray4};
+    border: 0.0938rem solid ${theme.colors.gray4};
     border-radius: 0.625rem;
-    color: ${() => theme.colors.label};
+    color: ${theme.colors.label};
     font-size: 0.6875rem;
     padding: 1.1875rem 0 1.1875rem 1.25rem;
     line-height: 1.0313rem;
-    margin-bottom: 1.875rem;
   }
 
   span {
     display: none;
+    font-size: 12px;
+    padding-bottom: 1rem;
+    color: ${theme.colors.secondary100};
   }
 
-  ${(focused) =>
-    focused &&
-    `input:invalid {
-    border: 1px solid red;
-  }`}
-
-  ${(focused) =>
-    focused &&
-    `input:invalid ~ span {
-    display: block;
-  }`}
-
+  input:invalid[focused="true"] {
+    border: 1px solid ${theme.colors.secondary100};
+  }
   input:invalid[focused="true"] ~ span {
     display: block;
   }
 `;
-
-// const InputStyled = styled.input<{ focused: string }>`
-//   width: 100%;
-//   border: 0.0938rem solid ${() => theme.colors.gray4};
-//   border-radius: 0.625rem;
-//   color: ${() => theme.colors.label};
-//   font-size: 0.6875rem;
-//   padding: 1.1875rem 0 1.1875rem 1.25rem;
-//   line-height: 1.0313rem;
-//   margin-bottom: 1.875rem;
-
-//   /* input:invalid[focused="true"] {
-//     border: 1px solid red;
-//   }
-
-//   input:invalid[focused="true"] ~ span {
-//     display: block;
-//   } */
-// `;
