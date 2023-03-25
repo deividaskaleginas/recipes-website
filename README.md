@@ -28,6 +28,9 @@ This page was created realying mobile-first approach.
 - create decent error messages and error state.
 - add Firebase config to env.
 
+
+This project was made on learning purpose.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## TO RUN PROJECT
