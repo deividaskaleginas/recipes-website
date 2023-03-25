@@ -10,7 +10,7 @@ export type UserData = {
 };
 
 export type LoggedUserData = {
-  id: string;
+  uid: string;
   username: string;
   avatar: string;
   favorites: string[];

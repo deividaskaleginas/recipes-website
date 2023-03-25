@@ -20,14 +20,14 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
 
   const filteredComment = commentsData.find((comment) => comment.id === id);
 
-  const isLiked = likes.includes(loggedUserData.id);
-  const isDisLiked = dislikes.includes(loggedUserData.id);
+  const isLiked = likes.includes(loggedUserData.uid);
+  const isDisLiked = dislikes.includes(loggedUserData.uid);
 
   console.log(filteredComment);
 
   const handleLike = () => {
     if (isLiked) {
-      let indexOf = likes.indexOf(loggedUserData.id);
+      let indexOf = likes.indexOf(loggedUserData.uid);
       likes.splice(indexOf, 1);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
@@ -53,9 +53,9 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
       );
       setComment([...newData]);
     } else if (isDisLiked) {
-      let indexOf = dislikes.indexOf(loggedUserData.id);
+      let indexOf = dislikes.indexOf(loggedUserData.uid);
       dislikes.splice(indexOf, 1);
-      likes.push(loggedUserData.id);
+      likes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
         method: "PATCH",
@@ -80,7 +80,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
       );
       setComment([...newData]);
     } else {
-      likes.push(loggedUserData.id);
+      likes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
         method: "PATCH",
@@ -109,7 +109,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
 
   const handleDisLike = () => {
     if (isDisLiked) {
-      let indexOf = dislikes.indexOf(loggedUserData.id);
+      let indexOf = dislikes.indexOf(loggedUserData.uid);
       dislikes.splice(indexOf, 1);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
@@ -135,9 +135,9 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
       );
       setComment([...newData]);
     } else if (isLiked) {
-      let indexOf = likes.indexOf(loggedUserData.id);
+      let indexOf = likes.indexOf(loggedUserData.uid);
       likes.splice(indexOf, 1);
-      dislikes.push(loggedUserData.id);
+      dislikes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
         method: "PATCH",
@@ -162,7 +162,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
       );
       setComment([...newData]);
     } else {
-      dislikes.push(loggedUserData.id);
+      dislikes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
       fetch(`http://localhost:3001/comments/${id}`, {
         method: "PATCH",

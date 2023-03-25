@@ -13,14 +13,17 @@ import { Recipe } from "pages/recipe/Recipe";
 import { Comments } from "pages/comments/Comments";
 
 const App: React.FC = () => {
-  const { userLoggedIn } = useContext(UserContext);
+  const { isUserLoggedIn } = useContext(UserContext);
+
+  console.log(isUserLoggedIn);
+
   return (
     <>
       <GlobalStyles />
       <Routes>
         <Route
           path="/"
-          element={!userLoggedIn ? <Navigate to="/login" /> : <RootLayout />}
+          element={!isUserLoggedIn ? <Navigate to="/login" /> : <RootLayout />}
         >
           <Route index element={<Home />} />
           <Route path="/saved" element={<Saved />} />

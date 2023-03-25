@@ -1,6 +1,8 @@
-import React, { FormEvent, useContext, useEffect, useState } from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import React, { FormEvent, useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { firebaseApp } from "utils/firebase/firebaseConfig";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
 import { FormInputs } from "../../components/formInputs/FormInputs";
 import { SignInWith } from "../../components/signInWith/SignInWith";
@@ -9,7 +11,7 @@ import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import UserContext from "../../contexts/userContext/userContext";
 
 export const Login: React.FC = () => {
-  const { findUser, userLoggedIn } = useContext(UserContext);
+  const { findUser } = useContext(UserContext);
   const [failedLogin, setFailedLogin] = useState(Boolean);
   const [values, setValues] = useState({
     username: "",
@@ -40,19 +42,19 @@ export const Login: React.FC = () => {
   ];
 
   const navigate = useNavigate();
+  const auth = getAuth(firebaseApp);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    userLoggedIn && navigate("/");
-  }, [userLoggedIn]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    findUser(values.username, values.password);
-    !userLoggedIn && setFailedLogin(true);
+    signInWithEmailAndPassword(auth, values.username, values.password)
+      .then((userData) => findUser(userData.user.uid))
+      .catch((err) => console.log(err.message));
   };
+
   return (
     <FlexWrapper
       flexDirection="column"

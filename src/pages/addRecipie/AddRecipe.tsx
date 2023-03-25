@@ -173,7 +173,7 @@ export const AddRecipe: React.FC = () => {
         {
           avatar: loggedUserData.avatar,
           username: loggedUserData.username,
-          id: loggedUserData.id,
+          id: loggedUserData.uid,
         },
       ],
       photo: values.photo,

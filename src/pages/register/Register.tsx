@@ -1,19 +1,18 @@
-import React, { FormEvent, useContext, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import uniqid from "uniqid";
-import UserContext from "../../contexts/userContext/userContext";
 
-import userAvatar from "../../assets/images/userAvatar.png";
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import { Typography } from "../../components/typography/Typography";
 import { FormInputs } from "../../components/formInputs/FormInputs";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
 import { SignInWith } from "../../components/signInWith/SignInWith";
 import { NavLink } from "react-router-dom";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { firebaseApp } from "utils/firebase/firebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+import { dataBase } from "utils/firebase/firebaseConfig";
 
 export const Register: React.FC = () => {
-  const { findUser, userLoggedIn } = useContext(UserContext);
-
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -82,32 +81,34 @@ export const Register: React.FC = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const createUser = () => {
-    const userData = {
-      id: uniqid(),
-      status: "user",
-      username: values.username,
-      email: values.email,
-      avatar: userAvatar,
-      password: values.password,
-      confirmPassword: values.confirmPassword,
-      favorites: [],
-    };
+  const auth = getAuth(firebaseApp);
 
-    fetch("http://localhost:3001/users/", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    navigate("/");
+  const collectionRef = collection(dataBase, "users");
+
+  const createUser = async () => {
+    try {
+      createUserWithEmailAndPassword(auth, values.email, values.password).then(
+        (userData) => {
+          const userDetails = {
+            uid: userData.user.uid,
+            favorites: [],
+            votes: [],
+            username: values.username,
+            avatar: "",
+          };
+          addDoc(collectionRef, userDetails);
+
+          navigate("/");
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    findUser(values.username, values.password);
-    !userLoggedIn && createUser();
+    createUser();
   };
 
   return (
@@ -136,11 +137,11 @@ export const Register: React.FC = () => {
               onChange={onChange}
             />
           ))}
-          {userLoggedIn && (
+          {/* {isUserLoggedIn && (
             <Typography type="smallTextRegular" color="secondary100">
               User with this username already exists
             </Typography>
-          )}
+          )} */}
           <ArrowButton onClick={() => console.log("submit")} width="100%">
             Sign Up
           </ArrowButton>

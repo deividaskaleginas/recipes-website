@@ -5,26 +5,32 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
-import { LoggedUserData, UserData } from "../../types/userDataTypes";
+
+import { collection, getDocs } from "firebase/firestore";
+import { LoggedUserData } from "../../types/userDataTypes";
+import { dataBase } from "utils/firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 interface ContextProps {
-  findUser: (userName: string, userPassword: string) => void;
+  findUser: (uid: string) => void;
+  createUser: (userName: string, userPassword: string, email: string) => void;
   loggedUserData: LoggedUserData;
   setLoggedUserData: Dispatch<SetStateAction<LoggedUserData>>;
-  userLoggedIn: boolean;
+  isUserLoggedIn: boolean;
 }
 
 const defaultState = {
   loggedUserData: {
-    id: "",
+    uid: "",
     username: "",
     avatar: "",
     favorites: [],
     votes: [],
   },
-  findUser: (usernaeme: string, userPassword: string) => {},
+  findUser: (uid: string) => {},
+  createUser(userName: string, userPassword: string, email: string) {},
   setLoggedUserData: (loggedUserData: LoggedUserData) => {},
-  userLoggedIn: false,
+  isUserLoggedIn: false,
 } as ContextProps;
 
 const UserContext = createContext<ContextProps>(defaultState);
@@ -35,37 +41,33 @@ interface ProviderProps {
 
 const UserProvider: React.FC<ProviderProps> = ({ children }) => {
   const [loggedUserData, setLoggedUserData] = useState<LoggedUserData>({
-    id: "",
+    uid: "",
     username: "",
     avatar: "",
     favorites: [],
     votes: [],
   });
 
-  const [userLoggedIn, setUserLoggedIn] = useState(Boolean);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(Boolean);
 
-  const findUser = (userName: string, userPassword: string) => {
-    fetch("http://localhost:3001/users")
-      .then((response) => response.json())
-      .then((usersList: UserData[]) => {
-        const loggedInUser = usersList.find(
-          (user: UserData) =>
-            user.username === userName && user.password === userPassword
-        );
+  const navigate = useNavigate();
 
-        if (loggedInUser) {
-          setUserLoggedIn(true);
-          setLoggedUserData({
-            username: loggedInUser.username,
-            avatar: loggedInUser.avatar,
-            id: loggedInUser.id,
-            favorites: loggedInUser.favorites,
-            votes: loggedInUser.votes,
-          });
-        } else {
-          setUserLoggedIn(false);
-        }
-      });
+  const findUser = async (uid: string) => {
+    const usersDb = (await getDocs(collection(dataBase, "users"))).docs.map(
+      (doc) => doc.data()
+    ) as unknown as LoggedUserData[];
+
+    const filteredUser = usersDb.find(
+      (user: LoggedUserData) => user.uid === uid
+    ) as unknown as LoggedUserData;
+
+    if (filteredUser) {
+      setLoggedUserData(filteredUser);
+      setIsUserLoggedIn(true);
+      navigate("/");
+    } else {
+      setIsUserLoggedIn(false);
+    }
   };
 
   return (
@@ -74,7 +76,8 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
         loggedUserData,
         setLoggedUserData,
         findUser,
-        userLoggedIn,
+        createUser(userName, userPassword, email) {},
+        isUserLoggedIn,
       }}
     >
       {children}

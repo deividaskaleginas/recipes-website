@@ -33,7 +33,7 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
         {
           avatar: loggedUserData.avatar,
           username: loggedUserData.username,
-          id: loggedUserData.id,
+          id: loggedUserData.uid,
         },
       ],
       comment: values.comment,

@@ -24,7 +24,6 @@ export const FormInputs: React.FC<FormInputsProps> = ({
   ...inputProps
 }) => {
   const [focused, setFocused] = useState(false);
-  console.log(focused);
 
   const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFocused(true);

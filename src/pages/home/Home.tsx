@@ -5,6 +5,7 @@ import { ScrollingDishesSection } from "../../components/scrollingDishesSection/
 import { Typography } from "../../components/typography/Typography";
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import UserContext from "../../contexts/userContext/userContext";
+import DefaultAvatar from "../../assets/images/userAvatar.png";
 
 export const Home: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
@@ -20,7 +21,7 @@ export const Home: React.FC = () => {
           </Typography>
         </FlexWrapper>
         <ImageBlockStyled>
-          <img src={loggedUserData.avatar} alt="user avatar" />
+          <img src={loggedUserData.avatar || DefaultAvatar} alt="user avatar" />
         </ImageBlockStyled>
       </FlexWrapper>
       <ScrollingDishesSection />

@@ -14,7 +14,7 @@ export const useSaveToFavoritesRecipe = (
   const isRecipeInFavorites: boolean = favoriteRecipesIdsList.includes(id);
 
   const patchFavoritesRecipes = (favoritesIdsList: string[]): void => {
-    fetch(`http://localhost:3001/users/${loggedUserData.id}`, {
+    fetch(`http://localhost:3001/users/${loggedUserData.uid}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

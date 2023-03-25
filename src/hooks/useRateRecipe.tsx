@@ -28,7 +28,7 @@ export const useRateRecipe = (id: string, vote: number): UseRateRecipe => {
   };
 
   const patchUserRecipesVotedList = (votesList: string[]): void => {
-    fetch(`http://localhost:3001/users/${loggedUserData.id}`, {
+    fetch(`http://localhost:3001/users/${loggedUserData.uid}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
