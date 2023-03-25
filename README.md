@@ -1,8 +1,29 @@
-# Getting Started with Create React App
-This is a Recipes website.
+# Recipes website :plate_with_cutlery:
 
 ### Features: 
+:cook: Login/Register with email and password.
+:cook: Get the list of recipes from Firebase data base.
+:cook: Add your recipe.
+:cook: Filter recipes by category (Lunch, Breakfast etc.).
+:cook: Create your favorites recipes list.
+:cook: Rate recipe.
+:cook: Leave comment and add a like or dislike on comments.
 
+### TOOLS 
+:hammer: React framework.
+:hammer: TypeScript.
+:hammer: Firebase for authentification and database.
+:hammer: Styled-components for styling.
+
+For design - used figma template.
+
+This page was created realying mobile-first approach.
+
+
+### Things in to-do list to update
+
+:point_right: create website responsive for Desktop as well.
+:point-right: create decent error messages and error state.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
