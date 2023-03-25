@@ -21,10 +21,10 @@ const App: React.FC = () => {
       <GlobalStyles />
       <Routes>
         <Route
-          path="/"
+          path={RouteNames.HOME}
           element={!isUserLoggedIn ? <Navigate to="/login" /> : <RootLayout />}
         >
-          <Route index element={<Home />} />
+          <Route path={RouteNames.HOME} element={<Home />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/profile" element={<Profile />} />

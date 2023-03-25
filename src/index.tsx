@@ -1,7 +1,7 @@
 import { CommentsProvider } from "contexts/commentsContext/commentsContext";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./App";
 import { DishesProvider } from "./contexts/dishesContext/dishesContext";
 import { UserProvider } from "./contexts/userContext/userContext";
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <UserProvider>
         <DishesProvider>
           <CommentsProvider>
@@ -20,6 +20,6 @@ root.render(
           </CommentsProvider>
         </DishesProvider>
       </UserProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

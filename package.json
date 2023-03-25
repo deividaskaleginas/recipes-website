@@ -1,6 +1,6 @@
 {
   "homepage": "http://deividaskaleginas.github.io/recipes-website",
-  "name": "recepes",
+  "name": "recipes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
