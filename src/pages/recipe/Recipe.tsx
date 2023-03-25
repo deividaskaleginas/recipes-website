@@ -40,7 +40,7 @@ export const Recipe: React.FC = () => {
         title={openedRecipe!.title}
         authorData={openedRecipe!.authorData}
       />
-      <FlexWrapper>
+      <FlexWrapper margin="0 0 0.5rem">
         <IngredientsButton
           isActive={isActive}
           onClick={() => setIsActive(true)}

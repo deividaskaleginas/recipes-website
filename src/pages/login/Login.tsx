@@ -15,7 +15,7 @@ export const Login: React.FC = () => {
   const { findUser } = useContext(UserContext);
   const [failedLogin, setFailedLogin] = useState(Boolean);
   const [values, setValues] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -28,10 +28,10 @@ export const Login: React.FC = () => {
   }[] = [
     {
       id: 1,
-      name: "username",
-      type: "text",
-      placeholder: "Enter Username",
-      label: "Username",
+      name: "email",
+      type: "email",
+      placeholder: "Enter email",
+      label: "Email",
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export const Login: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, values.username, values.password)
+    signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userData) => findUser(userData.user.uid))
       .catch((err) => console.log(err.message));
   };

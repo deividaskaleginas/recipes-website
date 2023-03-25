@@ -37,12 +37,12 @@ export const SrollingDishesSectionCards: React.FC<
         <img src={image} alt={title} />
       </ImageBlockStyled>
       <VotesAmount votes={votes} top="-7%" right="-14%" />
-      <FlexWrapper
-        justifyContent="center"
-        width="100%"
-        padding="4.125rem 0.625rem 1.1875rem 0.625rem"
-      >
-        <Link to={`/recipe/${id}`}>
+      <Link to={`/recipe/${id}`}>
+        <FlexWrapper
+          justifyContent="center"
+          width="100%"
+          padding="4.125rem 0.625rem 1.1875rem 0.625rem"
+        >
           <Typography
             type="smallTextBold"
             color="gray1"
@@ -51,8 +51,8 @@ export const SrollingDishesSectionCards: React.FC<
           >
             {title}
           </Typography>
-        </Link>
-      </FlexWrapper>
+        </FlexWrapper>
+      </Link>
 
       <FlexWrapper
         justifyContent="space-between"
@@ -89,18 +89,4 @@ const ImageBlockStyled = styled.div`
     -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
-`;
-
-const RateingBlockStyled = styled.div`
-  position: absolute;
-  top: -7%;
-  right: -14%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.1875rem 0.4375rem;
-  background-color: ${theme.colors.secondary20};
-  border-radius: 1.25rem;
 `;

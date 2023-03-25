@@ -42,7 +42,11 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
         </FlexWrapper>
         <VotesAmount votes={votes} top="1.25rem" right="-0.625rem" />
       </RecipePhotoBlock>
-      <FlexWrapper justifyContent="space-between" gap="1.125rem">
+      <FlexWrapper
+        margin="1rem 0"
+        justifyContent="space-between"
+        gap="1.125rem"
+      >
         <Typography type="smallTextBold" color="black">
           {title}
         </Typography>
@@ -50,7 +54,7 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
           ({filteredComments.length} Reviews)
         </Typography>
       </FlexWrapper>
-      <FlexWrapper alignItems="center" gap="0.625rem">
+      <FlexWrapper margin="0.5rem 0 1rem" alignItems="center" gap="0.625rem">
         <UserAvatarStyled
           src={authorData.avatar || DefaultAvatar}
           alt="user avatar"
@@ -69,7 +73,7 @@ const RecipePhotoBlock = styled.div<{ photo: string }>`
   flex-direction: column;
   justify-content: flex-end;
   padding: 0 0.625rem 0.625rem 0.625rem;
-  height: 9.375rem;
+  min-height: 9.375rem;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
