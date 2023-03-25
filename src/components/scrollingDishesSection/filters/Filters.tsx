@@ -56,7 +56,6 @@ export const Filters: React.FC<FiltersProps> = ({ setFilteredList }) => {
       {buttons.map((type, index) => (
         <FilterButton
           key={index}
-          value={type.value}
           active={active.value === type.value}
           onClick={() => handleCategory(type)}
         >

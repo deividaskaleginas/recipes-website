@@ -6,9 +6,21 @@ import { Typography } from "../../components/typography/Typography";
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import UserContext from "../../contexts/userContext/userContext";
 import DefaultAvatar from "../../assets/images/userAvatar.png";
+import { FilterButton } from "components/buttons/FilterButton";
+import { signOut } from "firebase/auth";
+import { auth } from "utils/firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import { RouteNames } from "types/routes";
 
 export const Home: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    navigate(RouteNames.LOGIN);
+  };
+
   return (
     <FlexWrapper flexDirection="column" padding="1.875rem 0 0 1.875rem">
       <FlexWrapper justifyContent="space-between" padding="0 1.875rem 0 0">
@@ -20,9 +32,17 @@ export const Home: React.FC = () => {
             What are you cooking today?
           </Typography>
         </FlexWrapper>
-        <ImageBlockStyled>
-          <img src={loggedUserData.avatar || DefaultAvatar} alt="user avatar" />
-        </ImageBlockStyled>
+        <FlexWrapper alignItems="center">
+          <FilterButton active={false} onClick={() => handleSignOut()}>
+            Logout
+          </FilterButton>
+          <ImageBlockStyled>
+            <img
+              src={loggedUserData.avatar || DefaultAvatar}
+              alt="user avatar"
+            />
+          </ImageBlockStyled>
+        </FlexWrapper>
       </FlexWrapper>
       <ScrollingDishesSection />
       <NewRecipesSection />

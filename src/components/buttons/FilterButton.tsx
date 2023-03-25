@@ -5,15 +5,12 @@ import styled from "styled-components";
 interface FilterButtonProps {
   children: ReactNode | ReactNode[];
   active: boolean;
-  value: string;
-  onClick: () => void;
-  //   onClick: (e: React.MouseEvent<HTMLElement>) => void;
+  onClick: () => void | Promise<void>;
 }
 
 export const FilterButton: React.FC<FilterButtonProps> = ({
   children,
   active,
-
   onClick,
 }) => {
   return (
@@ -34,4 +31,5 @@ const FilterButtonStyled = styled.button<{ active: boolean }>`
   border: none;
   width: 100%;
   background-color: ${({ active }) => (active ? "#129575" : "none")};
+  cursor: pointer;
 `;
