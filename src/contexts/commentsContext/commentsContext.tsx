@@ -1,3 +1,4 @@
+import { collection, getDocs } from "firebase/firestore";
 import React, {
   createContext,
   Dispatch,
@@ -6,11 +7,13 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { Collections } from "types/collections";
 import { CommentData } from "types/userDataTypes";
+import { dataBase } from "utils/firebase/firebaseConfig";
 
 interface ContextProps {
   commentsData: CommentData[];
-  setComment: Dispatch<SetStateAction<CommentData[]>>;
+  setComments: Dispatch<SetStateAction<CommentData[]>>;
 }
 
 const defaultState: ContextProps = {
@@ -19,12 +22,16 @@ const defaultState: ContextProps = {
       dishId: "",
       id: "",
       date: "",
-      authorData: [],
+      authorData: {
+        id: "",
+        username: "",
+        avatar: "",
+      },
       comment: "",
       votes: [],
     },
   ],
-  setComment: function (value: React.SetStateAction<CommentData[]>): void {
+  setComments: function (value: React.SetStateAction<CommentData[]>): void {
     throw new Error("Function not implemented.");
   },
 };
@@ -36,16 +43,30 @@ interface ProviderProps {
 }
 
 const CommentsProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [commentsData, setComment] = useState<CommentData[]>([]);
+  const [commentsData, setComments] = useState<CommentData[]>([]);
+  const collectionRef = collection(dataBase, Collections.COMMENTS);
+
+  console.log(commentsData);
+
+  const getComments = async () => {
+    const commentsList = (await getDocs(collectionRef)).docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    })) as unknown as CommentData[];
+
+    if (commentsList) {
+      setComments(commentsList);
+    } else {
+      console.log("do something with err");
+    }
+  };
 
   useEffect(() => {
-    fetch("http://localhost:3001/comments")
-      .then((response) => response.json())
-      .then((commentsData: CommentData[]) => setComment(commentsData));
+    getComments();
   }, []);
 
   return (
-    <CommentsContext.Provider value={{ commentsData, setComment }}>
+    <CommentsContext.Provider value={{ commentsData, setComments }}>
       {children}
     </CommentsContext.Provider>
   );

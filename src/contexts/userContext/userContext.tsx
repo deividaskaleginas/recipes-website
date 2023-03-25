@@ -55,8 +55,6 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
 
   const navigate = useNavigate();
 
-  console.log(loggedUserData);
-
   const findUser = async (uid: string) => {
     const usersDb = (
       await getDocs(collection(dataBase, Collections.USERS))

@@ -22,8 +22,9 @@ export const Ingredients: React.FC<IngredientsProps> = ({
           {ingredients.length} {ingredients.length > 1 ? "Items" : "Item"}
         </Typography>
       </FlexWrapper>
-      {ingredients.map(({ ingredient, amount, measure }) => (
+      {ingredients.map(({ ingredient, amount, measure }, index) => (
         <FlexWrapper
+          key={index}
           padding="1.25rem 0.9375rem"
           backgroundColor="gray4"
           borderRadius="0.75rem"

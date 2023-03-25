@@ -37,7 +37,7 @@ export type CommentData = {
   dishId: string;
   id: string;
   date: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   comment: string;
   votes: Votes[];
 };

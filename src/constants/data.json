@@ -364,6 +364,25 @@
         }
       ],
       "id": 1
+    },
+    {
+      "dishId": "G6f4wzJTDjbx5bRoVG2E",
+      "id": "lfnzgxi4",
+      "date": "2023-03-25 13:04:39",
+      "authorData": [
+        {
+          "avatar": "",
+          "username": "Testas",
+          "id": "F5XvtTmBqkebMskeUd00ucnjyAF3"
+        }
+      ],
+      "comment": "asdsd",
+      "votes": [
+        {
+          "likes": [],
+          "dislikes": []
+        }
+      ]
     }
   ]
 }

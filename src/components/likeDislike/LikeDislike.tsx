@@ -2,7 +2,11 @@ import { LikeDislikeButton } from "components/buttons/LikeDislikeButton";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import CommentsContext from "contexts/commentsContext/commentsContext";
 import UserContext from "contexts/userContext/userContext";
+import { collection, doc, updateDoc } from "firebase/firestore";
 import React, { useContext } from "react";
+import { Collections } from "types/collections";
+import { Votes } from "types/userDataTypes";
+import { dataBase } from "utils/firebase/firebaseConfig";
 
 interface LikesDislikeProps {
   likes: string[];
@@ -16,29 +20,31 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
   id,
 }) => {
   const { loggedUserData } = useContext(UserContext);
-  const { commentsData, setComment } = useContext(CommentsContext);
+  const { commentsData, setComments } = useContext(CommentsContext);
 
   const filteredComment = commentsData.find((comment) => comment.id === id);
 
   const isLiked = likes.includes(loggedUserData.uid);
   const isDisLiked = dislikes.includes(loggedUserData.uid);
 
-  console.log(filteredComment);
+  console.log(id);
+
+  const collectionRef = doc(dataBase, Collections.COMMENTS, id);
+
+  const updateCommentCollectionDoc = async (newVotes: Votes[]) => {
+    try {
+      await updateDoc(collectionRef, { votes: newVotes });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLike = () => {
     if (isLiked) {
       let indexOf = likes.indexOf(loggedUserData.uid);
       likes.splice(indexOf, 1);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -51,21 +57,13 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     } else if (isDisLiked) {
       let indexOf = dislikes.indexOf(loggedUserData.uid);
       dislikes.splice(indexOf, 1);
       likes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -78,19 +76,11 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     } else {
       likes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -103,7 +93,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     }
   };
 
@@ -112,15 +102,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
       let indexOf = dislikes.indexOf(loggedUserData.uid);
       dislikes.splice(indexOf, 1);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -133,21 +115,13 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     } else if (isLiked) {
       let indexOf = likes.indexOf(loggedUserData.uid);
       likes.splice(indexOf, 1);
       dislikes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -160,19 +134,11 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     } else {
       dislikes.push(loggedUserData.uid);
       const newVotes = [{ likes: likes, dislikes: dislikes }];
-      fetch(`http://localhost:3001/comments/${id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          votes: newVotes,
-        }),
-      });
+      updateCommentCollectionDoc(newVotes);
       const newData = commentsData.map((comment) =>
         comment.id === id
           ? {
@@ -185,7 +151,7 @@ export const LikeDislike: React.FC<LikesDislikeProps> = ({
             }
           : comment
       );
-      setComment([...newData]);
+      setComments([...newData]);
     }
   };
 

@@ -8,7 +8,7 @@ import { AuthorType, Votes } from "types/userDataTypes";
 interface CommentProps {
   comment: string;
   id: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   date: string;
   votes: Votes[];
 }
@@ -23,28 +23,27 @@ export const Comment: React.FC<CommentProps> = ({
   console.log(votes);
   return (
     <CommentBlockStyled>
-      {authorData.map(({ username, avatar }) => (
-        <FlexWrapper gap="0.5625rem">
-          <FlexWrapper>
-            <img src={avatar} alt="" />
-          </FlexWrapper>
-          <FlexWrapper flexDirection="column">
-            <Typography type="smallerTextBold" color="label">
-              {username}
-            </Typography>
-            <Typography type="smallerTextRegular" color="gray3">
-              {date}
-            </Typography>
-          </FlexWrapper>
+      <FlexWrapper gap="0.5625rem">
+        <FlexWrapper>
+          <img src={authorData.avatar} alt="" />
         </FlexWrapper>
-      ))}
+        <FlexWrapper flexDirection="column">
+          <Typography type="smallerTextBold" color="label">
+            {authorData.username}
+          </Typography>
+          <Typography type="smallerTextRegular" color="gray3">
+            {date}
+          </Typography>
+        </FlexWrapper>
+      </FlexWrapper>
+
       <FlexWrapper>
         <Typography type="smallerTextRegular" color="gray1">
           {comment}
         </Typography>
       </FlexWrapper>
-      {votes.map(({ likes, dislikes }) => (
-        <LikeDislike likes={likes} dislikes={dislikes} id={id} />
+      {votes.map(({ likes, dislikes }, index) => (
+        <LikeDislike key={index} likes={likes} dislikes={dislikes} id={id} />
       ))}
     </CommentBlockStyled>
   );

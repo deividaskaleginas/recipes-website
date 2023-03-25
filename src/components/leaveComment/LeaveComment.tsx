@@ -3,17 +3,21 @@ import { Typography } from "components/typography/Typography";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import CommentsContext from "contexts/commentsContext/commentsContext";
 import UserContext from "contexts/userContext/userContext";
+import { addDoc, collection } from "firebase/firestore";
 import React, { FormEvent, useContext, useState } from "react";
 import styled from "styled-components";
 import { theme } from "styles/theme";
+import { Collections } from "types/collections";
+import { CommentData } from "types/userDataTypes";
 import uniqid from "uniqid";
+import { dataBase } from "utils/firebase/firebaseConfig";
 
 interface LeaveCommentProps {
   id: string;
 }
 
 export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
-  const { commentsData, setComment } = useContext(CommentsContext);
+  const { commentsData, setComments } = useContext(CommentsContext);
   const { loggedUserData } = useContext(UserContext);
 
   const [values, setValues] = useState({
@@ -24,18 +28,18 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const createComment = () => {
-    const commentData = {
+  const createComment = async () => {
+    const collectionRef = collection(dataBase, Collections.COMMENTS);
+
+    const commentData: CommentData = {
       dishId: id,
       id: uniqid(),
       date: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
-      authorData: [
-        {
-          avatar: loggedUserData.avatar,
-          username: loggedUserData.username,
-          id: loggedUserData.uid,
-        },
-      ],
+      authorData: {
+        avatar: loggedUserData.avatar,
+        username: loggedUserData.username,
+        id: loggedUserData.uid,
+      },
       comment: values.comment,
       votes: [
         {
@@ -44,15 +48,13 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
         },
       ],
     };
+    setComments([...commentsData, commentData]);
 
-    setComment([...commentsData, commentData]);
-    fetch("http://localhost:3001/comments", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(commentData),
-    });
+    try {
+      addDoc(collectionRef, commentData);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleSubmit = (e: FormEvent) => {

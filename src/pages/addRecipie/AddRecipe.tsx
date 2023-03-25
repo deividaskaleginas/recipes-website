@@ -201,15 +201,7 @@ export const AddRecipe: React.FC = () => {
       console.log(error);
     }
 
-    // setDishes([...dishesData, recepiData]);
-
-    // fetch("http://localhost:3001/recipes", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(recepiData),
-    // });
+    // setDishes([...dishesData, recipeData]);
   };
 
   const handleSubmit = (e: FormEvent) => {
