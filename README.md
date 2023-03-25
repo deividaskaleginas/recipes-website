@@ -2,6 +2,7 @@
 
 ### Features:
 ```
+
 :cook: Login/Register with email and password.
 :cook: Get the list of recipes from Firebase data base.
 :cook: Add your recipe.
@@ -9,6 +10,7 @@
 :cook: Create your favorites recipes list.
 :cook: Rate recipe.
 :cook: Leave comment and add a like or dislike on comments.
+
 ```
 
 ### TOOLS 
