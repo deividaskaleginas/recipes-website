@@ -11,7 +11,7 @@ import { VotesAmount } from "components/votesAmount/VotesAmount";
 interface SavedRecipesCardsProps {
   id: string;
   title: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   time: string;
   votes: number[];
   photo: string;
@@ -35,11 +35,9 @@ export const SavedAndPostedRecipesCards: React.FC<SavedRecipesCardsProps> = ({
       </FlexWrapper>
       <FlexWrapper justifyContent="space-between">
         <FlexWrapper alignItems="center" justifyContent="space-between">
-          {authorData.map(({ username }) => (
-            <Typography key={1} type="smallerTextRegular" color="gray4">
-              By {username}
-            </Typography>
-          ))}
+          <Typography type="smallerTextRegular" color="gray4">
+            By {authorData.username}
+          </Typography>
         </FlexWrapper>
         <FlexWrapper gap="0.625rem">
           <CookingTime>{time}</CookingTime>

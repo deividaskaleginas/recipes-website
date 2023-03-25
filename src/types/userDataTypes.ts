@@ -10,6 +10,7 @@ export type UserData = {
 };
 
 export type LoggedUserData = {
+  id: string;
   uid: string;
   username: string;
   avatar: string;
@@ -20,7 +21,7 @@ export type LoggedUserData = {
 export type DishData = {
   id: string;
   date: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   comment: string;
   portions: string;
   ingridents: IngredientType[];

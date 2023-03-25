@@ -1,10 +1,13 @@
 import DishesContext from "contexts/dishesContext/dishesContext";
 import UserContext from "contexts/userContext/userContext";
+import { addDoc, collection } from "firebase/firestore";
 import React, { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Collections } from "types/collections";
 
 import uniqid from "uniqid";
+import { auth, dataBase } from "utils/firebase/firebaseConfig";
 import { ArrowButton } from "../../components/buttons/ArrowButton";
 import { TextButton } from "../../components/buttons/TextButton";
 import { FormInputs } from "../../components/formInputs/FormInputs";
@@ -12,7 +15,11 @@ import { Typography } from "../../components/typography/Typography";
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import { GridWrapper } from "../../components/wrappers/GridWrapper";
 import { theme } from "../../styles/theme";
-import { IngredientType, ProcedureType } from "../../types/userDataTypes";
+import {
+  DishData,
+  IngredientType,
+  ProcedureType,
+} from "../../types/userDataTypes";
 import { Categories } from "./categories/Categories";
 
 export const AddRecipe: React.FC = () => {
@@ -165,17 +172,18 @@ export const AddRecipe: React.FC = () => {
     setProcedureList(values);
   };
 
-  const createRecipe = () => {
-    const recepiData = {
-      id: uniqid(),
+  const currentUserUid = auth.currentUser?.uid;
+
+  const collectionRef = collection(dataBase, Collections.RECIPES);
+
+  const createRecipe = async () => {
+    const recipeData: Omit<DishData, "id"> = {
       date: new Date().toISOString().replace(/T/, " ").replace(/\..+/, ""),
-      authorData: [
-        {
-          avatar: loggedUserData.avatar,
-          username: loggedUserData.username,
-          id: loggedUserData.uid,
-        },
-      ],
+      authorData: {
+        avatar: loggedUserData.avatar,
+        id: currentUserUid || "unknown",
+        username: loggedUserData.username,
+      },
       photo: values.photo,
       title: values.title,
       time: values.time,
@@ -187,15 +195,21 @@ export const AddRecipe: React.FC = () => {
       votes: [],
     };
 
-    setDishes([...dishesData, recepiData]);
+    try {
+      addDoc(collectionRef, recipeData);
+    } catch (error) {
+      console.log(error);
+    }
 
-    fetch("http://localhost:3001/recipes", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(recepiData),
-    });
+    // setDishes([...dishesData, recepiData]);
+
+    // fetch("http://localhost:3001/recipes", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(recepiData),
+    // });
   };
 
   const handleSubmit = (e: FormEvent) => {

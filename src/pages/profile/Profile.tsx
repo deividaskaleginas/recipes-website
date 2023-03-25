@@ -12,8 +12,8 @@ export const Profile: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
   const { dishesData } = useContext(DishesContext);
 
-  const userRecipes = dishesData.filter((recipe) =>
-    recipe.authorData.some((userID) => userID.id === loggedUserData.uid)
+  const userRecipes = dishesData.filter(
+    (recipe) => recipe.authorData.id === loggedUserData.uid
   );
 
   return (

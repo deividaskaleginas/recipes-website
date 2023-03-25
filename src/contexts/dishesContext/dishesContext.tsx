@@ -1,3 +1,4 @@
+import { collection, getDocs } from "firebase/firestore";
 import React, {
   createContext,
   Dispatch,
@@ -6,6 +7,8 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { Collections } from "types/collections";
+import { dataBase } from "utils/firebase/firebaseConfig";
 
 import { DishData } from "../../types/userDataTypes";
 
@@ -19,7 +22,11 @@ const defaultState: ContextProps = {
     {
       id: "",
       date: "",
-      authorData: [],
+      authorData: {
+        id: "",
+        avatar: "",
+        username: "",
+      },
       comment: "",
       portions: "",
       ingridents: [],
@@ -46,10 +53,27 @@ interface ProviderProps {
 const DishesProvider: React.FC<ProviderProps> = ({ children }) => {
   const [dishesData, setDishes] = useState<DishData[]>([]);
 
+  console.log(dishesData);
+
+  const collectionRef = collection(dataBase, Collections.RECIPES);
+
+  const getRecipesCollection = async () => {
+    const recipesList = (await (
+      await getDocs(collectionRef)
+    ).docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }))) as unknown as DishData[];
+
+    if (recipesList) {
+      setDishes(recipesList);
+    } else {
+      console.log("Do something on error");
+    }
+  };
+
   useEffect(() => {
-    fetch("http://localhost:3001/recipes")
-      .then((response) => response.json())
-      .then((dishesData: DishData[]) => setDishes(dishesData));
+    getRecipesCollection();
   }, []);
 
   return (

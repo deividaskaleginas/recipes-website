@@ -6,13 +6,14 @@ import styled from "styled-components";
 import { CookingTime } from "components/cookingTime/CookingTime";
 import { RatingStar } from "assets/svg";
 import { Link } from "react-router-dom";
+import DefaultAvatar from "../../../assets/images/userAvatar.png";
 
 interface NewRecipesSectionCardsProps {
   id: string;
   photo: string;
   title: string;
   time: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   votes: number[];
 }
 
@@ -51,21 +52,20 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
           return (
-            <FlexWrapper>
+            <FlexWrapper key={i}>
               <RatingStar color={ratingValue <= rating ? "#FFAD30" : "white"} />
             </FlexWrapper>
           );
         })}
       </FlexWrapper>
       <FlexWrapper justifyContent="space-between">
-        {authorData.map(({ avatar, username }) => (
-          <UserDataStyledBlock>
-            <img src={avatar} alt="user profile" />
-            <Typography type="smallerTextRegular" color="gray3">
-              By {username}
-            </Typography>
-          </UserDataStyledBlock>
-        ))}
+        <UserDataStyledBlock>
+          <img src={authorData.avatar || DefaultAvatar} alt="user profile" />
+          <Typography type="smallerTextRegular" color="gray3">
+            By {authorData.username}
+          </Typography>
+        </UserDataStyledBlock>
+
         <CookingTime>{time}</CookingTime>
       </FlexWrapper>
       <RecipePhotoBlock>

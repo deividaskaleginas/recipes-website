@@ -10,6 +10,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { LoggedUserData } from "../../types/userDataTypes";
 import { dataBase } from "utils/firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import { Collections } from "types/collections";
 
 interface ContextProps {
   findUser: (uid: string) => void;
@@ -21,6 +22,7 @@ interface ContextProps {
 
 const defaultState = {
   loggedUserData: {
+    id: "",
     uid: "",
     username: "",
     avatar: "",
@@ -41,6 +43,7 @@ interface ProviderProps {
 
 const UserProvider: React.FC<ProviderProps> = ({ children }) => {
   const [loggedUserData, setLoggedUserData] = useState<LoggedUserData>({
+    id: "",
     uid: "",
     username: "",
     avatar: "",
@@ -52,10 +55,15 @@ const UserProvider: React.FC<ProviderProps> = ({ children }) => {
 
   const navigate = useNavigate();
 
+  console.log(loggedUserData);
+
   const findUser = async (uid: string) => {
-    const usersDb = (await getDocs(collection(dataBase, "users"))).docs.map(
-      (doc) => doc.data()
-    ) as unknown as LoggedUserData[];
+    const usersDb = (
+      await getDocs(collection(dataBase, Collections.USERS))
+    ).docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    })) as unknown as LoggedUserData[];
 
     const filteredUser = usersDb.find(
       (user: LoggedUserData) => user.uid === uid

@@ -8,11 +8,12 @@ import { useSaveToFavoritesRecipe } from "hooks/useSaveToFavoritesRecipe";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AuthorType } from "types/userDataTypes";
+import DefaultAvatar from "../../assets/images/userAvatar.png";
 
 interface OpenedRecipeDataProps {
   id: string;
   title: string;
-  authorData: AuthorType[];
+  authorData: AuthorType;
   time: string;
   votes: number[];
   photo: string;
@@ -49,14 +50,15 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
           ({filteredComments.length} Reviews)
         </Typography>
       </FlexWrapper>
-      {authorData?.map(({ avatar, username }) => (
-        <FlexWrapper alignItems="center" gap="0.625rem">
-          <UserAvatarStyled src={avatar} alt="user avatar" />
-          <Typography type="smallTextBold" color="black">
-            {username}
-          </Typography>
-        </FlexWrapper>
-      ))}
+      <FlexWrapper alignItems="center" gap="0.625rem">
+        <UserAvatarStyled
+          src={authorData.avatar || DefaultAvatar}
+          alt="user avatar"
+        />
+        <Typography type="smallTextBold" color="black">
+          {authorData.username}
+        </Typography>
+      </FlexWrapper>
     </FlexWrapper>
   );
 };

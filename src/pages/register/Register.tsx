@@ -11,6 +11,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { firebaseApp } from "utils/firebase/firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { dataBase } from "utils/firebase/firebaseConfig";
+import { Collections } from "types/collections";
 
 export const Register: React.FC = () => {
   const [values, setValues] = useState({
@@ -83,7 +84,7 @@ export const Register: React.FC = () => {
 
   const auth = getAuth(firebaseApp);
 
-  const collectionRef = collection(dataBase, "users");
+  const collectionRef = collection(dataBase, Collections.USERS);
 
   const createUser = async () => {
     try {

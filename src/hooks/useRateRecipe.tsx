@@ -1,6 +1,9 @@
 import UserContext from "contexts/userContext/userContext";
 import DishesContext from "contexts/dishesContext/dishesContext";
 import { useContext } from "react";
+import { updateDoc, doc } from "firebase/firestore";
+import { dataBase } from "utils/firebase/firebaseConfig";
+import { Collections } from "types/collections";
 
 interface UseRateRecipe {
   voteRecipe: () => void;
@@ -15,28 +18,26 @@ export const useRateRecipe = (id: string, vote: number): UseRateRecipe => {
   const votedRecipe = dishesData.find((recipe) => recipe.id === id);
   const recipeVotesList: number[] = votedRecipe!.votes;
 
-  const patchRecipeVote = (votesList: number[]): void => {
-    fetch(`http://localhost:3001/recipes/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        votes: votesList,
-      }),
-    });
+  const updateUserVote = async (votesList: number[]): Promise<void> => {
+    const collectionRef = doc(dataBase, Collections.RECIPES, id);
+
+    try {
+      await updateDoc(collectionRef, { votes: votesList });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const patchUserRecipesVotedList = (votesList: string[]): void => {
-    fetch(`http://localhost:3001/users/${loggedUserData.uid}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        votes: votesList,
-      }),
-    });
+  const patchUserRecipesVotedList = async (
+    votesList: string[]
+  ): Promise<void> => {
+    const collectionRef = doc(dataBase, Collections.USERS, loggedUserData.id);
+
+    try {
+      await updateDoc(collectionRef, { votes: votesList });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const voteRecipe = (): void => {
@@ -64,7 +65,7 @@ export const useRateRecipe = (id: string, vote: number): UseRateRecipe => {
       );
 
       setLoggedUserData({ ...loggedUserData, votes: newUserVotesList });
-      patchRecipeVote(newRecipeVotesList);
+      updateUserVote(newRecipeVotesList);
       patchUserRecipesVotedList(newUserVotesList);
       setDishes([...newData]);
     }
