@@ -11,7 +11,6 @@ interface FormInputsProps {
   label?: string;
   pattern?: string;
   required?: boolean;
-  // focused?: string;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
