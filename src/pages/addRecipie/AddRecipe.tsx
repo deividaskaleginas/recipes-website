@@ -208,130 +208,146 @@ export const AddRecipe: React.FC = () => {
   };
 
   return (
-    <FlexWrapper
-      flexDirection="column"
-      padding="1.25rem 1.875rem 6.25rem 2.5rem"
-    >
-      <FlexWrapper flexDirection="column" padding="0 0 1.25rem 0">
-        <Typography type="largeTextBold" color="black">
-          Add a recipe
-        </Typography>
-        <Typography type="smallTextRegular" color="label">
-          Let's add your recipe, <br />
-          it won't take long.
-        </Typography>
-      </FlexWrapper>
-      <FlexWrapper>
-        <form onSubmit={handleSubmit}>
-          {inputs.map((input) => (
-            <FormInputs
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
-          ))}
-          <Categories
-            categoriesOptions={categoriesOptions}
-            categoriesList={categoriesList}
-            onChange={(selectedCategory) => setCategoriesList(selectedCategory)}
-          />
-          {ingredientList.map((ingredient, index) => (
-            <FlexWrapper key={index} flexDirection="column">
-              <FlexWrapper justifyContent="flex-end">
-                <TextButton onClick={() => handleRemoveIngredientFields(index)}>
-                  Remove ingredient
-                </TextButton>
-              </FlexWrapper>
+    <AddRecipeSectionBlock>
+      <FlexWrapper
+        flexDirection="column"
+        padding="1.25rem 1.875rem 6.25rem 2.5rem"
+      >
+        <FlexWrapper flexDirection="column" padding="0 0 1.25rem 0">
+          <Typography type="largeTextBold" color="black">
+            Add a recipe
+          </Typography>
+          <Typography type="smallTextRegular" color="label">
+            Let's add your recipe, <br />
+            it won't take long.
+          </Typography>
+        </FlexWrapper>
+        <FlexWrapper>
+          <form onSubmit={handleSubmit}>
+            {inputs.map((input) => (
               <FormInputs
-                name="ingredient"
-                label="Ingredient"
-                value={ingredient.ingredient}
-                onChange={(event) => handleChangeIngredientInput(index, event)}
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
               />
-              <GridWrapper columns={3} alignItems="center">
+            ))}
+            <Typography type="smallTextRegular" color="label">
+              Categories
+            </Typography>
+            <Categories
+              categoriesOptions={categoriesOptions}
+              categoriesList={categoriesList}
+              onChange={(selectedCategory) =>
+                setCategoriesList(selectedCategory)
+              }
+            />
+            {ingredientList.map((ingredient, index) => (
+              <FlexWrapper key={index} flexDirection="column">
+                <FlexWrapper justifyContent="flex-end">
+                  <TextButton
+                    onClick={() => handleRemoveIngredientFields(index)}
+                  >
+                    Remove ingredient
+                  </TextButton>
+                </FlexWrapper>
                 <FormInputs
-                  name="amount"
-                  label="Amount"
-                  value={ingredient.amount}
+                  name="ingredient"
+                  label="Ingredient"
+                  value={ingredient.ingredient}
                   onChange={(event) =>
                     handleChangeIngredientInput(index, event)
                   }
                 />
-                <SelectStyled
-                  id="measure"
-                  name="measure"
-                  value={ingredient.measure}
-                  onChange={(event) =>
-                    handleChangeIngredientInput(index, event)
-                  }
-                >
-                  {options.map((measure) => (
-                    <option value={measure.measure}>{measure.measure}</option>
-                  ))}
-                </SelectStyled>
-              </GridWrapper>
-              <FlexWrapper justifyContent="flex-start">
-                <TextButton onClick={() => handleAddIngridentFields()}>
-                  Add ingredient
-                </TextButton>
-              </FlexWrapper>
-            </FlexWrapper>
-          ))}
-          {procedureList.map((step, index) => {
-            return (
-              <FlexWrapper
-                key={index}
-                flexDirection="column"
-                padding="1.875rem 0"
-              >
-                <FlexWrapper justifyContent="flex-end">
-                  <TextButton
-                    onClick={() => handleRemoveProcedureFields(index)}
-                  >
-                    Remove step
-                  </TextButton>
-                </FlexWrapper>
-                <FlexWrapper flexDirection="column">
-                  {
-                    <Typography type="smallTextRegular" color="label">
-                      {`Step: ${index + 1}`}
-                    </Typography>
-                  }
-                  <TextareaStyled
-                    name="step"
-                    value={step.step}
-                    maxLength={500}
+                <GridWrapper columns={3} alignItems="end">
+                  <FormInputs
+                    name="amount"
+                    label="Amount"
+                    value={ingredient.amount}
                     onChange={(event) =>
-                      handleChangeProcedureInput(index, event)
+                      handleChangeIngredientInput(index, event)
                     }
                   />
-                </FlexWrapper>
-                <FlexWrapper justifyContent="space-between">
-                  <TextButton onClick={() => handleAddProcedureFields()}>
-                    Add step
+                  <SelectStyled
+                    id="measure"
+                    name="measure"
+                    value={ingredient.measure}
+                    onChange={(event) =>
+                      handleChangeIngredientInput(index, event)
+                    }
+                  >
+                    {options.map((measure) => (
+                      <option value={measure.measure}>{measure.measure}</option>
+                    ))}
+                  </SelectStyled>
+                </GridWrapper>
+                <FlexWrapper justifyContent="flex-start">
+                  <TextButton onClick={() => handleAddIngridentFields()}>
+                    Add ingredient
                   </TextButton>
                 </FlexWrapper>
               </FlexWrapper>
-            );
-          })}
-          <ArrowButton
-            width="100%"
-            onClick={() => console.log("add something")}
-          >
-            Add
-          </ArrowButton>
-        </form>
+            ))}
+            {procedureList.map((step, index) => {
+              return (
+                <FlexWrapper
+                  key={index}
+                  flexDirection="column"
+                  padding="1.875rem 0"
+                >
+                  <FlexWrapper justifyContent="flex-end">
+                    <TextButton
+                      onClick={() => handleRemoveProcedureFields(index)}
+                    >
+                      Remove step
+                    </TextButton>
+                  </FlexWrapper>
+                  <FlexWrapper flexDirection="column">
+                    {
+                      <Typography type="smallTextRegular" color="label">
+                        {`Step: ${index + 1}`}
+                      </Typography>
+                    }
+                    <TextareaStyled
+                      name="step"
+                      value={step.step}
+                      maxLength={500}
+                      onChange={(event) =>
+                        handleChangeProcedureInput(index, event)
+                      }
+                    />
+                  </FlexWrapper>
+                  <FlexWrapper justifyContent="space-between">
+                    <TextButton onClick={() => handleAddProcedureFields()}>
+                      Add step
+                    </TextButton>
+                  </FlexWrapper>
+                </FlexWrapper>
+              );
+            })}
+            <ArrowButton
+              width="100%"
+              onClick={() => console.log("add something")}
+            >
+              Add
+            </ArrowButton>
+          </form>
+        </FlexWrapper>
       </FlexWrapper>
-    </FlexWrapper>
+    </AddRecipeSectionBlock>
   );
 };
+
+const AddRecipeSectionBlock = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const SelectStyled = styled.select`
   max-height: 3.5938rem;
   padding: 1.1875rem 1.25rem;
   border-radius: 0.625rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.625rem;
   color: ${() => theme.colors.label};
   border: 0.0938rem solid ${() => theme.colors.gray4};
 `;

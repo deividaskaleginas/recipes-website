@@ -55,7 +55,7 @@ export const FormInputs: React.FC<FormInputsProps> = ({
 const InputContainerStyled = styled.div<{ focused: boolean }>`
   display: flex;
   flex-direction: column;
-  gap: 0.3125rem;
+  gap: 5px;
   width: 100%;
 
   input {
@@ -64,6 +64,7 @@ const InputContainerStyled = styled.div<{ focused: boolean }>`
     border-radius: 0.625rem;
     color: ${theme.colors.label};
     font-size: 0.6875rem;
+    margin-bottom: 0.625rem;
     padding: 1.1875rem 0 1.1875rem 1.25rem;
     line-height: 1.0313rem;
   }
