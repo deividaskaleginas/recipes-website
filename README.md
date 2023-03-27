@@ -1,5 +1,8 @@
 # Recipes website :plate_with_cutlery:
 
+### Link to project
+https://deividaskaleginas.github.io/recipes-website 
+
 ### Features :cook::
 
 - Login/Register with email and password.
@@ -19,7 +22,7 @@
 
 For design - used figma template.
 
-This page was created realying mobile-first approach.
+#### This page was created realying mobile-first approach. 📱
 
 
 ### Things in to-do list to update :point_right:
@@ -27,6 +30,9 @@ This page was created realying mobile-first approach.
 - create website responsive for Desktop as well.
 - create decent error messages and error state.
 - add Firebase config to env.
+
+
+This project was made on learning purpose.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
