@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 import { DishData } from "types/userDataTypes";
 
 import { FlexWrapper } from "../wrappers/FlexWrapper";
@@ -55,4 +56,24 @@ const FilteredListScrollBar = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  @media ${theme.device.tablet} {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    row-gap: 5rem;
+    justify-content: space-around;
+    height: auto;
+    padding-top: 5rem;
+    background-color: ${theme.colors.white};
+  }
+
+  @media ${theme.device.laptop} {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    row-gap: 5rem;
+    justify-content: space-around;
+    height: auto;
+    padding-top: 5rem;
+    background-color: ${theme.colors.white};
+  } ;
 `;
