@@ -14,6 +14,9 @@ import { dataBase } from "utils/firebase/firebaseConfig";
 import { Collections } from "types/collections";
 import { RouteNames } from "types/routes";
 import styled from "styled-components";
+import { theme } from "styles/theme";
+
+import backgroundImg from "../../assets/images/background.jpg";
 
 export const Register: React.FC = () => {
   const [values, setValues] = useState({
@@ -115,59 +118,90 @@ export const Register: React.FC = () => {
   };
 
   return (
-    <FlexWrapper
-      flexDirection="column"
-      justifyContent="space-around"
-      height="100vh"
-      padding="6.25rem 1.875rem 6.25rem 2.5rem"
+    <RegisterSection
+    // flexDirection="column"
+    // justifyContent="space-around"
+    // height="100vh"
+    // padding="6.25rem 1.875rem 6.25rem 2.5rem"
     >
-      <FlexWrapper flexDirection="column">
-        <Typography type="largeTextBold" color="black">
-          Create an account
-        </Typography>
-        <Typography type="smallTextBold" color="label">
-          Let's help you set up your account, <br />
-          it won't take long.
-        </Typography>
-      </FlexWrapper>
-      <FlexWrapper>
-        <Form onSubmit={handleSubmit}>
-          {inputs.map((input) => (
-            <FormInputs
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-            />
-          ))}
-          {/* {isUserLoggedIn && (
+      <RegisterDataBlock>
+        <FlexWrapper flexDirection="column">
+          <Typography type="largeTextBold" color="black">
+            Create an account
+          </Typography>
+          <Typography type="smallTextBold" color="label">
+            Let's help you set up your account, <br />
+            it won't take long.
+          </Typography>
+        </FlexWrapper>
+        <FlexWrapper>
+          <RegisterForm onSubmit={handleSubmit}>
+            {inputs.map((input) => (
+              <FormInputs
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
+              />
+            ))}
+            {/* {isUserLoggedIn && (
             <Typography type="smallTextRegular" color="secondary100">
               User with this username already exists
             </Typography>
           )} */}
-          <ArrowButton onClick={() => console.log("submit")} width="100%">
-            Sign Up
-          </ArrowButton>
-        </Form>
-      </FlexWrapper>
-      <FlexWrapper margin="0.5rem 0" justifyContent="center">
-        <SignInWith>Or Sign up With</SignInWith>
-      </FlexWrapper>
-      <FlexWrapper justifyContent="center" gap="0.3125rem">
-        <Typography type="smallerTextSemiBold" color="black">
-          Already a member?
-        </Typography>
-        <NavLink to="/login">
-          <Typography type="smallerTextSemiBold" color="secondary100">
-            Sign in
+            <ArrowButton onClick={() => console.log("submit")} width="100%">
+              Sign Up
+            </ArrowButton>
+          </RegisterForm>
+        </FlexWrapper>
+        <FlexWrapper margin="0.5rem 0" justifyContent="center">
+          <SignInWith>Or Sign up With</SignInWith>
+        </FlexWrapper>
+        <FlexWrapper justifyContent="center" gap="0.3125rem">
+          <Typography type="smallerTextSemiBold" color="black">
+            Already a member?
           </Typography>
-        </NavLink>
-      </FlexWrapper>
-    </FlexWrapper>
+          <NavLink to="/login">
+            <Typography type="smallerTextSemiBold" color="secondary100">
+              Sign in
+            </Typography>
+          </NavLink>
+        </FlexWrapper>
+      </RegisterDataBlock>
+    </RegisterSection>
   );
 };
 
-const Form = styled.form`
+const RegisterSection = styled.section`
+  height: 100vh;
+
+  @media ${theme.device.tablet} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1)),
+      url(${backgroundImg});
+    background-size: cover;
+  }
+`;
+
+const RegisterDataBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 35rem;
+  gap: 1.5625rem;
+  padding: 2.25rem 1.875rem 2.25rem 2.5rem;
+
+  @media ${theme.device.tablet} {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: ${theme.colors.white};
+  } ;
+`;
+
+const RegisterForm = styled.form`
   display: grid;
   grid-gap: 1rem;
   width: 100%;
