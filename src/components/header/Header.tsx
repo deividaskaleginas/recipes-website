@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { signOut } from "firebase/auth";
 import { auth } from "utils/firebase/firebaseConfig";
@@ -11,19 +11,24 @@ import { theme } from "styles/theme";
 import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import { Typography } from "components/typography/Typography";
 import { NAVIGATION_LINKS } from "constants/navLinksConstants";
-import { NavLink } from "react-router-dom";
 import { FilterButton } from "components/buttons/FilterButton";
 
 import DefaultAvatar from "../../assets/images/userAvatar.png";
+import { HeaderNavLink } from "components/buttons/HeaderNavLink";
 
 export const Header: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
   const navigate = useNavigate();
+  const [isActive, setActive] = useState<string>("Home");
 
   const handleSignOut = async () => {
     await signOut(auth);
     navigate(RouteNames.LOGIN);
   };
+
+  console.log(isActive);
+
+  console.log("render");
   return (
     <HeaderStyled>
       <FlexWrapper flexDirection="column">
@@ -36,9 +41,14 @@ export const Header: React.FC = () => {
       </FlexWrapper>
       <HeaderNavLinks>
         {NAVIGATION_LINKS.map(({ name, link }, index) => (
-          <NavLink key={index} to={link}>
+          <HeaderNavLink
+            key={index}
+            isActive={isActive === name}
+            to={link}
+            onClick={() => setActive(name)}
+          >
             {name}
-          </NavLink>
+          </HeaderNavLink>
         ))}
       </HeaderNavLinks>
       <FlexWrapper alignItems="center">
