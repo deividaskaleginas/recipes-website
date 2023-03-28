@@ -7,6 +7,7 @@ import { CookingTime } from "components/cookingTime/CookingTime";
 import { RatingStar } from "assets/svg";
 import { Link } from "react-router-dom";
 import DefaultAvatar from "../../../assets/images/userAvatar.png";
+import { theme } from "styles/theme";
 
 interface NewRecipesSectionCardsProps {
   id: string;
@@ -29,17 +30,7 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
   const rating = Math.round(sum / votes.length) || 0;
 
   return (
-    <FlexWrapper
-      position="relative"
-      flexDirection="column"
-      justifyContent="space-around"
-      minWidth="15.6875rem"
-      height="5.9375rem"
-      padding="0.625rem"
-      borderRadius="0.625rem"
-      boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-      webkitBoxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
-    >
+    <NewRecipeSectionCardBolck>
       <FlexWrapper width="8.75rem">
         <Link to={`/recipe/${id}`}>
           <Typography type="smallTextBold" color="gray1" numberOfLines={1}>
@@ -71,9 +62,31 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
       <RecipePhotoBlock>
         <img src={photo} alt={title} />
       </RecipePhotoBlock>
-    </FlexWrapper>
+    </NewRecipeSectionCardBolck>
   );
 };
+
+const NewRecipeSectionCardBolck = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 15.6875rem;
+  height: 5.9375rem;
+  padding: 0.625rem;
+  border-radius: 0.625rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  @media ${theme.device.tablet} {
+    min-width: 18.6875rem;
+    height: 8.9375rem;
+  }
+  @media ${theme.device.laptop} {
+    min-width: 17.6875rem;
+    height: 8.9375rem;
+  }
+`;
 
 const UserDataStyledBlock = styled.div`
   display: flex;
@@ -92,9 +105,16 @@ const RecipePhotoBlock = styled.div`
     top: 0%;
     right: -10%;
     transform: translate(-50%, -50%);
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 5rem;
     object-fit: cover;
     border-radius: 50%;
+  }
+
+  @media ${theme.device.tablet} {
+    img {
+      height: 7rem;
+      width: 7rem;
+    }
   }
 `;

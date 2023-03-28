@@ -9,7 +9,7 @@ import { NewRecipesSectionCards } from "./newRecipesSectionCards/NewRecipesSecti
 export const NewRecipesSection: React.FC = () => {
   const { dishesData } = useContext(DishesContext);
   return (
-    <FlexWrapper flexDirection="column" padding="1.25rem 0">
+    <FlexWrapper flexDirection="column" padding="3.25rem 0">
       <FlexWrapper flexDirection="column">
         <Typography type="normalTextBold">New Recipes</Typography>
       </FlexWrapper>
@@ -45,9 +45,11 @@ const NewRecipesListScrollBar = styled.div`
     display: none;
   }
 
+  @media ${theme.device.tablet} {
+    height: 16.9375rem;
+  }
+
   @media ${theme.device.laptop} {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    height: 10.9375rem;
+    justify-content: center;
   }
 `;

@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
 };
 
 const HomePageSectionStyled = styled.section`
-  max-width: 75rem;
+  max-width: 80rem;
   padding: 1.875rem 0 0 1.875rem;
   margin: 0 auto;
 `;
