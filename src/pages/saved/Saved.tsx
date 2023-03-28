@@ -4,6 +4,8 @@ import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";
 import UserContext from "contexts/userContext/userContext";
 import React, { useContext } from "react";
+import styled from "styled-components";
+import { theme } from "styles/theme";
 
 export const Saved: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
@@ -17,17 +19,13 @@ export const Saved: React.FC = () => {
     });
   });
   return (
-    <FlexWrapper
-      flexDirection="column"
-      padding="3.375rem 1.875rem 0 1.875rem"
-      gap="0.625rem"
-    >
+    <SavedRecipesSection>
       <FlexWrapper justifyContent="center">
         <Typography type="mediumTextBold" color="label">
           Saved recipes
         </Typography>
       </FlexWrapper>
-      <FlexWrapper flexDirection="column" gap="1.25rem">
+      <SavedRecipesBlock>
         {filteredUserSavedRecipes.map(
           ({ title, time, photo, id, votes, authorData }) => (
             <SavedAndPostedRecipesCards
@@ -41,7 +39,25 @@ export const Saved: React.FC = () => {
             />
           )
         )}
-      </FlexWrapper>
-    </FlexWrapper>
+      </SavedRecipesBlock>
+    </SavedRecipesSection>
   );
 };
+
+const SavedRecipesSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 3.375rem 1.875rem 0 1.875rem;
+  gap: 0.625rem;
+`;
+
+const SavedRecipesBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @media ${theme.device.tablet} {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+`;

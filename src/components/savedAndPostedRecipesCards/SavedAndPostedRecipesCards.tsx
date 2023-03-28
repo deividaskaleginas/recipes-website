@@ -7,6 +7,7 @@ import { Typography } from "components/typography/Typography";
 import { CookingTime } from "components/cookingTime/CookingTime";
 import { BookmarkButton } from "components/buttons/BookmarkButton";
 import { VotesAmount } from "components/votesAmount/VotesAmount";
+import { theme } from "styles/theme";
 
 interface SavedRecipesCardsProps {
   id: string;
@@ -61,4 +62,8 @@ const SavedRecipeStyledCard = styled.div<{ photo: string }>`
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), #00000071),
     url(${({ photo }) => photo});
   background-size: cover;
+
+  @media ${theme.device.tablet} {
+    height: 12rem;
+  }
 `;
