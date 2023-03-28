@@ -59,8 +59,8 @@ const FilteredListScrollBar = styled.div`
 
   @media ${theme.device.tablet} {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    row-gap: 5rem;
+    grid-template-columns: repeat(3, auto);
+    row-gap: 7rem;
     justify-content: space-around;
     height: auto;
     padding-top: 5rem;
@@ -69,8 +69,8 @@ const FilteredListScrollBar = styled.div`
 
   @media ${theme.device.laptop} {
     display: grid;
-    grid-template-columns: repeat(6, auto);
-    row-gap: 5rem;
+    grid-template-columns: repeat(4, auto);
+    row-gap: 7rem;
     justify-content: space-around;
     height: auto;
     padding-top: 5rem;

@@ -23,16 +23,7 @@ export const SrollingDishesSectionCards: React.FC<
   const { saveRecipe, isRecipeInFavorites } = useSaveToFavoritesRecipe(id);
 
   return (
-    <FlexWrapper
-      position="relative"
-      flexDirection="column"
-      justifyContent="space-between"
-      minWidth="9.375rem"
-      width="9.375rem"
-      height="11rem"
-      backgroundColor="gray4Opacity"
-      borderRadius="0.75rem"
-    >
+    <ScrollingDishSectionCardStyled>
       <ImageBlockStyled>
         <img src={image} alt={title} />
       </ImageBlockStyled>
@@ -71,9 +62,26 @@ export const SrollingDishesSectionCards: React.FC<
           <BookmarkButton isActive={isRecipeInFavorites} onClick={saveRecipe} />
         </FlexWrapper>
       </FlexWrapper>
-    </FlexWrapper>
+    </ScrollingDishSectionCardStyled>
   );
 };
+
+const ScrollingDishSectionCardStyled = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 9.375rem;
+  width: 9.375rem;
+  height: 11rem;
+  background-color: ${theme.colors.gray4Opacity};
+  border-radius: 0.75rem;
+
+  @media ${theme.device.tablet} {
+    width: 14rem;
+    height: 14rem;
+  }
+`;
 
 const ImageBlockStyled = styled.div`
   img {
@@ -88,5 +96,12 @@ const ImageBlockStyled = styled.div`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  @media ${theme.device.tablet} {
+    img {
+      height: 9.875rem;
+      width: 9.875rem;
+    }
   }
 `;
