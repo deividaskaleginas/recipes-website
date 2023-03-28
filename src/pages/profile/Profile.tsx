@@ -5,6 +5,7 @@ import DishesContext from "contexts/dishesContext/dishesContext";
 import UserContext from "contexts/userContext/userContext";
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 
 export const Profile: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
@@ -19,14 +20,14 @@ export const Profile: React.FC = () => {
       flexDirection="column"
       padding="3.375rem 1.875rem 8.125rem 1.875rem"
     >
-      <FlexWrapper justifyContent="center">
+      <ProfileSectionName>
         <Typography type="mediumTextBold" color="black">
           Profile
         </Typography>
-      </FlexWrapper>
+      </ProfileSectionName>
 
       <FlexWrapper flexDirection="column" gap="0.9375rem">
-        <FlexWrapper alignItems="center" justifyContent="space-between">
+        <UserDataBlock>
           <FlexWrapper>
             <UserPhotoStyle src={loggedUserData.avatar} alt="user profile" />
           </FlexWrapper>
@@ -54,14 +55,14 @@ export const Profile: React.FC = () => {
               </Typography>
             </FlexWrapper>
           </FlexWrapper>
-        </FlexWrapper>
-        <FlexWrapper justifyContent="flex-start">
+        </UserDataBlock>
+        <UserProfileNameBlock>
           <Typography type="normalTextBold" color="label">
             {loggedUserData.username}
           </Typography>
-        </FlexWrapper>
+        </UserProfileNameBlock>
       </FlexWrapper>
-      <FlexWrapper flexDirection="column" gap="1.25rem">
+      <AddedRecipesBlock>
         {userRecipes.map(({ title, time, photo, id, votes, authorData }) => (
           <SavedAndPostedRecipesCards
             key={id}
@@ -73,14 +74,57 @@ export const Profile: React.FC = () => {
             authorData={authorData}
           />
         ))}
-      </FlexWrapper>
+      </AddedRecipesBlock>
     </FlexWrapper>
   );
 };
+
+const ProfileSectionName = styled.div`
+  display: flex;
+  justify-content: center;
+
+  @media ${theme.device.tablet} {
+    display: none;
+  }
+`;
+
+const UserDataBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media ${theme.device.tablet} {
+    justify-content: flex-end;
+    gap: 3rem;
+    padding-bottom: 2rem;
+  }
+`;
+
+const UserProfileNameBlock = styled.div`
+  @media ${theme.device.tablet} {
+    display: none;
+  }
+`;
 
 const UserPhotoStyle = styled.img`
   height: 6.1875rem;
   width: 6.1875rem;
   border-radius: 50%;
   object-fit: cover;
+
+  @media ${theme.device.tablet} {
+    display: none;
+  }
+`;
+
+const AddedRecipesBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @media ${theme.device.tablet} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+  }
 `;
