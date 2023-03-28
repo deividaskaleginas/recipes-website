@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 
 import { Colors } from "../../styles/colors";
 import { theme } from "../../styles/theme";
+import { type } from "os";
 
 export type TypographyTypes = keyof typeof TypographyHtmlTag;
 
@@ -75,5 +76,11 @@ const TextStyled = styled.h1<TextStyles>`
     -webkit-box-orient: ${numberOfLines ? "vertical" : "inline-axis"};
     display: ${numberOfLines ? "-webkit-box" : "?"};
     overflow: ${numberOfLines ? "hidden" : "visible"};
+
+    @media ${theme.device.tablet} {
+      font-size: ${type
+        ? theme.typography[type].fontSizeTablet
+        : theme.typography.normalTextRegular.fontSizeTablet};
+    }
   `}
 `;

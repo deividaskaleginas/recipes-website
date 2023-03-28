@@ -7,6 +7,7 @@ import CommentsContext from "contexts/commentsContext/commentsContext";
 import { useSaveToFavoritesRecipe } from "hooks/useSaveToFavoritesRecipe";
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 import { AuthorType } from "types/userDataTypes";
 import DefaultAvatar from "../../assets/images/userAvatar.png";
 
@@ -34,7 +35,7 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
     (comment) => comment.dishId === id
   );
   return (
-    <FlexWrapper flexDirection="column">
+    <OpenedRecipeSection>
       <RecipePhotoBlock photo={photo}>
         <FlexWrapper justifyContent="flex-end" gap="0.625rem">
           <CookingTime>{time}</CookingTime>
@@ -42,18 +43,14 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
         </FlexWrapper>
         <VotesAmount votes={votes} top="1.25rem" right="-0.625rem" />
       </RecipePhotoBlock>
-      <FlexWrapper
-        margin="1rem 0"
-        justifyContent="space-between"
-        gap="1.125rem"
-      >
+      <RecipeTitleAndCommentsBlock>
         <Typography type="smallTextBold" color="black">
           {title}
         </Typography>
         <Typography type="smallTextRegular" color="gray3">
           ({filteredComments.length} Reviews)
         </Typography>
-      </FlexWrapper>
+      </RecipeTitleAndCommentsBlock>
       <FlexWrapper margin="0.5rem 0 1rem" alignItems="center" gap="0.625rem">
         <UserAvatarStyled
           src={authorData.avatar || DefaultAvatar}
@@ -63,9 +60,13 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
           {authorData.username}
         </Typography>
       </FlexWrapper>
-    </FlexWrapper>
+    </OpenedRecipeSection>
   );
 };
+
+const OpenedRecipeSection = styled.section`
+  max-width: 75rem;
+`;
 
 const RecipePhotoBlock = styled.div<{ photo: string }>`
   position: relative;
@@ -80,6 +81,16 @@ const RecipePhotoBlock = styled.div<{ photo: string }>`
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), #00000071),
     url(${({ photo }) => photo});
   background-size: cover;
+
+  @media ${theme.device.tablet} {
+    min-height: 25rem;
+  }
+`;
+
+const RecipeTitleAndCommentsBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
 `;
 
 const UserAvatarStyled = styled.img`
@@ -87,4 +98,9 @@ const UserAvatarStyled = styled.img`
   width: 2.5rem;
   border-radius: 50%;
   object-fit: cover;
+
+  @media ${theme.device.tablet} {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
 `;
