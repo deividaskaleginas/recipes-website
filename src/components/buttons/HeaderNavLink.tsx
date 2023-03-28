@@ -1,3 +1,4 @@
+import { Typography } from "components/typography/Typography";
 import React, { ReactNode, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -22,14 +23,16 @@ export const HeaderNavLink: React.FC<HeaderNavLinkProps> = ({
   console.log(isActive);
   return (
     <NavLinkStyled isActive={isActive} onClick={onClick}>
-      <NavLink to={to}>{children}</NavLink>
+      <NavLink to={to}>
+        <Typography
+          type="smallerTextBold"
+          color={isActive ? "secondary100" : "primary100"}
+        >
+          {children}
+        </Typography>
+      </NavLink>
     </NavLinkStyled>
   );
 };
 
-const NavLinkStyled = styled.div<{ isActive: boolean }>`
-  > a {
-    color: ${({ isActive }) =>
-      isActive ? theme.colors.secondary100 : theme.colors.primary100};
-  }
-`;
+const NavLinkStyled = styled.div<{ isActive: boolean }>``;
