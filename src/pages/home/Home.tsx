@@ -71,6 +71,10 @@ const HomeHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 1.875rem 0 0;
+
+  @media ${theme.device.tablet} {
+    display: none;
+  } ;
 `;
 
 const HeaderNavLinks = styled.div`

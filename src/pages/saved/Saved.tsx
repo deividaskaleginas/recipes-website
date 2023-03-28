@@ -47,6 +47,7 @@ export const Saved: React.FC = () => {
 const SavedRecipesSection = styled.section`
   display: flex;
   flex-direction: column;
+  max-width: 75rem;
   padding: 3.375rem 1.875rem 0 1.875rem;
   gap: 0.625rem;
 `;
@@ -58,6 +59,7 @@ const SavedRecipesBlock = styled.div`
 
   @media ${theme.device.tablet} {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
   }
 `;
