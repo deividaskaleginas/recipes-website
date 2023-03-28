@@ -3,6 +3,7 @@ import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 import { NewRecipesSectionCards } from "./newRecipesSectionCards/NewRecipesSectionCards";
 
 export const NewRecipesSection: React.FC = () => {
@@ -13,17 +14,19 @@ export const NewRecipesSection: React.FC = () => {
         <Typography type="normalTextBold">New Recipes</Typography>
       </FlexWrapper>
       <NewRecipesListScrollBar>
-        {dishesData.map(({ id, title, photo, time, authorData, votes }) => (
-          <NewRecipesSectionCards
-            key={id}
-            id={id}
-            title={title}
-            photo={photo}
-            time={time}
-            authorData={authorData}
-            votes={votes}
-          />
-        ))}
+        {dishesData
+          .slice(0, 4)
+          .map(({ id, title, photo, time, authorData, votes }) => (
+            <NewRecipesSectionCards
+              key={id}
+              id={id}
+              title={title}
+              photo={photo}
+              time={time}
+              authorData={authorData}
+              votes={votes}
+            />
+          ))}
       </NewRecipesListScrollBar>
     </FlexWrapper>
   );
@@ -40,5 +43,11 @@ const NewRecipesListScrollBar = styled.div`
 
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  @media ${theme.device.laptop} {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    height: 10.9375rem;
   }
 `;
