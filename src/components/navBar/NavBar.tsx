@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "styles/theme";
 
 import {
   home,
@@ -19,18 +21,18 @@ export const NavBar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <FlexWrapper
-      position="fixed"
-      left="0"
-      bottom="0"
-      justifyContent={"space-between"}
-      height="6.625rem"
-      width="100%"
-      padding="1.5rem 2.5rem 3.625rem 2.5rem"
-      backgroundColor="white"
-      boxShadow="box-shadow: -1px -7px 5px 0px rgba(108,108,108,0.21)"
-      webkitBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"
-      mozBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"
+    <NavBarStyled
+    // position="fixed"
+    // left="0"
+    // bottom="0"
+    // justifyContent={"space-between"}
+    // height="6.625rem"
+    // width="100%"
+    // padding="1.5rem 2.5rem 3.625rem 2.5rem"
+    // backgroundColor="white"
+    // boxShadow="box-shadow: -1px -7px 5px 0px rgba(108,108,108,0.21)"
+    // webkitBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"
+    // mozBoxShadow="-1px -7px 5px 0px rgba(108,108,108,0.21)"
     >
       <FlexWrapper gap="2.5rem">
         <NavLink to={"/"}>
@@ -49,6 +51,25 @@ export const NavBar: React.FC = () => {
           {({ isActive }) => (isActive ? profileActive : profile)}
         </NavLink>
       </FlexWrapper>
-    </FlexWrapper>
+    </NavBarStyled>
   );
 };
+
+const NavBarStyled = styled.div`
+  display: flex;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  justify-content: space-between;
+  height: 6.625rem;
+  width: 100%;
+  padding: 1.5rem 2.5rem 3.625rem 2.5rem;
+  background-color: ${theme.colors.white};
+  box-shadow: -1px -7px 5px 0px rgba(108, 108, 108, 0.21);
+  -webkit-box-shadow: -1px -7px 5px 0px rgba(108, 108, 108, 0.21);
+  -moz-box-shadow: -1px -7px 5px 0px rgba(108, 108, 108, 0.21);
+
+  @media ${theme.device.tablet} {
+    display: none;
+  }
+`;
