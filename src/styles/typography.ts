@@ -66,7 +66,7 @@ export const typography: TypographyThemeType = {
     fontSize: "0.875rem",
     fontSizeTablet: "1.3rem",
     fontWeight: 600,
-    lineHeight: "1.3125rem",
+    lineHeight: "1.6125rem",
   },
   smallerTextBold: {
     fontSize: "0.6875rem",

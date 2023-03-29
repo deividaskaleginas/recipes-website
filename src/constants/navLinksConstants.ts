@@ -16,4 +16,8 @@ export const NAVIGATION_LINKS: NavLinkType[] = [
     name: "Profile",
     link: "/profile",
   },
+  {
+    name: "Add Recipe",
+    link: "/add",
+  },
 ];

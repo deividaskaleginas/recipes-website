@@ -65,7 +65,7 @@ export const OpenedRecipeData: React.FC<OpenedRecipeDataProps> = ({
 };
 
 const OpenedRecipeSection = styled.section`
-  max-width: 75rem;
+  max-width: 65rem;
 `;
 
 const RecipePhotoBlock = styled.div<{ photo: string }>`
@@ -73,6 +73,7 @@ const RecipePhotoBlock = styled.div<{ photo: string }>`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin: 0 auto;
   padding: 0 0.625rem 0.625rem 0.625rem;
   min-height: 9.375rem;
   width: 100%;
@@ -83,14 +84,20 @@ const RecipePhotoBlock = styled.div<{ photo: string }>`
   background-size: cover;
 
   @media ${theme.device.tablet} {
-    min-height: 25rem;
+    min-height: 29rem;
+    max-width: 40rem;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 `;
 
 const RecipeTitleAndCommentsBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin: 1rem auto;
 `;
 
 const UserAvatarStyled = styled.img`

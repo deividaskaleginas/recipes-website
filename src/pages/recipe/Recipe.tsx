@@ -11,6 +11,8 @@ import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import DishesContext from "contexts/dishesContext/dishesContext";
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "styles/theme";
 
 export const Recipe: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,7 +26,7 @@ export const Recipe: React.FC = () => {
   console.log(openedRecipe);
 
   return (
-    <FlexWrapper padding="3.375rem 1.875rem" flexDirection="column">
+    <RecipeSection>
       <FlexWrapper justifyContent="space-between" width="100%">
         <GoBackButton />
         <OpenMore onClick={() => setModalOpen(true)} />
@@ -61,6 +63,17 @@ export const Recipe: React.FC = () => {
           portions={openedRecipe!.portions}
         />
       )}
-    </FlexWrapper>
+    </RecipeSection>
   );
 };
+
+const RecipeSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 3.375rem 1.875rem;
+  max-width: 75rem;
+
+  @media ${theme.device.tablet} {
+    margin: 0 auto;
+  } ;
+`;

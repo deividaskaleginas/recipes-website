@@ -16,10 +16,7 @@ export const Profile: React.FC = () => {
   );
 
   return (
-    <FlexWrapper
-      flexDirection="column"
-      padding="3.375rem 1.875rem 8.125rem 1.875rem"
-    >
+    <ProfileSection>
       <ProfileSectionName>
         <Typography type="mediumTextBold" color="black">
           Profile
@@ -75,9 +72,15 @@ export const Profile: React.FC = () => {
           />
         ))}
       </AddedRecipesBlock>
-    </FlexWrapper>
+    </ProfileSection>
   );
 };
+
+const ProfileSection = styled.section`
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 3.375rem 1.875rem 8.125rem 1.875rem;
+`;
 
 const ProfileSectionName = styled.div`
   display: flex;
