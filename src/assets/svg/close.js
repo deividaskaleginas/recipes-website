@@ -1,7 +1,7 @@
 export const close = (
   <svg
-    width="5"
-    height="6"
+    width="15"
+    height="16"
     viewBox="0 0 5 6"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

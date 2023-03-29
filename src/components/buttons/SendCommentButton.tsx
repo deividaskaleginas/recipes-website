@@ -26,4 +26,8 @@ const ButtonStyled = styled.button`
   border: none;
 
   background-color: ${theme.colors.primary100};
+
+  @media ${theme.device.tablet} {
+    right: -2%;
+  }
 `;

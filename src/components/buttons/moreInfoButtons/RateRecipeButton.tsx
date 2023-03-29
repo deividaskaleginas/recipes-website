@@ -2,6 +2,7 @@ import { blackStar } from "assets/svg";
 import { Typography } from "components/typography/Typography";
 import React from "react";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 
 interface RateRecipeButtonProps {
   onClick: () => void;
@@ -26,4 +27,11 @@ const RateRecipeStyledButton = styled.button`
   gap: 1rem;
   border: none;
   background: none;
+  cursor: pointer;
+
+  @media ${theme.device.tablet} {
+    p {
+      font-size: 1.8rem;
+    }
+  }
 `;

@@ -12,8 +12,9 @@ export const CloseButton: React.FC<CloseButtonProps> = ({ onClick }) => {
 
 const CloseButtonStyled = styled.button`
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 0.9375rem;
+  top: 0.625rem;
   border: none;
   background: none;
+  cursor: pointer;
 `;

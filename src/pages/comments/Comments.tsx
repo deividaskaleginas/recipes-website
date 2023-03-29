@@ -6,6 +6,7 @@ import { FlexWrapper } from "components/wrappers/FlexWrapper";
 import CommentsContext from "contexts/commentsContext/commentsContext";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
 
 export const Comments: React.FC = () => {
   const { commentsData } = useContext(CommentsContext);
@@ -17,19 +18,15 @@ export const Comments: React.FC = () => {
     (comment) => comment.dishId === id
   );
   return (
-    <FlexWrapper
-      flexDirection="column"
-      padding="0.875rem 1.875rem"
-      gap="3.375rem"
-    >
-      <FlexWrapper alignItems="center" gap="6.25rem">
+    <CommentSection>
+      <FlexWrapper alignItems="center" gap="40%">
         <GoBackButton />
         <Typography type="mediumTextBold" color="black">
           Reviews
         </Typography>
       </FlexWrapper>
       <FlexWrapper flexDirection="column">
-        <FlexWrapper justifyContent="flex-end">
+        <FlexWrapper justifyContent="flex-end" padding="0 0 1rem 0">
           <Typography type="smallerTextRegular" color="gray3">
             {filteredComments.length} comments
           </Typography>
@@ -51,6 +48,16 @@ export const Comments: React.FC = () => {
           </FlexWrapper>
         </FlexWrapper>
       </FlexWrapper>
-    </FlexWrapper>
+    </CommentSection>
   );
 };
+
+const CommentSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 0.875rem 1.875rem;
+  gap: 3.375rem;
+
+  max-width: 75rem;
+  margin: 0 auto;
+`;

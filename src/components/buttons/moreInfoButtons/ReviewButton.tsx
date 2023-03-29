@@ -3,6 +3,7 @@ import { Typography } from "components/typography/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { theme } from "styles/theme";
 
 interface ReviewButtonProps {
   id: string;
@@ -29,4 +30,11 @@ const ReviewStyledButton = styled.button`
   gap: 1rem;
   border: none;
   background: none;
+  cursor: pointer;
+
+  @media ${theme.device.tablet} {
+    p {
+      font-size: 1.8rem;
+    }
+  }
 `;

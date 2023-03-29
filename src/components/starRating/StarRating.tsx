@@ -37,7 +37,7 @@ export const StarRaiting: React.FC<StarRaitingProps> = ({
           </Typography>
         </FlexWrapper>
       ) : (
-        <>
+        <StarsBlock>
           <FlexWrapper>
             <Typography type="smallTextRegular" color="label">
               Rate recipe
@@ -69,7 +69,7 @@ export const StarRaiting: React.FC<StarRaitingProps> = ({
               />
             </FlexWrapper>
           </form>
-        </>
+        </StarsBlock>
       )}
     </StarRatingStyledBlock>
   );
@@ -84,9 +84,9 @@ const StarRatingStyledBlock = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 10.625rem;
+  max-width: 12.625rem;
   gap: 0.3125rem;
-  padding: 0.625rem 0.9375rem;
+  padding: 1rem 2rem;
   border-radius: 0.5rem;
   background-color: ${theme.colors.white};
 
@@ -100,4 +100,20 @@ const StarRatingStyledBlock = styled.div`
   input[type="radio"] {
     display: none;
   }
+
+  @media ${theme.device.tablet} {
+    max-width: 18rem;
+    padding: 2rem 4rem;
+
+    form {
+      gap: 1rem;
+    }
+  }
+`;
+
+const StarsBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 `;

@@ -58,10 +58,11 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     createComment();
+    setValues({ comment: "" });
   };
 
   return (
-    <FlexWrapper flexDirection="column" gap="0.3125rem">
+    <FlexWrapper flexDirection="column" gap="0.5125rem">
       <Typography type="smallTextRegular" color="label">
         Leave a comment
       </Typography>
@@ -81,6 +82,15 @@ export const LeaveComment: React.FC<LeaveCommentProps> = ({ id }) => {
 const Form = styled.form`
   position: relative;
   width: 100%;
+
+  @media ${theme.device.tablet} {
+    width: 40rem;
+    margin: 0 auto;
+  }
+
+  @media ${theme.device.tablet} {
+    width: 50rem;
+  }
 `;
 
 const TextareaStyled = styled.textarea`
@@ -92,4 +102,8 @@ const TextareaStyled = styled.textarea`
   padding: 1rem 4.5rem 1rem 1rem;
 
   resize: none;
+
+  @media ${theme.device.tablet} {
+    min-height: 7rem;
+  }
 `;

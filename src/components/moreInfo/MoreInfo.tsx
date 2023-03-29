@@ -37,7 +37,15 @@ const MoreInfoStyledBlock = styled.div`
   width: fit-content;
   flex-direction: column;
   border-radius: 0.5rem;
-  padding: 1.45rem;
+  padding: 1.9rem;
   gap: 0.9375rem;
   background: ${theme.colors.white};
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  @media ${theme.device.tablet} {
+    padding: 3rem;
+  }
 `;
