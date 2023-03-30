@@ -31,37 +31,38 @@ export const NewRecipesSectionCards: React.FC<NewRecipesSectionCardsProps> = ({
 
   return (
     <NewRecipeSectionCardBolck>
-      <FlexWrapper width="8.75rem">
-        <Link to={`/recipe/${id}`}>
+      <Link to={`/recipe/${id}`}>
+        <FlexWrapper width="8.75rem">
           <Typography type="smallTextBold" color="gray1" numberOfLines={1}>
             {title}
-            {/* {title.length > 17 ? title.substring(0, 17 - 3) + "..." : title} */}
           </Typography>
-        </Link>
-      </FlexWrapper>
-      <FlexWrapper>
-        {[...Array(5)].map((star, i) => {
-          const ratingValue = i + 1;
-          return (
-            <FlexWrapper key={i}>
-              <RatingStar color={ratingValue <= rating ? "#FFAD30" : "white"} />
-            </FlexWrapper>
-          );
-        })}
-      </FlexWrapper>
-      <FlexWrapper justifyContent="space-between">
-        <UserDataStyledBlock>
-          <img src={authorData.avatar || DefaultAvatar} alt="user profile" />
-          <Typography type="smallerTextRegular" color="gray3">
-            By {authorData.username}
-          </Typography>
-        </UserDataStyledBlock>
+        </FlexWrapper>
+        <FlexWrapper>
+          {[...Array(5)].map((star, i) => {
+            const ratingValue = i + 1;
+            return (
+              <FlexWrapper key={i}>
+                <RatingStar
+                  color={ratingValue <= rating ? "#FFAD30" : "white"}
+                />
+              </FlexWrapper>
+            );
+          })}
+        </FlexWrapper>
+        <FlexWrapper justifyContent="space-between">
+          <UserDataStyledBlock>
+            <img src={authorData.avatar || DefaultAvatar} alt="user profile" />
+            <Typography type="smallerTextRegular" color="gray3">
+              By {authorData.username}
+            </Typography>
+          </UserDataStyledBlock>
 
-        <CookingTime>{time}</CookingTime>
-      </FlexWrapper>
-      <RecipePhotoBlock>
-        <img src={photo} alt={title} />
-      </RecipePhotoBlock>
+          <CookingTime>{time}</CookingTime>
+        </FlexWrapper>
+        <RecipePhotoBlock>
+          <img src={photo} alt={title} />
+        </RecipePhotoBlock>
+      </Link>
     </NewRecipeSectionCardBolck>
   );
 };

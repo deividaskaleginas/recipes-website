@@ -24,11 +24,12 @@ export const SrollingDishesSectionCards: React.FC<
 
   return (
     <ScrollingDishSectionCardStyled>
-      <ImageBlockStyled>
-        <img src={image} alt={title} />
-      </ImageBlockStyled>
-      <VotesAmount votes={votes} top="-7%" right="-14%" />
       <Link to={`/recipe/${id}`}>
+        <ImageBlockStyled>
+          <img src={image} alt={title} />
+        </ImageBlockStyled>
+        <VotesAmount votes={votes} top="-7%" right="-14%" />
+
         <FlexWrapper
           justifyContent="center"
           width="100%"
@@ -43,25 +44,28 @@ export const SrollingDishesSectionCards: React.FC<
             {title}
           </Typography>
         </FlexWrapper>
-      </Link>
 
-      <FlexWrapper
-        justifyContent="space-between"
-        alignItems="flex-end"
-        padding="0 0.625rem 0.625rem 0.625rem"
-      >
-        <FlexWrapper flexDirection="column" gap="0.3125rem">
-          <Typography type="smallerTextRegular" color="gray3">
-            Time
-          </Typography>
-          <Typography type="smallerTextBold" color="gray1">
-            {time} Mins
-          </Typography>
+        <FlexWrapper
+          justifyContent="space-between"
+          alignItems="flex-end"
+          padding="0 0.625rem 0.625rem 0.625rem"
+        >
+          <FlexWrapper flexDirection="column" gap="0.3125rem">
+            <Typography type="smallerTextRegular" color="gray3">
+              Time
+            </Typography>
+            <Typography type="smallerTextBold" color="gray1">
+              {time} Mins
+            </Typography>
+          </FlexWrapper>
+          <FlexWrapper>
+            <BookmarkButton
+              isActive={isRecipeInFavorites}
+              onClick={saveRecipe}
+            />
+          </FlexWrapper>
         </FlexWrapper>
-        <FlexWrapper>
-          <BookmarkButton isActive={isRecipeInFavorites} onClick={saveRecipe} />
-        </FlexWrapper>
-      </FlexWrapper>
+      </Link>
     </ScrollingDishSectionCardStyled>
   );
 };
@@ -70,7 +74,7 @@ const ScrollingDishSectionCardStyled = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   min-width: 9.375rem;
   width: 9.375rem;
   height: 11rem;

@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { CaretButton } from "components/buttons/CaretButton";
+import { ShowMoreLess } from "components/showMoreLess/ShowMoreLess";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "styles/theme";
 import { DishData } from "types/userDataTypes";
@@ -9,6 +11,9 @@ import { SrollingDishesSectionCards } from "./scrollingDishesSectionCards/Scroll
 
 export const ScrollingDishesSection: React.FC = () => {
   const [filteredList, setFilteredList] = useState<DishData[] | null>(null);
+  const [itemsShowFrom, setItemsShowFrom] = useState(0);
+  const [itemsShowTo, setItemsShowTo] = useState(8);
+
   return (
     <FlexWrapper flexDirection="column">
       <FilterScrollBar>
@@ -16,17 +21,24 @@ export const ScrollingDishesSection: React.FC = () => {
       </FilterScrollBar>
       <FilteredListScrollBar>
         {filteredList &&
-          filteredList!.map(({ title, time, photo, id, votes }) => (
-            <SrollingDishesSectionCards
-              key={id}
-              title={title}
-              time={time}
-              image={photo}
-              id={id}
-              votes={votes}
-            />
-          ))}
+          filteredList!
+            .slice(itemsShowFrom, itemsShowTo)
+            .map(({ title, time, photo, id, votes }) => (
+              <SrollingDishesSectionCards
+                key={id}
+                title={title}
+                time={time}
+                image={photo}
+                id={id}
+                votes={votes}
+              />
+            ))}
       </FilteredListScrollBar>
+      <ShowMoreLess
+        dishesArray={filteredList}
+        setItemsShowFrom={setItemsShowFrom}
+        setItemsShowTo={setItemsShowTo}
+      />
     </FlexWrapper>
   );
 };
