@@ -20,6 +20,7 @@ export const colors = {
   warning: "#804E00",
   success: "#31B057",
   label: "#121212",
+  loader: "#f3f3f3",
 };
 
 export type Colors = keyof typeof colors;

@@ -1,4 +1,5 @@
 import { CaretButton } from "components/buttons/CaretButton";
+import { Loader } from "components/loader/Loader";
 import { ShowMoreLess } from "components/showMoreLess/ShowMoreLess";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -20,7 +21,7 @@ export const ScrollingDishesSection: React.FC = () => {
         <Filters setFilteredList={setFilteredList} />
       </FilterScrollBar>
       <FilteredListScrollBar>
-        {filteredList &&
+        {filteredList ? (
           filteredList!
             .slice(itemsShowFrom, itemsShowTo)
             .map(({ title, time, photo, id, votes }) => (
@@ -32,7 +33,10 @@ export const ScrollingDishesSection: React.FC = () => {
                 id={id}
                 votes={votes}
               />
-            ))}
+            ))
+        ) : (
+          <Loader />
+        )}
       </FilteredListScrollBar>
       <ShowMoreLess
         dishesArray={filteredList}
