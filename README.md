@@ -27,7 +27,6 @@ For design - used figma template.
 
 ### Things in to-do list to update :point_right:
 
-- create website responsive for Desktop as well.
 - create decent error messages and error state.
 - add Firebase config to env.
 
