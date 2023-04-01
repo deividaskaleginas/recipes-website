@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
@@ -15,10 +15,13 @@ import { Collections } from "types/collections";
 import { RouteNames } from "types/routes";
 import styled from "styled-components";
 import { theme } from "styles/theme";
+import { Loader } from "../../components/loader/Loader";
 
 import backgroundImg from "../../assets/images/background.jpg";
 
 export const Register: React.FC = () => {
+  const [userExist, setUserExist] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -60,7 +63,7 @@ export const Register: React.FC = () => {
     {
       id: 3,
       name: "password",
-      type: "text",
+      type: "password",
       placeholder: "Password",
       errorMessage:
         "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character",
@@ -93,8 +96,8 @@ export const Register: React.FC = () => {
 
   const createUser = async () => {
     try {
-      createUserWithEmailAndPassword(auth, values.email, values.password).then(
-        (userData) => {
+      createUserWithEmailAndPassword(auth, values.email, values.password)
+        .then((userData) => {
           const userDetails = {
             uid: userData.user.uid,
             favorites: [],
@@ -103,10 +106,13 @@ export const Register: React.FC = () => {
             avatar: "",
           };
           addDoc(collectionRef, userDetails);
-
+          setIsLoading(false);
           navigate(RouteNames.HOME);
-        }
-      );
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setUserExist(true);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -114,66 +120,69 @@ export const Register: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     createUser();
   };
 
   return (
-    <RegisterSection
-    // flexDirection="column"
-    // justifyContent="space-around"
-    // height="100vh"
-    // padding="6.25rem 1.875rem 6.25rem 2.5rem"
-    >
-      <RegisterDataBlock>
-        <FlexWrapper flexDirection="column">
-          <Typography type="largeTextBold" color="black">
-            Create an account
-          </Typography>
-          <Typography type="smallTextBold" color="label">
-            Let's help you set up your account, <br />
-            it won't take long.
-          </Typography>
-        </FlexWrapper>
-        <FlexWrapper>
-          <RegisterForm onSubmit={handleSubmit}>
-            {inputs.map((input) => (
-              <FormInputs
-                key={input.id}
-                {...input}
-                value={values[input.name]}
-                onChange={onChange}
-              />
-            ))}
-            {/* {isUserLoggedIn && (
-            <Typography type="smallTextRegular" color="secondary100">
-              User with this username already exists
+    <RegisterSection isLoading={isLoading}>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <RegisterDataBlock>
+          <FlexWrapper flexDirection="column">
+            <Typography type="largeTextBold" color="black">
+              Create an account
             </Typography>
-          )} */}
-            <ArrowButton onClick={() => console.log("submit")} width="100%">
-              Sign Up
-            </ArrowButton>
-          </RegisterForm>
-        </FlexWrapper>
-        <FlexWrapper margin="0.5rem 0" justifyContent="center">
-          <SignInWith>Or Sign up With</SignInWith>
-        </FlexWrapper>
-        <FlexWrapper justifyContent="center" gap="0.3125rem">
-          <Typography type="smallerTextSemiBold" color="black">
-            Already a member?
-          </Typography>
-          <NavLink to="/login">
-            <Typography type="smallerTextSemiBold" color="secondary100">
-              Sign in
+            <Typography type="smallTextBold" color="label">
+              Let's help you set up your account, <br />
+              it won't take long.
             </Typography>
-          </NavLink>
-        </FlexWrapper>
-      </RegisterDataBlock>
+          </FlexWrapper>
+          <FlexWrapper>
+            <RegisterForm onSubmit={handleSubmit}>
+              {inputs.map((input) => (
+                <FormInputs
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+                />
+              ))}
+              {userExist && (
+                <Typography type="smallTextRegular" color="secondary100">
+                  User with this email already exists
+                </Typography>
+              )}
+              <ArrowButton onClick={() => console.log("submit")} width="100%">
+                Sign Up
+              </ArrowButton>
+            </RegisterForm>
+          </FlexWrapper>
+          <FlexWrapper margin="0.5rem 0" justifyContent="center">
+            <SignInWith>Or Sign up With</SignInWith>
+          </FlexWrapper>
+          <FlexWrapper justifyContent="center" gap="0.3125rem">
+            <Typography type="smallerTextSemiBold" color="black">
+              Already a member?
+            </Typography>
+            <NavLink to="/login">
+              <Typography type="smallerTextSemiBold" color="secondary100">
+                Sign in
+              </Typography>
+            </NavLink>
+          </FlexWrapper>
+        </RegisterDataBlock>
+      )}
     </RegisterSection>
   );
 };
 
-const RegisterSection = styled.section`
-  height: 100vh;
+const RegisterSection = styled.section<{ isLoading: boolean }>`
+  height: ${({ isLoading }) => (isLoading ? "100vh" : "auto")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media ${theme.device.tablet} {
     display: flex;
@@ -198,7 +207,8 @@ const RegisterDataBlock = styled.div`
     flex-direction: column;
     width: 100%;
     background-color: ${theme.colors.white};
-  } ;
+    margin: 2rem 0;
+  }
 `;
 
 const RegisterForm = styled.form`

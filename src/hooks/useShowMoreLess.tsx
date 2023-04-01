@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DishData } from "types/userDataTypes";
 
 interface UseShowMoreLess {
@@ -15,6 +15,13 @@ export const useShowMoreLess = (
 ): UseShowMoreLess => {
   const [itemsShowFrom, setItemsShowFrom] = useState(0);
   const [itemsShowTo, setItemsShowTo] = useState(8);
+
+  useEffect(() => {
+    setItemsShowFrom(0);
+    setItemsShowTo(8);
+    setShowLessButtonIsActive(false);
+    setShowMoreButtonIsActive(true);
+  }, [list]);
 
   const showMore = () => {
     if (itemsShowTo + 8 < list!.length) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useShowMoreLess } from "hooks/useShowMoreLess";
 import { DishData } from "types/userDataTypes";
 import { CaretButton } from "components/buttons/CaretButton";
@@ -23,8 +23,12 @@ export const ShowMoreLess: React.FC<ShowMoreLessProps> = ({
     setShowMoreButtonIsActive,
     setShowLessButtonIsActive
   );
-  setItemsShowFrom(itemsShowFrom);
-  setItemsShowTo(itemsShowTo);
+
+  useEffect(() => {
+    setItemsShowFrom(itemsShowFrom);
+    setItemsShowTo(itemsShowTo);
+  }, [itemsShowFrom, itemsShowTo]);
+
   return (
     <ShowMoreLessBlock>
       {showLessButtonIsActive && <CaretButton onClick={() => showLess()} />}

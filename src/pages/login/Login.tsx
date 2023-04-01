@@ -1,4 +1,9 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  browserSessionPersistence,
+  getAuth,
+  setPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { FormEvent, useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -13,10 +18,12 @@ import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
 import UserContext from "../../contexts/userContext/userContext";
 
 import backgroundImg from "../../assets/images/background.jpg";
+import { Loader } from "components/loader/Loader";
 
 export const Login: React.FC = () => {
   const { findUser } = useContext(UserContext);
-  const [failedLogin, setFailedLogin] = useState(Boolean);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [failedLogin, setFailedLogin] = useState<boolean>(false);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -53,60 +60,90 @@ export const Login: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, values.email, values.password)
-      .then((userData) => findUser(userData.user.uid))
-      .catch((err) => console.log(err.message));
+    setIsLoading(true);
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {
+        return signInWithEmailAndPassword(
+          auth,
+          values.email,
+          values.password
+        ).then((userData) => {
+          findUser(userData.user.uid);
+          // setIsLoading(false);
+        });
+      })
+      .catch((error) => {
+        setFailedLogin(true);
+        setIsLoading(false);
+      });
+    // setIsLoading(true);
+    // signInWithEmailAndPassword(auth, values.email, values.password)
+    //   .then((userData) => {
+    //     findUser(userData.user.uid);
+    //     // setIsLoading(false);
+    //   })
+    //   .catch((err) => {
+    //     setFailedLogin(true);
+    //     setIsLoading(false);
+    //   });
   };
 
   return (
-    <LoginSection>
-      <LoginDataBlock>
-        <FlexWrapper flexDirection="column">
-          <Typography type="headerTextBold" color="black">
-            Hello,
-          </Typography>
-          <Typography type="largeTextRegular" color="label">
-            Welcome Back!
-          </Typography>
-        </FlexWrapper>
-        <FlexWrapper flexDirection="column" gap="3.875rem">
-          <LoginForm onSubmit={handleSubmit}>
-            {inputs.map((input) => (
-              <FormInputs
-                key={input.id}
-                {...input}
-                value={values[input.name]}
-                onChange={onChange}
-              />
-            ))}
-            {failedLogin && (
-              <Typography type="smallerTextRegular" color="secondary100">
-                Wrong username or password
-              </Typography>
-            )}
-            <ArrowButton width="100%">Sign In</ArrowButton>
-          </LoginForm>
-          <FlexWrapper justifyContent="center">
-            <SignInWith>Or Sign in With</SignInWith>
-          </FlexWrapper>
-        </FlexWrapper>
-        <FlexWrapper justifyContent="center" gap="0.3125rem">
-          <Typography type="smallerTextSemiBold" color="black">
-            Don't have an account?
-          </Typography>
-          <NavLink to={RouteNames.REGISTER}>
-            <Typography type="smallerTextSemiBold" color="secondary100">
-              Sign up
+    <LoginSection isLoading={isLoading}>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <LoginDataBlock>
+          <FlexWrapper flexDirection="column">
+            <Typography type="headerTextBold" color="black">
+              Hello,
             </Typography>
-          </NavLink>
-        </FlexWrapper>
-      </LoginDataBlock>
+            <Typography type="largeTextRegular" color="label">
+              Welcome Back!
+            </Typography>
+          </FlexWrapper>
+          <FlexWrapper flexDirection="column" gap="3.875rem">
+            <LoginForm onSubmit={handleSubmit}>
+              {inputs.map((input) => (
+                <FormInputs
+                  key={input.id}
+                  {...input}
+                  value={values[input.name]}
+                  onChange={onChange}
+                />
+              ))}
+              {failedLogin && (
+                <Typography type="smallerTextRegular" color="secondary100">
+                  Wrong username or password
+                </Typography>
+              )}
+              <ArrowButton width="100%">Sign In</ArrowButton>
+            </LoginForm>
+            <FlexWrapper justifyContent="center">
+              <SignInWith>Or Sign in With</SignInWith>
+            </FlexWrapper>
+          </FlexWrapper>
+          <FlexWrapper justifyContent="center" gap="0.3125rem">
+            <Typography type="smallerTextSemiBold" color="black">
+              Don't have an account?
+            </Typography>
+            <NavLink to={RouteNames.REGISTER}>
+              <Typography type="smallerTextSemiBold" color="secondary100">
+                Sign up
+              </Typography>
+            </NavLink>
+          </FlexWrapper>
+        </LoginDataBlock>
+      )}
     </LoginSection>
   );
 };
 
-const LoginSection = styled.section`
-  height: 100vh;
+const LoginSection = styled.section<{ isLoading: boolean }>`
+  height: ${({ isLoading }) => (isLoading ? "100vh" : "auto")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media ${theme.device.tablet} {
     display: flex;
@@ -124,14 +161,16 @@ const LoginDataBlock = styled.div`
   width: 100%;
   max-width: 35rem;
   gap: 1.5625rem;
+  margin: 0 auto;
   padding: 6.25rem 1.875rem 6.25rem 2.5rem;
 
   @media ${theme.device.tablet} {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin: 2rem 0;
     background-color: ${theme.colors.white};
-  } ;
+  }
 `;
 
 const LoginForm = styled.form`

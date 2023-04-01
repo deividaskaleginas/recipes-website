@@ -6,6 +6,7 @@ import UserContext from "contexts/userContext/userContext";
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { theme } from "styles/theme";
+import DefaultAvatar from "../../assets/images/userAvatar.png";
 
 export const Profile: React.FC = () => {
   const { loggedUserData } = useContext(UserContext);
@@ -26,7 +27,10 @@ export const Profile: React.FC = () => {
       <FlexWrapper flexDirection="column" gap="0.9375rem">
         <UserDataBlock>
           <FlexWrapper>
-            <UserPhotoStyle src={loggedUserData.avatar} alt="user profile" />
+            <UserPhotoStyle
+              src={loggedUserData.avatar || DefaultAvatar}
+              alt="user profile"
+            />
           </FlexWrapper>
           <FlexWrapper flexDirection="column" alignItems="center">
             <FlexWrapper>

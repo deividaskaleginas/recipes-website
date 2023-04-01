@@ -7,13 +7,19 @@ import { DishData } from "types/userDataTypes";
 
 interface FiltersProps {
   setFilteredList: React.Dispatch<React.SetStateAction<DishData[] | null>>;
+  setItemsShowFrom: React.Dispatch<React.SetStateAction<number>>;
+  setItemsShowTo: React.Dispatch<React.SetStateAction<number>>;
 }
 interface FilteringButton {
   name: string;
   value: string;
 }
 
-export const Filters: React.FC<FiltersProps> = ({ setFilteredList }) => {
+export const Filters: React.FC<FiltersProps> = ({
+  setFilteredList,
+  setItemsShowFrom,
+  setItemsShowTo,
+}) => {
   const { dishesData } = useContext(DishesContext);
 
   useEffect(() => {
@@ -57,7 +63,11 @@ export const Filters: React.FC<FiltersProps> = ({ setFilteredList }) => {
         <FilterButton
           key={index}
           active={active.value === type.value}
-          onClick={() => handleCategory(type)}
+          onClick={() => {
+            handleCategory(type);
+            setItemsShowFrom(0);
+            setItemsShowTo(8);
+          }}
         >
           {type.name}
         </FilterButton>

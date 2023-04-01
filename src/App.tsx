@@ -12,6 +12,7 @@ import UserContext from "contexts/userContext/userContext";
 import { Recipe } from "pages/recipe/Recipe";
 import { Comments } from "pages/comments/Comments";
 import { RouteNames } from "types/routes";
+import { auth } from "utils/firebase/firebaseConfig";
 
 const App: React.FC = () => {
   const { isUserLoggedIn } = useContext(UserContext);
@@ -22,7 +23,7 @@ const App: React.FC = () => {
       <Routes>
         <Route
           path={RouteNames.HOME}
-          element={!isUserLoggedIn ? <Navigate to="/login" /> : <RootLayout />}
+          element={isUserLoggedIn ? <RootLayout /> : <Navigate to="/login" />}
         >
           <Route path={RouteNames.HOME} element={<Home />} />
           <Route path="/saved" element={<Saved />} />

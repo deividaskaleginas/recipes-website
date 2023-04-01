@@ -276,8 +276,10 @@ export const AddRecipe: React.FC = () => {
                       handleChangeIngredientInput(index, event)
                     }
                   >
-                    {options.map((measure) => (
-                      <option value={measure.measure}>{measure.measure}</option>
+                    {options.map((measure, index) => (
+                      <option key={index} value={measure.measure}>
+                        {measure.measure}
+                      </option>
                     ))}
                   </SelectStyled>
                 </GridWrapper>

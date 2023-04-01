@@ -15,10 +15,16 @@ export const ScrollingDishesSection: React.FC = () => {
   const [itemsShowFrom, setItemsShowFrom] = useState(0);
   const [itemsShowTo, setItemsShowTo] = useState(8);
 
+  console.log(itemsShowFrom, itemsShowTo);
+
   return (
     <FlexWrapper flexDirection="column">
       <FilterScrollBar>
-        <Filters setFilteredList={setFilteredList} />
+        <Filters
+          setFilteredList={setFilteredList}
+          setItemsShowFrom={setItemsShowFrom}
+          setItemsShowTo={setItemsShowTo}
+        />
       </FilterScrollBar>
       <FilteredListScrollBar>
         {filteredList ? (
@@ -91,5 +97,5 @@ const FilteredListScrollBar = styled.div`
     height: auto;
     padding-top: 5rem;
     background-color: ${theme.colors.white};
-  } ;
+  }
 `;

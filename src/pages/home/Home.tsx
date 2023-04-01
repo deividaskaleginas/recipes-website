@@ -74,7 +74,7 @@ const HomeHeader = styled.header`
 
   @media ${theme.device.tablet} {
     display: none;
-  } ;
+  }
 `;
 
 const HeaderNavLinks = styled.div`
@@ -91,7 +91,7 @@ const HeaderNavLinks = styled.div`
 
   @media ${theme.device.tablet} {
     display: flex;
-  } ;
+  }
 `;
 
 const ImageBlockStyled = styled.div`
