@@ -13,7 +13,6 @@ export const Ingredients: React.FC<IngredientsProps> = ({
   ingredients,
   portions,
 }) => {
-  console.log(ingredients);
   return (
     <FlexWrapper flexDirection="column" gap="0.625rem">
       <FlexWrapper justifyContent="space-between">

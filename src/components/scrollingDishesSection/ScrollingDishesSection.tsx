@@ -15,8 +15,6 @@ export const ScrollingDishesSection: React.FC = () => {
   const [itemsShowFrom, setItemsShowFrom] = useState(0);
   const [itemsShowTo, setItemsShowTo] = useState(8);
 
-  console.log(itemsShowFrom, itemsShowTo);
-
   return (
     <FlexWrapper flexDirection="column">
       <FilterScrollBar>

@@ -23,7 +23,6 @@ export const Recipe: React.FC = () => {
   };
 
   const openedRecipe = dishesData.find((dish) => dish.id === id);
-  console.log(openedRecipe);
 
   return (
     <RecipeSection>
@@ -75,5 +74,5 @@ const RecipeSection = styled.section`
 
   @media ${theme.device.tablet} {
     margin: 0 auto;
-  } ;
+  }
 `;

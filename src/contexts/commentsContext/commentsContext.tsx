@@ -48,8 +48,6 @@ const CommentsProvider: React.FC<ProviderProps> = ({ children }) => {
   const [commentsData, setComments] = useState<CommentData[]>([]);
   const collectionRef = collection(dataBase, Collections.COMMENTS);
 
-  console.log(commentsData);
-
   const getComments = async (): Promise<void> => {
     const commentsList = (await getDocs(collectionRef)).docs.map((doc) => ({
       ...doc.data(),

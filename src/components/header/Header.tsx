@@ -26,9 +26,6 @@ export const Header: React.FC = () => {
     navigate(RouteNames.LOGIN);
   };
 
-  console.log(isActive);
-
-  console.log("render");
   return (
     <HeaderStyled>
       <FlexWrapper flexDirection="column">
@@ -90,7 +87,7 @@ const HeaderNavLinks = styled.div`
 
   @media ${theme.device.tablet} {
     display: flex;
-  } ;
+  }
 `;
 
 const ImageBlockStyled = styled.div`

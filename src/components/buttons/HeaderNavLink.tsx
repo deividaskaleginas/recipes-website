@@ -17,10 +17,6 @@ export const HeaderNavLink: React.FC<HeaderNavLinkProps> = ({
   isActive,
   to,
 }) => {
-  // const [active, setActive] = useState(false);
-
-  // isActive === children ? setActive(true) : setActive(false);
-  console.log(isActive);
   return (
     <NavLinkStyled isActive={isActive} onClick={onClick}>
       <NavLink to={to}>
