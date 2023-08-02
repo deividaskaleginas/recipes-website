@@ -1,7 +1,8 @@
 # Recipes website :plate_with_cutlery:
 
 ### Link to project
-https://deividaskaleginas.github.io/recipes-website 
+
+https://deividaskaleginas.github.io/recipes-website
 
 ### Features :cook::
 
@@ -13,8 +14,8 @@ https://deividaskaleginas.github.io/recipes-website
 - Rate recipe.
 - Leave comment and add a like or dislike on comments.
 
+### TOOLS :hammer:
 
-### TOOLS :hammer: 
 - React framework.
 - TypeScript.
 - Firebase for authentification and database.
@@ -24,12 +25,10 @@ For design - used figma template.
 
 #### This page was created realying mobile-first approach. 📱
 
-
 ### Things in to-do list to update :point_right:
 
 - create decent error messages and error state.
 - add Firebase config to env.
-
 
 This project was made on learning purpose.
 
