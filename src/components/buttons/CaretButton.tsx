@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import caretLeft from "../../assets/svg/caretLeft.svg";
 import { theme } from "styles/theme";
 import { CaretRightIcon } from "components/icons/CaretRightIcon";
 import { CaretLeftIcon } from "components/icons/CaretLeftIcon";

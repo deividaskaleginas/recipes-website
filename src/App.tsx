@@ -12,7 +12,6 @@ import UserContext from "contexts/userContext/userContext";
 import { Recipe } from "pages/recipe/Recipe";
 import { Comments } from "pages/comments/Comments";
 import { RouteNames } from "types/routes";
-import { auth } from "utils/firebase/firebaseConfig";
 
 const App: React.FC = () => {
   const { isUserLoggedIn } = useContext(UserContext);

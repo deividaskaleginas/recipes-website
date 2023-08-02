@@ -1,7 +1,6 @@
-import { CaretButton } from "components/buttons/CaretButton";
 import { Loader } from "components/loader/Loader";
 import { ShowMoreLess } from "components/showMoreLess/ShowMoreLess";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "styles/theme";
 import { DishData } from "types/userDataTypes";

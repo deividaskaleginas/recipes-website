@@ -35,6 +35,7 @@ export const Login: React.FC = () => {
     type: string;
     placeholder: string;
     label: string;
+    autoComplete: string;
   }[] = [
     {
       id: 1,
@@ -42,6 +43,7 @@ export const Login: React.FC = () => {
       type: "email",
       placeholder: "Enter email",
       label: "Email",
+      autoComplete: "username",
     },
     {
       id: 2,
@@ -49,6 +51,7 @@ export const Login: React.FC = () => {
       type: "password",
       placeholder: "Enter Password",
       label: "Password",
+      autoComplete: "current-password",
     },
   ];
 
@@ -69,23 +72,13 @@ export const Login: React.FC = () => {
           values.password
         ).then((userData) => {
           findUser(userData.user.uid);
-          // setIsLoading(false);
         });
       })
       .catch((error) => {
+        console.log(error);
         setFailedLogin(true);
         setIsLoading(false);
       });
-    // setIsLoading(true);
-    // signInWithEmailAndPassword(auth, values.email, values.password)
-    //   .then((userData) => {
-    //     findUser(userData.user.uid);
-    //     // setIsLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     setFailedLogin(true);
-    //     setIsLoading(false);
-    //   });
   };
 
   return (

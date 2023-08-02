@@ -1,8 +1,7 @@
 import { Typography } from "components/typography/Typography";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { theme } from "styles/theme";
 
 interface HeaderNavLinkProps {
   children: ReactNode;

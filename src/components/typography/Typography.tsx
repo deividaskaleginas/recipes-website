@@ -5,7 +5,6 @@ import styled, { css } from "styled-components";
 
 import { Colors } from "../../styles/colors";
 import { theme } from "../../styles/theme";
-import { type } from "os";
 
 export type TypographyTypes = keyof typeof TypographyHtmlTag;
 

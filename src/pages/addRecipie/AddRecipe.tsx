@@ -327,12 +327,7 @@ export const AddRecipe: React.FC = () => {
                 </FlexWrapper>
               );
             })}
-            <ArrowButton
-              width="100%"
-              onClick={() => console.log("add something")}
-            >
-              Add
-            </ArrowButton>
+            <ArrowButton width="100%">Add</ArrowButton>
           </form>
         </FlexWrapper>
       </FlexWrapper>

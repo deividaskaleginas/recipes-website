@@ -4,9 +4,6 @@ import { theme } from "../../styles/theme";
 import { Typography } from "../typography/Typography";
 import { FlexWrapper } from "../wrappers/FlexWrapper";
 
-import { google, facebook } from "../../assets/svg/index";
-import { SocialMediaIconBlock } from "./socialMediaIconBlock/SocialMediaIconBlock";
-
 interface SignInWithProps {
   children: ReactNode | ReactNode[];
 }
@@ -21,18 +18,6 @@ export const SignInWith: React.FC<SignInWithProps> = ({ children }) => {
         </Typography>
         <StyledLine></StyledLine>
       </FlexWrapper>
-      {/* <FlexWrapper gap="25px" justifyContent="center">
-        <SocialMediaIconBlock>
-          <a target="_blank" href="https://google.com" rel="noreferrer">
-            {google}
-          </a>
-        </SocialMediaIconBlock>
-        <SocialMediaIconBlock>
-          <a target="_blank" href="https://facebook.com" rel="noreferrer">
-            {facebook}
-          </a>
-        </SocialMediaIconBlock>
-      </FlexWrapper> */}
     </FlexWrapper>
   );
 };

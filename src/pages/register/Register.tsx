@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FlexWrapper } from "../../components/wrappers/FlexWrapper";
@@ -94,27 +94,29 @@ export const Register: React.FC = () => {
 
   const collectionRef = collection(dataBase, Collections.USERS);
 
-  const createUser = async () => {
+  const createUser = async (): Promise<void> => {
     try {
-      createUserWithEmailAndPassword(auth, values.email, values.password)
-        .then((userData) => {
-          const userDetails = {
-            uid: userData.user.uid,
-            favorites: [],
-            votes: [],
-            username: values.username,
-            avatar: "",
-          };
-          addDoc(collectionRef, userDetails);
-          setIsLoading(false);
-          navigate(RouteNames.HOME);
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          setUserExist(true);
-        });
+      setIsLoading(true);
+      const registeredUser = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      const userDetails = {
+        uid: registeredUser.user.uid,
+        favorites: [],
+        votes: [],
+        username: values.username,
+        avatar: "",
+      };
+      await addDoc(collectionRef, userDetails);
+      navigate(RouteNames.LOGIN);
     } catch (error) {
+      setUserExist(true);
+      // TODO: create global error state
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -154,9 +156,7 @@ export const Register: React.FC = () => {
                   User with this email already exists
                 </Typography>
               )}
-              <ArrowButton onClick={() => console.log("submit")} width="100%">
-                Sign Up
-              </ArrowButton>
+              <ArrowButton width="100%">Sign Up</ArrowButton>
             </RegisterForm>
           </FlexWrapper>
           <FlexWrapper margin="0.5rem 0" justifyContent="center">

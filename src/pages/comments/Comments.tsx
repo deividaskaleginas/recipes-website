@@ -35,8 +35,9 @@ export const Comments: React.FC = () => {
           <LeaveComment id={id} />
           <FlexWrapper flexDirection="column" gap="1.25rem">
             {filteredComments.map(
-              ({ comment, authorData, date, votes, id }) => (
+              ({ comment, authorData, date, votes, id }, index) => (
                 <Comment
+                  key={index}
                   comment={comment}
                   authorData={authorData}
                   date={date}

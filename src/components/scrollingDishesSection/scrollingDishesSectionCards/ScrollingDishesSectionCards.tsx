@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { star } from "../../../assets/svg";
 import { theme } from "../../../styles/theme";
 import { BookmarkButton } from "../../buttons/BookmarkButton";
 import { Typography } from "../../typography/Typography";
