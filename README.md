@@ -33,3 +33,5 @@ For design - used figma template.
 This project was made on learning purpose.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+![Recipes website](/src/assets/images/page.png)
